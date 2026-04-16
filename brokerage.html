@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brokerage Meeting Initiative — HomeCloud Sales</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f0f2f5; color: #1a1a2e; min-height: 100vh; }
+
+  .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 28px 40px 20px; }
+  .header h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; }
+  .header .subtitle { font-size: 14px; opacity: 0.65; margin-top: 4px; }
+
+  .nav-bar { background: #16213e; padding: 0 40px; display: flex; gap: 0; border-top: 1px solid rgba(255,255,255,0.08); }
+  .nav-link { padding: 14px 24px; color: rgba(255,255,255,0.55); font-size: 13px; font-weight: 600; text-decoration: none; border-bottom: 3px solid transparent; transition: all 0.2s; letter-spacing: 0.3px; }
+  .nav-link:hover { color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.04); }
+  .nav-link.active { color: #fff; border-bottom-color: #e94560; }
+
+  .container { max-width: 1320px; margin: 0 auto; padding: 28px 24px; }
+
+  .kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 28px; }
+  .kpi-card { background: white; border-radius: 14px; padding: 22px 24px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); position: relative; overflow: hidden; }
+  .kpi-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+  .kpi-card.blue::before { background: #2563eb; }
+  .kpi-card.green::before { background: #059669; }
+  .kpi-card.amber::before { background: #d97706; }
+  .kpi-card.purple::before { background: #7c3aed; }
+  .kpi-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; color: #9ca3af; font-weight: 700; }
+  .kpi-value { font-size: 36px; font-weight: 800; margin-top: 6px; line-height: 1; }
+  .kpi-card.blue .kpi-value { color: #2563eb; }
+  .kpi-card.green .kpi-value { color: #059669; }
+  .kpi-card.amber .kpi-value { color: #d97706; }
+  .kpi-card.purple .kpi-value { color: #7c3aed; }
+  .kpi-sub { font-size: 11px; color: #b0b7c3; margin-top: 6px; }
+  .kpi-change { display: inline-flex; align-items: center; gap: 4px; margin-top: 8px; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 6px; }
+  .kpi-change.up { background: #ecfdf5; color: #059669; }
+
+  .section-card { background: white; border-radius: 14px; padding: 24px 28px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); margin-bottom: 24px; }
+  .section-card h3 { font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+  .section-card .section-sub { font-size: 12px; color: #9ca3af; margin-bottom: 18px; }
+
+  /* Progress bar */
+  .progress-bar-container { margin-bottom: 24px; }
+  .progress-bar-label { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; margin-bottom: 8px; }
+  .progress-bar-bg { height: 12px; background: #e5e7eb; border-radius: 6px; overflow: hidden; }
+  .progress-bar { height: 100%; border-radius: 6px; transition: width 0.6s; }
+  .progress-bar.green { background: linear-gradient(90deg, #059669, #34d399); }
+  .progress-bar.blue { background: linear-gradient(90deg, #2563eb, #60a5fa); }
+
+  /* Meeting timeline */
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before { content: ''; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: #e5e7eb; }
+  .timeline-item { position: relative; margin-bottom: 20px; padding: 16px 20px; background: #f9fafb; border-radius: 12px; }
+  .timeline-item::before { content: ''; position: absolute; left: -23px; top: 20px; width: 10px; height: 10px; border-radius: 50%; border: 2px solid #fff; }
+  .timeline-item.completed::before { background: #059669; }
+  .timeline-item.upcoming::before { background: #2563eb; }
+  .timeline-item.target::before { background: #d97706; }
+  .tl-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+  .tl-name { font-size: 14px; font-weight: 700; color: #1a1a2e; }
+  .tl-date { font-size: 12px; color: #6b7280; font-weight: 500; }
+  .tl-detail { font-size: 12px; color: #6b7280; line-height: 1.5; }
+  .tl-badge { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 4px; }
+  .tl-badge.done { background: #ecfdf5; color: #059669; }
+  .tl-badge.booked { background: #eff6ff; color: #2563eb; }
+  .tl-badge.needs-scheduling { background: #fffbeb; color: #d97706; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; padding: 10px 12px; background: #f9fafb; border-bottom: 2px solid #e5e7eb; font-weight: 700; color: #6b7280; text-transform: uppercase; font-size: 10px; letter-spacing: 0.5px; }
+  td { padding: 12px 12px; border-bottom: 1px solid #f3f4f6; }
+  tr:hover td { background: #f9fafb; }
+
+  .status-badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 10px; font-weight: 700; }
+  .status-scheduled { background: #eff6ff; color: #2563eb; }
+  .status-overdue { background: #fef2f2; color: #dc2626; }
+  .status-recent { background: #ecfdf5; color: #059669; }
+  .status-target { background: #fef3c7; color: #92400e; }
+
+  .priority-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px; }
+  .priority-dot.high { background: #dc2626; }
+  .priority-dot.med { background: #d97706; }
+  .priority-dot.low { background: #059669; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+  .footer { text-align: center; padding: 24px; font-size: 11px; color: #b0b7c3; }
+
+  @media (max-width: 900px) { .kpi-row { grid-template-columns: repeat(2, 1fr); } .two-col { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>Brokerage Meeting Initiative</h1>
+    <div class="subtitle">Continuing Education, Partner Check-ins & Target Opportunities</div>
+  </div>
+</div>
+
+<div class="nav-bar">
+  <a href="sales-command-center.html" class="nav-link">Overview</a>
+  <a href="partners.html" class="nav-link">Current Partners</a>
+  <a href="RDU_BuySide_Apr11_15.html" class="nav-link">Daily Pending</a>
+  <a href="brokerage.html" class="nav-link active">Brokerage Meetings</a>
+  <a href="onboarding.html" class="nav-link">New Agent Onboarding</a>
+</div>
+
+<div class="container">
+
+  <!-- KPIs -->
+  <div class="kpi-row">
+    <div class="kpi-card green">
+      <div class="kpi-label">Meetings This Month</div>
+      <div class="kpi-value">8</div>
+      <div class="kpi-change up">↑ +2 vs March</div>
+      <div class="kpi-sub">April 2026</div>
+    </div>
+    <div class="kpi-card blue">
+      <div class="kpi-label">Currently Booked</div>
+      <div class="kpi-value">3</div>
+      <div class="kpi-sub">Upcoming meetings on calendar</div>
+    </div>
+    <div class="kpi-card amber">
+      <div class="kpi-label">Need Scheduling</div>
+      <div class="kpi-value">5</div>
+      <div class="kpi-sub">Partner brokerages overdue for check-in</div>
+    </div>
+    <div class="kpi-card purple">
+      <div class="kpi-label">Target Opportunities</div>
+      <div class="kpi-value">7</div>
+      <div class="kpi-sub">New brokerage targets from HubSpot</div>
+    </div>
+  </div>
+
+  <!-- Monthly Progress -->
+  <div class="section-card">
+    <h3>April Meeting Progress</h3>
+    <div class="section-sub">Goal: 12 brokerage meetings this month</div>
+    <div class="progress-bar-container">
+      <div class="progress-bar-label">
+        <span>8 completed + 3 booked = 11 of 12 goal</span>
+        <span style="color:#059669;font-weight:700">92%</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar green" style="width: 92%"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Meeting Timeline -->
+  <div class="section-card">
+    <h3>Meeting Timeline — April 2026</h3>
+    <div class="section-sub">Completed and upcoming brokerage meetings</div>
+    <div class="timeline">
+      <div class="timeline-item completed">
+        <div class="tl-header">
+          <div class="tl-name">Allen Tate Realtors — Ballantyne Office</div>
+          <div><span class="tl-badge done">Completed</span> <span class="tl-date">Apr 2</span></div>
+        </div>
+        <div class="tl-detail">Continuing education session — 14 agents attended. Covered inspection process & HomeCloud platform walkthrough.</div>
+      </div>
+      <div class="timeline-item completed">
+        <div class="tl-header">
+          <div class="tl-name">Keller Williams — South Charlotte</div>
+          <div><span class="tl-badge done">Completed</span> <span class="tl-date">Apr 4</span></div>
+        </div>
+        <div class="tl-detail">Lunch & learn — 8 agents. Focused on pre-listing evaluation benefits.</div>
+      </div>
+      <div class="timeline-item completed">
+        <div class="tl-header">
+          <div class="tl-name">Compass — Uptown Office</div>
+          <div><span class="tl-badge done">Completed</span> <span class="tl-date">Apr 7</span></div>
+        </div>
+        <div class="tl-detail">Team meeting presentation — 11 agents. Demo'd mobile app features.</div>
+      </div>
+      <div class="timeline-item completed">
+        <div class="tl-header">
+          <div class="tl-name">RE/MAX Executive — Raleigh</div>
+          <div><span class="tl-badge done">Completed</span> <span class="tl-date">Apr 8</span></div>
+        </div>
+        <div class="tl-detail">Quarterly partnership review — 6 agents. Discussed volume commitments.</div>
+      </div>
+      <div class="timeline-item completed">
+        <div class="tl-header">
+          <div class="tl-name">Exp Realty — Virtual</div>
+          <div><span class="tl-badge done">Completed</span> <span class="tl-date">Apr 9</span></div>
+        </div>
+        <div class="tl-detail">Virtual CE credit session — 22 agents. Record attendance for Exp virtual events.</div>
+      </div>
+      <div class="timeline-item completed">
+        <div class="tl-header">
+          <div class="tl-name">Berkshire Hathaway — South End</div>
+          <div><span class="tl-badge done">Completed</span> <span class="tl-date">Apr 10</span></div>
+        </div>
+        <div class="tl-detail">Manager 1:1 + team huddle — 5 agents. Upsell opportunity for renovation services.</div>
+      </div>
+      <div class="timeline-item completed">
+        <div class="tl-header">
+          <div class="tl-name">Coldwell Banker — Cary</div>
+          <div><span class="tl-badge done">Completed</span> <span class="tl-date">Apr 11</span></div>
+        </div>
+        <div class="tl-detail">New agent orientation integration — 4 new agents onboarded.</div>
+      </div>
+      <div class="timeline-item completed">
+        <div class="tl-header">
+          <div class="tl-name">Allen Tate — Lake Norman</div>
+          <div><span class="tl-badge done">Completed</span> <span class="tl-date">Apr 14</span></div>
+        </div>
+        <div class="tl-detail">Office meeting presentation — 9 agents. Follow-up: 3 interested in trial.</div>
+      </div>
+      <div class="timeline-item upcoming">
+        <div class="tl-header">
+          <div class="tl-name">Keller Williams — Raleigh North</div>
+          <div><span class="tl-badge booked">Booked</span> <span class="tl-date">Apr 17</span></div>
+        </div>
+        <div class="tl-detail">Team meeting slot confirmed — prep materials needed. Expected 10 agents.</div>
+      </div>
+      <div class="timeline-item upcoming">
+        <div class="tl-header">
+          <div class="tl-name">RE/MAX — Durham</div>
+          <div><span class="tl-badge booked">Booked</span> <span class="tl-date">Apr 22</span></div>
+        </div>
+        <div class="tl-detail">Lunch & learn — budget approved. 15 RSVPs so far.</div>
+      </div>
+      <div class="timeline-item upcoming">
+        <div class="tl-header">
+          <div class="tl-name">Compass — Raleigh</div>
+          <div><span class="tl-badge booked">Booked</span> <span class="tl-date">Apr 28</span></div>
+        </div>
+        <div class="tl-detail">CE session — virtual. Marketing collateral in progress.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <!-- Partner Brokerages Check-in Schedule -->
+    <div class="section-card">
+      <h3>Partner Brokerage Check-ins</h3>
+      <div class="section-sub">When we last met with top partner brokerages</div>
+      <table>
+        <thead>
+          <tr><th>Brokerage</th><th>Last Meeting</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td style="font-weight:600">Allen Tate Realtors</td><td>Apr 14</td><td><span class="status-badge status-recent">Recent</span></td></tr>
+          <tr><td style="font-weight:600">Keller Williams</td><td>Apr 4</td><td><span class="status-badge status-scheduled">Booked Apr 17</span></td></tr>
+          <tr><td style="font-weight:600">Compass</td><td>Apr 7</td><td><span class="status-badge status-scheduled">Booked Apr 28</span></td></tr>
+          <tr><td style="font-weight:600">RE/MAX Executive</td><td>Apr 8</td><td><span class="status-badge status-scheduled">Booked Apr 22</span></td></tr>
+          <tr><td style="font-weight:600">Exp Realty</td><td>Apr 9</td><td><span class="status-badge status-recent">Recent</span></td></tr>
+          <tr><td style="font-weight:600">Berkshire Hathaway</td><td>Apr 10</td><td><span class="status-badge status-recent">Recent</span></td></tr>
+          <tr><td style="font-weight:600">Coldwell Banker</td><td>Apr 11</td><td><span class="status-badge status-recent">Recent</span></td></tr>
+          <tr><td style="font-weight:600">Century 21</td><td>Feb 18</td><td><span class="status-badge status-overdue">Overdue — 56 days</span></td></tr>
+          <tr><td style="font-weight:600">Howard Hanna</td><td>Jan 22</td><td><span class="status-badge status-overdue">Overdue — 83 days</span></td></tr>
+          <tr><td style="font-weight:600">Redfin</td><td>Mar 5</td><td><span class="status-badge status-overdue">Overdue — 41 days</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Target Opportunities -->
+    <div class="section-card">
+      <h3>Target Brokerage Opportunities</h3>
+      <div class="section-sub">New brokerage targets — from HubSpot pipeline</div>
+      <table>
+        <thead>
+          <tr><th>Brokerage</th><th>Priority</th><th>Market</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:600"><span class="priority-dot high"></span>Nest Realty</td>
+            <td>High</td>
+            <td>Durham</td>
+            <td><span class="status-badge status-target">Initial Outreach</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:600"><span class="priority-dot high"></span>Helen Adams Realty</td>
+            <td>High</td>
+            <td>Charlotte</td>
+            <td><span class="status-badge status-target">Meeting Requested</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:600"><span class="priority-dot high"></span>Savvy + Co.</td>
+            <td>High</td>
+            <td>Charlotte</td>
+            <td><span class="status-badge status-target">Email Sent</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:600"><span class="priority-dot med"></span>Hodge & Kittrell</td>
+            <td>Medium</td>
+            <td>Raleigh</td>
+            <td><span class="status-badge status-target">Researching</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:600"><span class="priority-dot med"></span>LKN Realty</td>
+            <td>Medium</td>
+            <td>Lake Norman</td>
+            <td><span class="status-badge status-target">Initial Outreach</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:600"><span class="priority-dot med"></span>Mark Spain Real Estate</td>
+            <td>Medium</td>
+            <td>Charlotte</td>
+            <td><span class="status-badge status-target">Email Sent</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:600"><span class="priority-dot low"></span>Fonville Morisey</td>
+            <td>Low</td>
+            <td>Raleigh</td>
+            <td><span class="status-badge status-target">Researching</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- To-Do -->
+  <div class="section-card">
+    <h3>Brokerage Meeting To-Do</h3>
+    <div class="section-sub">Action items for this week</div>
+    <div id="todoList"></div>
+  </div>
+
+</div>
+
+<div class="footer">HomeCloud Sales Command Center — Brokerage Meetings &middot; <span id="footerDate"></span></div>
+
+<script>
+document.getElementById('footerDate').textContent = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
+const todos = [
+  { text: 'Prep presentation deck for Keller Williams Raleigh North (Apr 17)', done: false },
+  { text: 'Confirm catering for RE/MAX Durham lunch & learn (Apr 22)', done: false },
+  { text: 'Send follow-up emails to 3 interested agents from Allen Tate Lake Norman meeting', done: false },
+  { text: 'Schedule overdue check-in with Century 21 — 56 days since last meeting', done: false },
+  { text: 'Reach out to Nest Realty (Durham) — high-priority target', done: false },
+  { text: 'Create marketing collateral for Compass Raleigh virtual CE session', done: false }
+];
+
+function renderTodos() {
+  const list = document.getElementById('todoList');
+  list.innerHTML = todos.map((t, i) => `
+    <div style="display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #f3f4f6">
+      <div style="width:22px;height:22px;border-radius:6px;border:2px solid ${t.done ? '#059669' : '#d1d5db'};background:${t.done ? '#059669' : 'white'};cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s" onclick="toggleTodo(${i})">
+        ${t.done ? '<span style="color:white;font-size:13px;font-weight:700">✓</span>' : ''}
+      </div>
+      <span style="font-size:14px;color:${t.done ? '#9ca3af' : '#374151'};${t.done ? 'text-decoration:line-through' : ''}">${t.text}</span>
+    </div>
+  `).join('');
+}
+
+function toggleTodo(i) {
+  todos[i].done = !todos[i].done;
+  renderTodos();
+}
+
+renderTodos();
+</script>
+</body>
+</html>

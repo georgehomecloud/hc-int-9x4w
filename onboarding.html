@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Agent Onboarding — HomeCloud Sales</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f0f2f5; color: #1a1a2e; min-height: 100vh; }
+
+  .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 28px 40px 20px; }
+  .header h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; }
+  .header .subtitle { font-size: 14px; opacity: 0.65; margin-top: 4px; }
+
+  .nav-bar { background: #16213e; padding: 0 40px; display: flex; gap: 0; border-top: 1px solid rgba(255,255,255,0.08); }
+  .nav-link { padding: 14px 24px; color: rgba(255,255,255,0.55); font-size: 13px; font-weight: 600; text-decoration: none; border-bottom: 3px solid transparent; transition: all 0.2s; letter-spacing: 0.3px; }
+  .nav-link:hover { color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.04); }
+  .nav-link.active { color: #fff; border-bottom-color: #e94560; }
+
+  .container { max-width: 1320px; margin: 0 auto; padding: 28px 24px; }
+
+  /* KPIs */
+  .kpi-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 28px; }
+  .kpi-card { background: white; border-radius: 14px; padding: 22px 24px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); position: relative; overflow: hidden; }
+  .kpi-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+  .kpi-card.blue::before { background: #2563eb; }
+  .kpi-card.green::before { background: #059669; }
+  .kpi-card.amber::before { background: #d97706; }
+  .kpi-card.purple::before { background: #7c3aed; }
+  .kpi-card.rose::before { background: #e11d48; }
+  .kpi-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; color: #9ca3af; font-weight: 700; }
+  .kpi-value { font-size: 36px; font-weight: 800; margin-top: 6px; line-height: 1; }
+  .kpi-card.blue .kpi-value { color: #2563eb; }
+  .kpi-card.green .kpi-value { color: #059669; }
+  .kpi-card.amber .kpi-value { color: #d97706; }
+  .kpi-card.purple .kpi-value { color: #7c3aed; }
+  .kpi-card.rose .kpi-value { color: #e11d48; }
+  .kpi-sub { font-size: 11px; color: #b0b7c3; margin-top: 6px; }
+
+  /* Funnel */
+  .funnel-section { background: white; border-radius: 14px; padding: 24px 28px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); margin-bottom: 24px; }
+  .funnel-section h3 { font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+  .funnel-section .section-sub { font-size: 12px; color: #9ca3af; margin-bottom: 20px; }
+  .funnel-bar-row { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
+  .funnel-label { width: 160px; font-size: 13px; font-weight: 600; color: #374151; text-align: right; }
+  .funnel-bar-bg { flex: 1; height: 28px; background: #f3f4f6; border-radius: 6px; overflow: hidden; position: relative; }
+  .funnel-bar { height: 100%; border-radius: 6px; display: flex; align-items: center; padding-left: 12px; transition: width 0.6s; }
+  .funnel-bar span { font-size: 12px; font-weight: 700; color: #fff; }
+  .funnel-count { width: 50px; font-size: 14px; font-weight: 700; color: #1a1a2e; }
+
+  /* Section card */
+  .section-card { background: white; border-radius: 14px; padding: 24px 28px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); margin-bottom: 24px; }
+  .section-card h3 { font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+  .section-card .section-sub { font-size: 12px; color: #9ca3af; margin-bottom: 18px; }
+
+  /* Table */
+  .table-controls { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; align-items: center; }
+  .table-controls input { padding: 8px 14px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 13px; width: 260px; font-family: inherit; }
+  .table-controls select { padding: 8px 14px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 13px; background: white; font-family: inherit; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; padding: 10px 12px; background: #f9fafb; border-bottom: 2px solid #e5e7eb; font-weight: 700; color: #6b7280; text-transform: uppercase; font-size: 10px; letter-spacing: 0.5px; }
+  td { padding: 12px 12px; border-bottom: 1px solid #f3f4f6; vertical-align: middle; }
+  tr:hover td { background: #f9fafb; }
+
+  .status-pill { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 10px; font-weight: 700; }
+  .pill-activated { background: #ecfdf5; color: #059669; }
+  .pill-on-track { background: #eff6ff; color: #2563eb; }
+  .pill-needs-attention { background: #fffbeb; color: #d97706; }
+  .pill-at-risk { background: #fef2f2; color: #dc2626; }
+  .pill-new { background: #f3f4f6; color: #6b7280; }
+
+  .step-dots { display: flex; gap: 4px; }
+  .step-dot { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; }
+  .step-dot.done { background: #059669; color: #fff; }
+  .step-dot.current { background: #2563eb; color: #fff; }
+  .step-dot.pending { background: #e5e7eb; color: #9ca3af; }
+
+  .mini-progress { display: flex; align-items: center; gap: 8px; }
+  .mini-bar-bg { width: 80px; height: 6px; background: #e5e7eb; border-radius: 3px; overflow: hidden; }
+  .mini-bar { height: 100%; border-radius: 3px; }
+  .mini-bar.green { background: #059669; }
+  .mini-bar.blue { background: #2563eb; }
+  .mini-bar.amber { background: #d97706; }
+  .mini-bar.red { background: #dc2626; }
+
+  .evals-num { font-weight: 700; color: #1a1a2e; }
+
+  .pagination { display: flex; gap: 8px; margin-top: 14px; align-items: center; justify-content: flex-end; }
+  .pagination button { padding: 6px 14px; border: 1px solid #d1d5db; border-radius: 6px; background: white; cursor: pointer; font-size: 13px; font-family: inherit; }
+  .pagination button:disabled { opacity: 0.4; cursor: default; }
+  .pagination span { font-size: 12px; color: #6b7280; }
+
+  .footer { text-align: center; padding: 24px; font-size: 11px; color: #b0b7c3; }
+
+  @media (max-width: 1100px) { .kpi-row { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 700px) { .kpi-row { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>New Agent Onboarding</h1>
+    <div class="subtitle">Track onboarding progress, first evaluations, and activation milestones</div>
+  </div>
+</div>
+
+<div class="nav-bar">
+  <a href="sales-command-center.html" class="nav-link">Overview</a>
+  <a href="partners.html" class="nav-link">Current Partners</a>
+  <a href="RDU_BuySide_Apr11_15.html" class="nav-link">Daily Pending</a>
+  <a href="brokerage.html" class="nav-link">Brokerage Meetings</a>
+  <a href="onboarding.html" class="nav-link active">New Agent Onboarding</a>
+</div>
+
+<div class="container">
+
+  <!-- KPIs -->
+  <div class="kpi-row">
+    <div class="kpi-card blue">
+      <div class="kpi-label">New Agents (This Month)</div>
+      <div class="kpi-value">11</div>
+      <div class="kpi-sub">Signed up in April 2026</div>
+    </div>
+    <div class="kpi-card green">
+      <div class="kpi-label">Fully Onboarded</div>
+      <div class="kpi-value">7</div>
+      <div class="kpi-sub">Welcome call + platform training done</div>
+    </div>
+    <div class="kpi-card amber">
+      <div class="kpi-label">2+ Evaluations</div>
+      <div class="kpi-value">5</div>
+      <div class="kpi-sub">Used HC at least twice</div>
+    </div>
+    <div class="kpi-card purple">
+      <div class="kpi-label">Activated</div>
+      <div class="kpi-value">3</div>
+      <div class="kpi-sub">3 evals in 90 days or 5 in 120 days</div>
+    </div>
+    <div class="kpi-card rose">
+      <div class="kpi-label">At Risk</div>
+      <div class="kpi-value">2</div>
+      <div class="kpi-sub">No eval after 30+ days</div>
+    </div>
+  </div>
+
+  <!-- Onboarding Funnel -->
+  <div class="funnel-section">
+    <h3>Onboarding Funnel — April Cohort</h3>
+    <div class="section-sub">Progress through the onboarding pipeline</div>
+
+    <div class="funnel-bar-row">
+      <div class="funnel-label">Signed Up</div>
+      <div class="funnel-bar-bg"><div class="funnel-bar" style="width:100%;background:#2563eb"><span>11</span></div></div>
+      <div class="funnel-count">11</div>
+    </div>
+    <div class="funnel-bar-row">
+      <div class="funnel-label">Welcome Call Done</div>
+      <div class="funnel-bar-bg"><div class="funnel-bar" style="width:82%;background:#3b82f6"><span>9</span></div></div>
+      <div class="funnel-count">9</div>
+    </div>
+    <div class="funnel-bar-row">
+      <div class="funnel-label">Platform Training</div>
+      <div class="funnel-bar-bg"><div class="funnel-bar" style="width:64%;background:#059669"><span>7</span></div></div>
+      <div class="funnel-count">7</div>
+    </div>
+    <div class="funnel-bar-row">
+      <div class="funnel-label">First Evaluation</div>
+      <div class="funnel-bar-bg"><div class="funnel-bar" style="width:55%;background:#10b981"><span>6</span></div></div>
+      <div class="funnel-count">6</div>
+    </div>
+    <div class="funnel-bar-row">
+      <div class="funnel-label">2+ Evaluations</div>
+      <div class="funnel-bar-bg"><div class="funnel-bar" style="width:45%;background:#d97706"><span>5</span></div></div>
+      <div class="funnel-count">5</div>
+    </div>
+    <div class="funnel-bar-row">
+      <div class="funnel-label">Activated</div>
+      <div class="funnel-bar-bg"><div class="funnel-bar" style="width:27%;background:#7c3aed"><span>3</span></div></div>
+      <div class="funnel-count">3</div>
+    </div>
+  </div>
+
+  <!-- Agent Table -->
+  <div class="section-card">
+    <h3>All New Agents — Onboarding Status</h3>
+    <div class="section-sub">Track each agent through the onboarding and activation process</div>
+
+    <div class="table-controls">
+      <input type="text" placeholder="Search agents..." id="agentSearch" onkeyup="filterAgents()">
+      <select id="statusFilter" onchange="filterAgents()">
+        <option value="">All Statuses</option>
+        <option value="Activated">Activated</option>
+        <option value="On Track">On Track</option>
+        <option value="Needs Attention">Needs Attention</option>
+        <option value="At Risk">At Risk</option>
+        <option value="New">New</option>
+      </select>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Agent Name</th>
+          <th>Brokerage</th>
+          <th>Sign-up Date</th>
+          <th>Days Since</th>
+          <th style="text-align:center">Onboarding Steps</th>
+          <th style="text-align:center">Evals</th>
+          <th>Activation Progress</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="agentTable"></tbody>
+    </table>
+    <div class="pagination">
+      <button onclick="changePage(-1)" id="prevBtn" disabled>← Prev</button>
+      <span id="pageInfo"></span>
+      <button onclick="changePage(1)" id="nextBtn">Next →</button>
+    </div>
+  </div>
+
+  <!-- Onboarding To-Do -->
+  <div class="section-card">
+    <h3>Onboarding Action Items</h3>
+    <div class="section-sub">Priority tasks for this week</div>
+    <div id="todoList"></div>
+  </div>
+
+</div>
+
+<div class="footer">HomeCloud Sales Command Center — New Agent Onboarding &middot; <span id="footerDate"></span></div>
+
+<script>
+document.getElementById('footerDate').textContent = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
+// Onboarding steps: 1=Welcome Call, 2=Platform Training, 3=First Eval
+const agents = [
+  { name: 'Laura White', brokerage: 'Keller Williams', signUp: '2026-03-05', days: 41, steps: [true, true, true], evals: 4, activationPct: 100, status: 'Activated' },
+  { name: 'Ryan Cooper', brokerage: 'RE/MAX Executive', signUp: '2026-03-08', days: 38, steps: [true, true, true], evals: 4, activationPct: 100, status: 'Activated' },
+  { name: 'Heather Blake', brokerage: 'Coldwell Banker', signUp: '2026-03-12', days: 34, steps: [true, true, true], evals: 3, activationPct: 100, status: 'Activated' },
+  { name: 'Brandon Ross', brokerage: 'Compass', signUp: '2026-03-18', days: 28, steps: [true, true, true], evals: 3, activationPct: 75, status: 'On Track' },
+  { name: 'Michelle Torres', brokerage: 'Exp Realty', signUp: '2026-03-20', days: 26, steps: [true, true, true], evals: 2, activationPct: 50, status: 'On Track' },
+  { name: 'Derek Young', brokerage: 'Allen Tate', signUp: '2026-03-25', days: 21, steps: [true, true, false], evals: 0, activationPct: 0, status: 'Needs Attention' },
+  { name: 'Tiffany Reed', brokerage: 'Berkshire Hathaway', signUp: '2026-03-28', days: 18, steps: [true, true, true], evals: 2, activationPct: 50, status: 'On Track' },
+  { name: 'Adam Hall', brokerage: 'Keller Williams', signUp: '2026-04-01', days: 14, steps: [true, true, true], evals: 2, activationPct: 50, status: 'On Track' },
+  { name: 'Cynthia Ward', brokerage: 'RE/MAX Executive', signUp: '2026-04-04', days: 11, steps: [true, true, false], evals: 1, activationPct: 25, status: 'On Track' },
+  { name: 'Greg Palmer', brokerage: 'Coldwell Banker', signUp: '2026-04-07', days: 8, steps: [true, false, false], evals: 0, activationPct: 0, status: 'New' },
+  { name: 'Victoria Cruz', brokerage: 'Compass', signUp: '2026-04-08', days: 7, steps: [true, false, false], evals: 0, activationPct: 0, status: 'New' },
+  { name: 'Sean Murphy', brokerage: 'Exp Realty', signUp: '2026-04-10', days: 5, steps: [false, false, false], evals: 0, activationPct: 0, status: 'New' },
+  { name: 'Diana Flores', brokerage: 'Allen Tate', signUp: '2026-04-12', days: 3, steps: [false, false, false], evals: 0, activationPct: 0, status: 'New' },
+  { name: 'Jake Peterson', brokerage: 'Keller Williams', signUp: '2026-02-15', days: 59, steps: [true, true, true], evals: 1, activationPct: 20, status: 'At Risk' },
+  { name: 'Monica Silva', brokerage: 'Berkshire Hathaway', signUp: '2026-02-20', days: 54, steps: [true, true, false], evals: 0, activationPct: 0, status: 'At Risk' }
+];
+
+const PAGE_SIZE = 15;
+let currentPage = 0;
+let filteredAgents = [...agents];
+
+const pillClass = { 'Activated': 'pill-activated', 'On Track': 'pill-on-track', 'Needs Attention': 'pill-needs-attention', 'At Risk': 'pill-at-risk', 'New': 'pill-new' };
+const barClass = { 'Activated': 'green', 'On Track': 'blue', 'Needs Attention': 'amber', 'At Risk': 'red', 'New': 'blue' };
+const stepLabels = ['Welcome', 'Training', '1st Eval'];
+
+function filterAgents() {
+  const search = document.getElementById('agentSearch').value.toLowerCase();
+  const status = document.getElementById('statusFilter').value;
+  filteredAgents = agents.filter(a => {
+    if (search && !a.name.toLowerCase().includes(search) && !a.brokerage.toLowerCase().includes(search)) return false;
+    if (status && a.status !== status) return false;
+    return true;
+  });
+  currentPage = 0;
+  renderTable();
+}
+
+function renderTable() {
+  const tbody = document.getElementById('agentTable');
+  const start = currentPage * PAGE_SIZE;
+  const page = filteredAgents.slice(start, start + PAGE_SIZE);
+
+  tbody.innerHTML = page.map(a => {
+    const dots = a.steps.map((s, i) => {
+      const cls = s ? 'done' : (i === 0 || a.steps[i-1]) ? 'current' : 'pending';
+      return `<div class="step-dot ${cls}" title="${stepLabels[i]}">${s ? '✓' : i + 1}</div>`;
+    }).join('');
+
+    const activationTarget = 3; // 3 evals in 90 days
+    const pct = Math.min(100, Math.round((a.evals / activationTarget) * 100));
+
+    return `<tr>
+      <td style="font-weight:600">${a.name}</td>
+      <td>${a.brokerage}</td>
+      <td style="color:#6b7280">${new Date(a.signUp).toLocaleDateString('en-US', {month:'short', day:'numeric'})}</td>
+      <td style="font-weight:600;color:${a.days > 45 ? '#dc2626' : a.days > 30 ? '#d97706' : '#374151'}">${a.days}d</td>
+      <td><div class="step-dots" style="justify-content:center">${dots}</div></td>
+      <td class="evals-num" style="text-align:center">${a.evals}</td>
+      <td>
+        <div class="mini-progress">
+          <div class="mini-bar-bg"><div class="mini-bar ${barClass[a.status]}" style="width:${pct}%"></div></div>
+          <span style="font-size:11px;font-weight:600;color:#6b7280">${pct}%</span>
+        </div>
+      </td>
+      <td><span class="status-pill ${pillClass[a.status]}">${a.status}</span></td>
+    </tr>`;
+  }).join('');
+
+  const total = filteredAgents.length;
+  const pages = Math.ceil(total / PAGE_SIZE);
+  document.getElementById('pageInfo').textContent = `${start + 1}–${Math.min(start + PAGE_SIZE, total)} of ${total}`;
+  document.getElementById('prevBtn').disabled = currentPage === 0;
+  document.getElementById('nextBtn').disabled = currentPage >= pages - 1;
+}
+
+function changePage(dir) {
+  currentPage += dir;
+  renderTable();
+}
+
+renderTable();
+
+// To-do items
+const todos = [
+  { text: 'Schedule welcome call with Sean Murphy (signed up Apr 10 — no welcome call yet)', done: false },
+  { text: 'Schedule welcome call with Diana Flores (signed up Apr 12)', done: false },
+  { text: 'Book platform training for Greg Palmer & Victoria Cruz', done: false },
+  { text: 'Check in with Derek Young — 21 days, onboarded but 0 evaluations', done: false },
+  { text: 'URGENT: Call Jake Peterson — 59 days since sign-up, only 1 eval, at risk of churn', done: false },
+  { text: 'URGENT: Call Monica Silva — 54 days since sign-up, 0 evals, hasn\'t completed training', done: false },
+  { text: 'Send "first eval celebration" email to Cynthia Ward', done: false }
+];
+
+function renderTodos() {
+  const list = document.getElementById('todoList');
+  list.innerHTML = todos.map((t, i) => `
+    <div style="display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #f3f4f6">
+      <div style="width:22px;height:22px;border-radius:6px;border:2px solid ${t.done ? '#059669' : '#d1d5db'};background:${t.done ? '#059669' : 'white'};cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0" onclick="toggleTodo(${i})">
+        ${t.done ? '<span style="color:white;font-size:13px;font-weight:700">✓</span>' : ''}
+      </div>
+      <span style="font-size:14px;color:${t.done ? '#9ca3af' : '#374151'};${t.done ? 'text-decoration:line-through' : ''};${t.text.startsWith('URGENT') ? 'font-weight:600' : ''}">${t.text}</span>
+    </div>
+  `).join('');
+}
+
+function toggleTodo(i) {
+  todos[i].done = !todos[i].done;
+  renderTodos();
+}
+
+renderTodos();
+</script>
+</body>
+</html>

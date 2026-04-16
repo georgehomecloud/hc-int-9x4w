@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sales Command Center — HomeCloud</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f0f2f5; color: #1a1a2e; min-height: 100vh; }
+
+  /* Header */
+  .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 28px 40px 20px; }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .header h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; }
+  .header .subtitle { font-size: 14px; opacity: 0.65; margin-top: 4px; }
+  .header-date { text-align: right; }
+  .header-date .day { font-size: 14px; font-weight: 600; opacity: 0.9; }
+  .header-date .time { font-size: 12px; opacity: 0.5; margin-top: 2px; }
+
+  /* Navigation bar */
+  .nav-bar { background: #16213e; padding: 0 40px; display: flex; gap: 0; border-top: 1px solid rgba(255,255,255,0.08); }
+  .nav-link { padding: 14px 24px; color: rgba(255,255,255,0.55); font-size: 13px; font-weight: 600; text-decoration: none; border-bottom: 3px solid transparent; transition: all 0.2s; letter-spacing: 0.3px; }
+  .nav-link:hover { color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.04); }
+  .nav-link.active { color: #fff; border-bottom-color: #e94560; }
+
+  .container { max-width: 1320px; margin: 0 auto; padding: 28px 24px; }
+
+  /* Toggle */
+  .controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+  .toggle-group { display: inline-flex; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .toggle-btn { padding: 10px 22px; font-size: 13px; font-weight: 600; border: none; background: white; color: #6b7280; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+  .toggle-btn:hover { background: #f9fafb; }
+  .toggle-btn.active { background: #1a1a2e; color: #fff; }
+  .section-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #9ca3af; }
+
+  /* KPI Cards */
+  .kpi-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 32px; }
+  .kpi-card { background: white; border-radius: 14px; padding: 22px 24px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); position: relative; overflow: hidden; transition: transform 0.15s, box-shadow 0.15s; }
+  .kpi-card:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.1); }
+  .kpi-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+  .kpi-card.blue::before { background: #2563eb; }
+  .kpi-card.green::before { background: #059669; }
+  .kpi-card.amber::before { background: #d97706; }
+  .kpi-card.purple::before { background: #7c3aed; }
+  .kpi-card.rose::before { background: #e11d48; }
+  .kpi-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; color: #9ca3af; font-weight: 700; }
+  .kpi-value { font-size: 36px; font-weight: 800; margin-top: 6px; line-height: 1; }
+  .kpi-card.blue .kpi-value { color: #2563eb; }
+  .kpi-card.green .kpi-value { color: #059669; }
+  .kpi-card.amber .kpi-value { color: #d97706; }
+  .kpi-card.purple .kpi-value { color: #7c3aed; }
+  .kpi-card.rose .kpi-value { color: #e11d48; }
+  .kpi-change { display: inline-flex; align-items: center; gap: 4px; margin-top: 8px; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 6px; }
+  .kpi-change.up { background: #ecfdf5; color: #059669; }
+  .kpi-change.down { background: #fef2f2; color: #dc2626; }
+  .kpi-change.flat { background: #f3f4f6; color: #6b7280; }
+  .kpi-sub { font-size: 11px; color: #b0b7c3; margin-top: 6px; }
+
+  /* To-Do Section */
+  .todo-section { background: white; border-radius: 14px; padding: 24px 28px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); margin-bottom: 32px; }
+  .todo-section h3 { font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+  .todo-section h3 .icon { font-size: 20px; }
+  .todo-item { display: flex; align-items: center; gap: 14px; padding: 14px 0; border-bottom: 1px solid #f3f4f6; transition: opacity 0.3s; }
+  .todo-item:last-child { border-bottom: none; }
+  .todo-check { width: 22px; height: 22px; border-radius: 6px; border: 2px solid #d1d5db; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; flex-shrink: 0; }
+  .todo-check:hover { border-color: #059669; background: #ecfdf5; }
+  .todo-check.done { background: #059669; border-color: #059669; }
+  .todo-check.done::after { content: '✓'; color: white; font-size: 13px; font-weight: 700; }
+  .todo-text { font-size: 14px; color: #374151; flex: 1; }
+  .todo-text.done { text-decoration: line-through; color: #9ca3af; }
+  .todo-priority { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .todo-priority.high { background: #fef2f2; color: #dc2626; }
+  .todo-priority.med { background: #fffbeb; color: #d97706; }
+  .todo-priority.low { background: #f0fdf4; color: #059669; }
+  .todo-category { font-size: 11px; color: #9ca3af; min-width: 100px; text-align: right; }
+
+  /* Dashboard Links */
+  .dash-section { margin-bottom: 32px; }
+  .dash-section h3 { font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 16px; }
+  .dash-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .dash-card { background: white; border-radius: 14px; padding: 28px 24px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); text-decoration: none; color: inherit; transition: all 0.2s; border: 2px solid transparent; position: relative; overflow: hidden; }
+  .dash-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); border-color: #e94560; }
+  .dash-card .dash-icon { font-size: 32px; margin-bottom: 14px; }
+  .dash-card .dash-title { font-size: 15px; font-weight: 700; color: #1a1a2e; margin-bottom: 6px; }
+  .dash-card .dash-desc { font-size: 12px; color: #9ca3af; line-height: 1.5; }
+  .dash-card .dash-badge { position: absolute; top: 16px; right: 16px; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 4px; }
+  .dash-badge.alert { background: #fef2f2; color: #dc2626; }
+  .dash-badge.ok { background: #ecfdf5; color: #059669; }
+  .dash-badge.info { background: #eff6ff; color: #2563eb; }
+
+  /* Trend Sparklines */
+  .sparkline-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px; }
+  .spark-card { background: white; border-radius: 14px; padding: 22px 24px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .spark-card h4 { font-size: 13px; font-weight: 700; color: #374151; margin-bottom: 4px; }
+  .spark-card .spark-sub { font-size: 11px; color: #9ca3af; margin-bottom: 14px; }
+  .spark-card canvas { width: 100%; height: 60px; }
+
+  /* Footer */
+  .footer { text-align: center; padding: 24px; font-size: 11px; color: #b0b7c3; }
+
+  @media (max-width: 1100px) { .kpi-row { grid-template-columns: repeat(3, 1fr); } .dash-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 700px) { .kpi-row { grid-template-columns: 1fr 1fr; } .dash-grid { grid-template-columns: 1fr; } .sparkline-row { grid-template-columns: 1fr; } .nav-bar { overflow-x: auto; } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <div>
+      <h1>Sales Command Center</h1>
+      <div class="subtitle">HomeCloud — Daily Sales Operations Dashboard</div>
+    </div>
+    <div class="header-date">
+      <div class="day" id="currentDate"></div>
+      <div class="time" id="currentTime"></div>
+    </div>
+  </div>
+</div>
+
+<div class="nav-bar">
+  <a href="sales-command-center.html" class="nav-link active">Overview</a>
+  <a href="partners.html" class="nav-link">Current Partners</a>
+  <a href="RDU_BuySide_Apr11_15.html" class="nav-link">Daily Pending</a>
+  <a href="brokerage.html" class="nav-link">Brokerage Meetings</a>
+  <a href="onboarding.html" class="nav-link">New Agent Onboarding</a>
+</div>
+
+<div class="container">
+
+  <!-- Controls -->
+  <div class="controls">
+    <div class="section-title">Key Performance Indicators</div>
+    <div class="toggle-group">
+      <button class="toggle-btn" data-period="daily" onclick="setPeriod('daily')">Today</button>
+      <button class="toggle-btn active" data-period="weekly" onclick="setPeriod('weekly')">This Week</button>
+      <button class="toggle-btn" data-period="monthly" onclick="setPeriod('monthly')">This Month</button>
+    </div>
+  </div>
+
+  <!-- KPI Cards -->
+  <div class="kpi-row" id="kpiRow"></div>
+
+  <!-- Today's Action Items -->
+  <div class="todo-section">
+    <h3><span class="icon">📋</span> Today's Action Items</h3>
+    <div id="todoList"></div>
+  </div>
+
+  <!-- Trend Sparklines -->
+  <div class="sparkline-row">
+    <div class="spark-card">
+      <h4>Evaluations Booked</h4>
+      <div class="spark-sub">Last 4 weeks</div>
+      <canvas id="sparkEvals"></canvas>
+    </div>
+    <div class="spark-card">
+      <h4>New Agents Acquired</h4>
+      <div class="spark-sub">Last 4 weeks</div>
+      <canvas id="sparkAgents"></canvas>
+    </div>
+    <div class="spark-card">
+      <h4>Calls Made</h4>
+      <div class="spark-sub">Last 4 weeks</div>
+      <canvas id="sparkCalls"></canvas>
+    </div>
+  </div>
+
+  <!-- Dashboard Links -->
+  <div class="dash-section">
+    <h3>Dashboards</h3>
+    <div class="dash-grid">
+      <a href="partners.html" class="dash-card">
+        <div class="dash-badge alert">2 at risk</div>
+        <div class="dash-icon">🤝</div>
+        <div class="dash-title">Current Partners</div>
+        <div class="dash-desc">Retention tracking, relationship management, churn alerts, and top-40 agent outreach status.</div>
+      </a>
+      <a href="RDU_BuySide_Apr11_15.html" class="dash-card">
+        <div class="dash-badge info">12 new</div>
+        <div class="dash-icon">🏠</div>
+        <div class="dash-title">Daily Pending</div>
+        <div class="dash-desc">Today's new pending homes in RDU. Identify which agents went under contract and verify they're using HomeCloud.</div>
+      </a>
+      <a href="brokerage.html" class="dash-card">
+        <div class="dash-badge ok">3 booked</div>
+        <div class="dash-icon">🏢</div>
+        <div class="dash-title">Brokerage Meetings</div>
+        <div class="dash-desc">Continuing education meeting tracker, top partner brokerages, and target opportunity pipeline.</div>
+      </a>
+      <a href="onboarding.html" class="dash-card">
+        <div class="dash-badge info">5 pending</div>
+        <div class="dash-icon">🚀</div>
+        <div class="dash-title">New Agent Onboarding</div>
+        <div class="dash-desc">Track onboarding, first evaluations, and activation milestones for every new agent sign-up.</div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  HomeCloud Sales Command Center &middot; Data refreshed on build &middot; <span id="footerDate"></span>
+</div>
+
+<script>
+// --- Date display ---
+const now = new Date();
+const opts = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', opts);
+document.getElementById('currentTime').textContent = 'Last refreshed: ' + now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+document.getElementById('footerDate').textContent = now.toLocaleDateString('en-US', opts);
+
+// --- KPI Data (sample — replace with live data feed) ---
+const kpiData = {
+  daily: [
+    { label: 'Evaluations Booked', value: 3, change: +1, changeLabel: '+1 vs yesterday', color: 'blue', sub: '3 evals scheduled today' },
+    { label: 'New Agents', value: 1, change: +1, changeLabel: '+1 today', color: 'green', sub: '1 new sign-up' },
+    { label: 'Calls Made', value: 8, change: +3, changeLabel: '+3 vs yesterday', color: 'amber', sub: '8 calls completed' },
+    { label: 'Brokerage Meetings', value: 1, change: 0, changeLabel: 'Same as yesterday', color: 'purple', sub: '1 meeting today' },
+    { label: 'Annualized Evals Acquired', value: 12, change: +12, changeLabel: '+12 today', color: 'rose', sub: '1 agent × 12 deals/yr' }
+  ],
+  weekly: [
+    { label: 'Evaluations Booked', value: 14, change: +3, changeLabel: '+3 vs last week', color: 'blue', sub: '14 evals booked Mon–Fri' },
+    { label: 'New Agents', value: 4, change: +1, changeLabel: '+1 vs last week', color: 'green', sub: '4 new agents this week' },
+    { label: 'Calls Made', value: 37, change: +8, changeLabel: '+8 vs last week', color: 'amber', sub: '37 calls Mon–Fri' },
+    { label: 'Brokerage Meetings', value: 3, change: +1, changeLabel: '+1 vs last week', color: 'purple', sub: '3 meetings this week' },
+    { label: 'Annualized Evals Acquired', value: 52, change: +12, changeLabel: '+12 vs last week', color: 'rose', sub: '4 agents × avg 13 deals/yr' }
+  ],
+  monthly: [
+    { label: 'Evaluations Booked', value: 47, change: +5, changeLabel: '+5 vs last month', color: 'blue', sub: '47 evals in April so far' },
+    { label: 'New Agents', value: 11, change: +2, changeLabel: '+2 vs last month', color: 'green', sub: '11 new agents in April' },
+    { label: 'Calls Made', value: 142, change: +18, changeLabel: '+18 vs last month', color: 'amber', sub: '142 calls in April' },
+    { label: 'Brokerage Meetings', value: 8, change: +2, changeLabel: '+2 vs last month', color: 'purple', sub: '8 meetings in April' },
+    { label: 'Annualized Evals Acquired', value: 148, change: +24, changeLabel: '+24 vs last month', color: 'rose', sub: '11 agents × avg 13.5 deals/yr' }
+  ]
+};
+
+let currentPeriod = 'weekly';
+
+function setPeriod(period) {
+  currentPeriod = period;
+  document.querySelectorAll('.toggle-btn').forEach(b => b.classList.toggle('active', b.dataset.period === period));
+  renderKPIs();
+}
+
+function renderKPIs() {
+  const row = document.getElementById('kpiRow');
+  const data = kpiData[currentPeriod];
+  row.innerHTML = data.map(k => {
+    const dir = k.change > 0 ? 'up' : k.change < 0 ? 'down' : 'flat';
+    const arrow = k.change > 0 ? '↑' : k.change < 0 ? '↓' : '→';
+    return `
+      <div class="kpi-card ${k.color}">
+        <div class="kpi-label">${k.label}</div>
+        <div class="kpi-value">${k.value}</div>
+        <div class="kpi-change ${dir}">${arrow} ${k.changeLabel}</div>
+        <div class="kpi-sub">${k.sub}</div>
+      </div>`;
+  }).join('');
+}
+
+renderKPIs();
+
+// --- To-Do Items (sample data — can be driven from HubSpot) ---
+const todos = [
+  { text: 'Call Sarah Mitchell (Allen Tate) — hasn\'t used HC in 45 days', priority: 'high', category: 'Retention' },
+  { text: 'Follow up with 3 new pending agents from yesterday\'s deals', priority: 'high', category: 'Daily Pending' },
+  { text: 'Prep materials for Keller Williams brokerage meeting (Thursday)', priority: 'med', category: 'Brokerage' },
+  { text: 'Send onboarding welcome email to 2 new sign-ups', priority: 'med', category: 'Onboarding' },
+  { text: 'Update CRM notes for this week\'s partner calls', priority: 'low', category: 'Admin' }
+];
+
+function renderTodos() {
+  const list = document.getElementById('todoList');
+  list.innerHTML = todos.map((t, i) => `
+    <div class="todo-item" id="todo-${i}">
+      <div class="todo-check" onclick="toggleTodo(${i})" id="check-${i}"></div>
+      <div class="todo-text" id="text-${i}">${t.text}</div>
+      <span class="todo-priority ${t.priority}">${t.priority}</span>
+      <span class="todo-category">${t.category}</span>
+    </div>
+  `).join('');
+}
+
+function toggleTodo(i) {
+  const check = document.getElementById('check-' + i);
+  const text = document.getElementById('text-' + i);
+  check.classList.toggle('done');
+  text.classList.toggle('done');
+}
+
+renderTodos();
+
+// --- Sparkline Charts ---
+function drawSparkline(canvasId, data, color) {
+  const canvas = document.getElementById(canvasId);
+  const ctx = canvas.getContext('2d');
+  canvas.width = canvas.offsetWidth * 2;
+  canvas.height = 120;
+  ctx.scale(2, 2);
+  const w = canvas.offsetWidth;
+  const h = 60;
+  const max = Math.max(...data) * 1.15;
+  const min = Math.min(...data) * 0.85;
+  const range = max - min || 1;
+  const step = w / (data.length - 1);
+
+  // Fill
+  ctx.beginPath();
+  ctx.moveTo(0, h);
+  data.forEach((v, i) => {
+    const x = i * step;
+    const y = h - ((v - min) / range) * (h - 10) - 5;
+    if (i === 0) ctx.lineTo(x, y);
+    else ctx.lineTo(x, y);
+  });
+  ctx.lineTo(w, h);
+  ctx.closePath();
+  ctx.fillStyle = color + '18';
+  ctx.fill();
+
+  // Line
+  ctx.beginPath();
+  data.forEach((v, i) => {
+    const x = i * step;
+    const y = h - ((v - min) / range) * (h - 10) - 5;
+    if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+  });
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 2.5;
+  ctx.lineJoin = 'round';
+  ctx.stroke();
+
+  // End dot
+  const lastX = (data.length - 1) * step;
+  const lastY = h - ((data[data.length - 1] - min) / range) * (h - 10) - 5;
+  ctx.beginPath();
+  ctx.arc(lastX, lastY, 4, 0, Math.PI * 2);
+  ctx.fillStyle = color;
+  ctx.fill();
+}
+
+// Sample weekly data points (4 weeks)
+setTimeout(() => {
+  drawSparkline('sparkEvals', [9, 11, 11, 14], '#2563eb');
+  drawSparkline('sparkAgents', [2, 3, 3, 4], '#059669');
+  drawSparkline('sparkCalls', [24, 29, 29, 37], '#d97706');
+}, 100);
+</script>
+</body>
+</html>
