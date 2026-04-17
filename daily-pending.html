@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RDU Buy-Side Agents — Apr 11-17</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:#f0f2f5; padding:24px; color:#2d3748; }
+.container { max-width:1200px; margin:0 auto; }
+header { background:white; padding:28px 32px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08); margin-bottom:24px; }
+h1 { font-size:26px; color:#1a202c; margin-bottom:4px; }
+.subtitle { color:#718096; font-size:15px; }
+.summary-row { display:flex; gap:16px; margin-bottom:24px; flex-wrap:wrap; }
+.stat-card { background:white; padding:18px 22px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.08); flex:1; min-width:120px; border-top:3px solid #667eea; }
+.stat-card.partner { border-top-color:#d69e2e; }
+.stat-card.pipeline { border-top-color:#38a169; }
+.stat-card.active { border-top-color:#3182ce; }
+.stat-card.churned { border-top-color:#e53e3e; }
+.stat-card.lead { border-top-color:#805ad5; }
+.stat-label { font-size:11px; color:#a0aec0; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:4px; }
+.stat-value { font-size:26px; font-weight:700; color:#1a202c; }
+.day-section { background:white; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08); margin-bottom:24px; overflow:hidden; }
+.day-header { padding:18px 28px; border-bottom:1px solid #e2e8f0; display:flex; justify-content:space-between; align-items:center; }
+.day-title { font-size:20px; font-weight:700; color:#2d3748; }
+.day-count { font-size:14px; color:#718096; }
+table { width:100%; border-collapse:collapse; }
+th { text-align:left; padding:10px 14px; font-size:11px; color:#a0aec0; text-transform:uppercase; letter-spacing:0.5px; border-bottom:1px solid #edf2f7; background:#fafbfc; }
+td { padding:11px 14px; border-bottom:1px solid #f7fafc; font-size:13px; vertical-align:top; }
+tr:last-child td { border-bottom:none; }
+tr:hover { background:#f7fafc; }
+.cls-badge { display:inline-block; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600; white-space:nowrap; }
+.match-tag { font-size:10px; color:#a0aec0; background:#edf2f7; padding:1px 6px; border-radius:4px; }
+.eval-count { display:inline-block; background:#ebf8ff; color:#2b6cb0; font-weight:700; padding:2px 8px; border-radius:8px; font-size:12px; }
+.eval-zero { background:#edf2f7; color:#a0aec0; }
+.action-section { padding:16px 28px 20px; border-top:2px solid #edf2f7; }
+.action-title { font-size:13px; font-weight:700; color:#4a5568; margin-bottom:10px; text-transform:uppercase; letter-spacing:0.5px; }
+.action-card { display:flex; align-items:flex-start; gap:12px; padding:10px 14px; margin-bottom:8px; border-radius:8px; background:#f7fafc; }
+.action-card.high { background:#fff5f5; border-left:3px solid #e53e3e; }
+.action-card.medium { background:#fffaf0; border-left:3px solid #dd6b20; }
+.action-card.low { background:#f0fff4; border-left:3px solid #38a169; }
+.action-card.done { background:#f7fafc; border-left:3px solid #a0aec0; opacity:0.7; }
+.action-body { flex:1; }
+.action-agent { font-weight:600; font-size:13px; color:#2d3748; }
+.action-detail { font-size:12px; color:#718096; margin-top:2px; }
+.action-text { font-size:13px; color:#4a5568; font-weight:500; margin-top:3px; }
+.contact-info { font-size:11px; color:#a0aec0; margin-top:2px; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+    <h1>RDU Buy-Side Agents in HubSpot</h1>
+    <div class="subtitle">April 11–17, 2026 &nbsp;·&nbsp; 511 total transactions &nbsp;·&nbsp; 32 buyer agents matched &nbsp;·&nbsp; 63 total completed evals</div>
+</header>
+
+<div class="summary-row">
+    <div class="stat-card"><div class="stat-label">Transactions</div><div class="stat-value">511</div></div>
+    <div class="stat-card partner"><div class="stat-label">Partners</div><div class="stat-value">11</div></div>
+    <div class="stat-card pipeline"><div class="stat-label">Pipeline</div><div class="stat-value">0</div></div>
+    <div class="stat-card active"><div class="stat-label">Active Customers</div><div class="stat-value">0</div></div>
+    <div class="stat-card churned"><div class="stat-label">Churned</div><div class="stat-value">6</div></div>
+    <div class="stat-card lead"><div class="stat-label">Leads</div><div class="stat-value">15</div></div>
+</div>
+
+<div class="day-section">
+    <div class="day-header">
+        <div class="day-title">Saturday, April 11</div>
+        <div class="day-count">2 matched of 68 transactions</div>
+    </div>
+    <table>
+        <thead><tr>
+            <th>Buyer Agent</th>
+            <th>HubSpot Match</th>
+            <th>Classification</th>
+            <th>Brokerage</th>
+            <th>Evals</th>
+            <th>Property</th>
+        </tr></thead>
+        <tbody>
+        <tr>
+            <td><strong>Alex Bingham</strong><br><span class="match-tag">phone</span></td>
+            <td>Jason Bingham</td>
+            <td><span class="cls-badge" style="background:#fefcbf; color:#d69e2e;">Partner</span></td>
+            <td style="font-size:12px; color:#4a5568;">Compass -- Chapel Hill - Durham</td>
+            <td><span class="eval-count">19</span></td>
+            <td style="font-size:12px; color:#718096;">716 Spirit Hill Road, Unit Number, Hillsborough, NC 27278</td>
+        </tr>
+        <tr>
+            <td><strong>Dennis de Jong</strong><br><span class="match-tag">phone</span></td>
+            <td>Dennis de Jong</td>
+            <td><span class="cls-badge" style="background:#fefcbf; color:#d69e2e;">Partner</span></td>
+            <td style="font-size:12px; color:#4a5568;">Redfin Corporation</td>
+            <td><span class="eval-count">1</span></td>
+            <td style="font-size:12px; color:#718096;">1053 Lukestone Drive, Fuquay Varina, NC 27526</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="action-section">
+        <div class="action-title">Action Items</div>
+        <div class="action-card medium">
+            <div><span style="background:#dd6b20; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">MEDIUM</span></div>
+            <div class="action-body">
+                <div class="action-agent">Dennis de Jong <span style="font-weight:400; color:#718096; font-size:12px;">(1 evals)</span></div>
+                <div class="action-detail">Partner · Redfin Corporation · 1053 Lukestone Drive, Fuquay Varina, NC 27526</div>
+                <div class="action-text">Opportunity to get them to do their second in a month</div>
+                <div class="contact-info">dennis.dejong@redfin.com · +19193076151</div>
+            </div>
+        </div>
+        <div class="action-card done">
+            <div><span style="background:#a0aec0; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">DONE</span></div>
+            <div class="action-body">
+                <div class="action-agent">Alex Bingham <span style="font-weight:400; color:#718096; font-size:12px;">(19 evals)</span></div>
+                <div class="action-detail">Partner · Compass -- Chapel Hill - Durham · 716 Spirit Hill Road, Unit Number, Hillsborough, NC 27278</div>
+                <div class="action-text">Confirmed booked evaluation — no action needed</div>
+                <div class="contact-info">alex@spotlightnc.com · +15405897854</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="day-section">
+    <div class="day-header">
+        <div class="day-title">Sunday, April 12</div>
+        <div class="day-count">2 matched of 50 transactions</div>
+    </div>
+    <table>
+        <thead><tr>
+            <th>Buyer Agent</th>
+            <th>HubSpot Match</th>
+            <th>Classification</th>
+            <th>Brokerage</th>
+            <th>Evals</th>
+            <th>Property</th>
+        </tr></thead>
+        <tbody>
+        <tr>
+            <td><strong>Kathy Evans</strong><br><span class="match-tag">phone</span></td>
+            <td>Kathy Evans</td>
+            <td><span class="cls-badge" style="background:#e9d8fd; color:#805ad5;">Lead</span></td>
+            <td style="font-size:12px; color:#4a5568;">RE/MAX United</td>
+            <td><span class="eval-count eval-zero">0</span></td>
+            <td style="font-size:12px; color:#718096;">4613 Springerly Lane, Unit Number, Raleigh, NC 27612</td>
+        </tr>
+        <tr>
+            <td><strong>Natalie Peterson</strong><br><span class="match-tag">phone</span></td>
+            <td>Natalie Peterson</td>
+            <td><span class="cls-badge" style="background:#fefcbf; color:#d69e2e;">Partner</span></td>
+            <td style="font-size:12px; color:#4a5568;">Fathom Realty NC</td>
+            <td><span class="eval-count">1</span></td>
+            <td style="font-size:12px; color:#718096;">108 Wintersage Court, Unit Number, Holly Springs, NC 27540</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="action-section">
+        <div class="action-title">Action Items</div>
+        <div class="action-card high">
+            <div><span style="background:#e53e3e; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">HIGH</span></div>
+            <div class="action-body">
+                <div class="action-agent">Kathy Evans <span style="font-weight:400; color:#718096; font-size:12px;">(0 evals)</span></div>
+                <div class="action-detail">Lead · RE/MAX United · 4613 Springerly Lane, Unit Number, Raleigh, NC 27612</div>
+                <div class="action-text">New lead — reach out and introduce HomeCloud</div>
+                <div class="contact-info">kathyevans@remax.net · +19198106965</div>
+            </div>
+        </div>
+        <div class="action-card medium">
+            <div><span style="background:#dd6b20; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">MEDIUM</span></div>
+            <div class="action-body">
+                <div class="action-agent">Natalie Peterson <span style="font-weight:400; color:#718096; font-size:12px;">(1 evals)</span></div>
+                <div class="action-detail">Partner · Fathom Realty NC · 108 Wintersage Court, Unit Number, Holly Springs, NC 27540</div>
+                <div class="action-text">Opportunity to get them to do their second in a month</div>
+                <div class="contact-info">na.peterson@outlook.com · +19196251266</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="day-section">
+    <div class="day-header">
+        <div class="day-title">Monday, April 13</div>
+        <div class="day-count">9 matched of 95 transactions</div>
+    </div>
+    <table>
+        <thead><tr>
+            <th>Buyer Agent</th>
+            <th>HubSpot Match</th>
+            <th>Classification</th>
+            <th>Brokerage</th>
+            <th>Evals</th>
+            <th>Property</th>
+        </tr></thead>
+        <tbody>
+        <tr>
+            <td><strong>Stephanie Carrillo</strong><br><span class="match-tag">phone</span></td>
+            <td>Stephanie Carrillo</td>
+            <td><span class="cls-badge" style="background:#e9d8fd; color:#805ad5;">Lead</span></td>
+            <td style="font-size:12px; color:#4a5568;">eXp Realty, LLC - C</td>
+            <td><span class="eval-count eval-zero">0</span></td>
+            <td style="font-size:12px; color:#718096;">339 Allen Road, Clayton, NC 27520</td>
+        </tr>
+        <tr>
+            <td><strong>Chelsea Jones</strong><br><span class="match-tag">phone</span></td>
+            <td>Chelsea Jones</td>
+            <td><span class="cls-badge" style="background:#e9d8fd; color:#805ad5;">Lead</span></td>
+            <td style="font-size:12px; color:#4a5568;">DASH Carolina</td>
+            <td><span class="eval-count eval-zero">0</span></td>
+            <td style="font-size:12px; color:#718096;">1057 Chevy Park Landing, Wendell, NC 27591</td>
+        </tr>
+        <tr>
+            <td><strong>Anthony G Fink</strong><br><span class="match-tag">phone</span></td>
+            <td>Anthony Fink</td>
+            <td><span class="cls-badge" style="background:#fed7d7; color:#e53e3e;">Churned</span></td>
+            <td style="font-size:12px; color:#4a5568;">Linda Craft Team, REALTORS</td>
+            <td><span class="eval-count">7</span></td>
+            <td style="font-size:12px; color:#718096;">5405 Massengill Court, Garner, NC 27529</td>
+        </tr>
+        <tr>
+            <td><strong>Barbara S Lyster</strong><br><span class="match-tag">phone</span></td>
+            <td>Barbara Lyster</td>
+            <td><span class="cls-badge" style="background:#e9d8fd; color:#805ad5;">Lead</span></td>
+            <td style="font-size:12px; color:#4a5568;">Berkshire Hathaway HomeService</td>
+            <td><span class="eval-count eval-zero">0</span></td>
+            <td style="font-size:12px; color:#718096;">1918 Hart Street, Unit Number, Durham, NC 27703</td>
+        </tr>
+        <tr>
+            <td><strong>Dennis de Jong</strong><br><span class="match-tag">phone</span></td>
+            <td>Dennis de Jong</td>
+            <td><span class="cls-badge" style="background:#fed7d7; color:#e53e3e;">Churned</span></td>
+            <td style="font-size:12px; color:#4a5568;">Redfin Corporation</td>
+            <td><span class="eval-count">1</span></td>
+            <td style="font-size:12px; color:#718096;">105 Carving Tree Court, Unit Number, Holly Springs, NC 27540</td>
+        </tr>
+        <tr>
+            <td><strong>Mallory Hedden</strong><br><span class="match-tag">phone</span></td>
+            <td>Christian LaBrie</td>
+            <td><span class="cls-badge" style="background:#fefcbf; color:#d69e2e;">Partner</span></td>
+            <td style="font-size:12px; color:#4a5568;"></td>
+            <td><span class="eval-count">1</span></td>
+            <td style="font-size:12px; color:#718096;">2633 Ridgewell Court, Raleigh, NC 27613</td>
+        </tr>
+        <tr>
+            <td><strong>Aimee Anderson</strong><br><span class="match-tag">name</span></td>
+            <td>Aimee Anderson</td>
+            <td><span class="cls-badge" style="background:#fed7d7; color:#e53e3e;">Churned</span></td>
+            <td style="font-size:12px; color:#4a5568;"></td>
+            <td><span class="eval-count">2</span></td>
+            <td style="font-size:12px; color:#718096;">6941 Middleboro Drive, Unit Number, Raleigh, NC 27612</td>
+        </tr>
+        <tr>
+            <td><strong>Dennis de Jong</strong><br><span class="match-tag">phone</span></td>
+            <td>Dennis de Jong</td>
+            <td><span class="cls-badge" style="background:#fed7d7; color:#e53e3e;">Churned</span></td>
+            <td style="font-size:12px; color:#4a5568;"></td>
+            <td><span class="eval-count">1</span></td>
+            <td style="font-size:12px; color:#718096;">107 Cricket Lane, Unit Number, Cary, NC 27518</td>
+        </tr>
+        <tr>
+            <td><strong>Brianna Schwartz</strong><br><span class="match-tag">phone</span></td>
+            <td>Brianna LaMonica</td>
+            <td><span class="cls-badge" style="background:#fed7d7; color:#e53e3e;">Churned</span></td>
+            <td style="font-size:12px; color:#4a5568;"></td>
+            <td><span class="eval-count">7</span></td>
+            <td style="font-size:12px; color:#718096;">2716 Thoreau Drive, Unit Number, Durham, NC 27703</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="action-section">
+        <div class="action-title">Action Items</div>
+        <div class="action-card high">
+            <div><span style="background:#e53e3e; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">HIGH</span></div>
+            <div class="action-body">
+                <div class="action-agent">Stephanie Carrillo <span style="font-weight:400; color:#718096; font-size:12px;">(0 evals)</span></div>
+                <div class="action-detail">Lead · eXp Realty, LLC - C · 339 Allen Road, Clayton, NC 27520</div>
+                <div class="action-text">New lead — reach out and introduce HomeCloud</div>
+                <div class="contact-info">stephanie.carrillo@exprealty.com · +19192327075</div>
+            </div>
+        </div>
+        <div class="action-card high">
+            <div><span style="background:#e53e3e; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">HIGH</span></div>
+            <div class="action-body">
+                <div class="action-agent">Chelsea Jones <span style="font-weight:400; color:#718096; font-size:12px;">(0 evals)</span></div>
+                <div class="action-detail">Lead · DASH Carolina · 1057 Chevy Park Landing, Wendell, NC 27591</div>
+                <div class="action-text">New lead — reach out and introduce HomeCloud</div>
+                <div class="contact-info">chelsea@dashnc.com · +19194139851</div>
+            </div>
+        </div>
+        <div class="action-card high">
+            <div><span style="background:#e53e3e; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">HIGH</span></div>
+            <div class="action-body">
+                <div class="action-agent">Anthony G Fink <span style="font-weight:400; color:#718096; font-size:12px;">(7 evals)</span></div>
+                <div class="action-detail">Churned · Linda Craft Team, REALTORS · 5405 Massengill Court, Garner, NC 27529</div>
+                <div class="action-text">Offer incentive to return</div>
+                <div class="contact-info">tony@lindacraft.com · +19199864146</div>
+            </div>
+        </div>
+        <div class="action-card high">
+            <div><span style="background:#e53e3e; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">HIGH</span></div>
+            <div class="action-body">
+                <div class="action-agent">Barbara S Lyster <span style="font-weight:400; color:#718096; font-size:12px;">(0 evals)</span></div>
+                <div class="action-detail">Lead · Berkshire Hathaway HomeService · 1918 Hart Street, Unit Number, Durham, NC 27703</div>
+                <div class="action-text">New lead — reach out and introduce HomeCloud</div>
+                <div class="contact-info">barbara.lyster@bhhsysu.com · +19199616674</div>
+            </div>
+        </div>
+        <div class="action-card high">
+            <div><span style="background:#e53e3e; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">HIGH</span></div>
+            <div class="action-body">
+                <div class="action-agent">Dennis de Jong <span style="font-weight:400; color:#718096; font-size:12px;">(1 evals)</span></div>
+                <div class="action-detail">Churned · Redfin Corporation · 105 Carving Tree Court, Unit Number, Holly Springs, NC 27540</div>
+                <div class="action-text">Offer incentive to return</div>
+                <div class="contact-info">dennis.dejong@redfin.com · +19193076151</div>
+            </div>
+        </div>
+        <div class="action-card high">
+            <div><span style="background:#e53e3e; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">HIGH</span></div>
+            <div class="action-body">
+                <div class="action-agent">Aimee Anderson <span style="font-weight:400; color:#718096; font-size:12px;">(2 evals)</span></div>
+                <div class="action-detail">Churned · 6941 Middleboro Drive, Unit Number, Raleigh, NC 27612</div>
+                <div class="action-text">Offer incentive to return</div>
+                <div class="contact-info">aimeeanderson9@yahoo.com</div>
+            </div>
+        </div>
+        <div class="action-card high">
+            <div><span style="background:#e53e3e; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">HIGH</span></div>
+            <div class="action-body">
+                <div class="action-agent">Dennis de Jong <span style="font-weight:400; color:#718096; font-size:12px;">(1 evals)</span></div>
+                <div class="action-detail">Churned · 107 Cricket Lane, Unit Number, Cary, NC 27518</div>
+                <div class="action-text">Offer incentive to return</div>
+                <div class="contact-info">dennis.dejong@redfin.com · +19193076151</div>
+            </div>
+        </div>
+        <div class="action-card high">
+            <div><span style="background:#e53e3e; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">HIGH</span></div>
+            <div class="action-body">
+                <div class="action-agent">Brianna Schwartz <span style="font-weight:400; color:#718096; font-size:12px;">(7 evals)</span></div>
+                <div class="action-detail">Churned · 2716 Thoreau Drive, Unit Number, Durham, NC 27703</div>
+                <div class="action-text">Offer incentive to return</div>
+                <div class="contact-info">briannashea@gmail.com · +19195902707</div>
+            </div>
+        </div>
+        <div class="action-card done">
+            <div><span style="background:#a0aec0; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">DONE</span></div>
+            <div class="action-body">
+                <div class="action-agent">Mallory Hedden <span style="font-weight:400; color:#718096; font-size:12px;">(1 evals)</span></div>
+                <div class="action-detail">Partner · 2633 Ridgewell Court, Raleigh, NC 27613</div>
+                <div class="action-text">Confirmed booked evaluation — no action needed</div>
+                <div class="contact-info">christianlabrie59@gmail.com · +19196095363</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="day-section">
+    <div class="day-header">
+        <div class="day-title">Tuesday, April 14</div>
+        <div class="day-count">8 matched of 112 transactions</div>
+    </div>
+    <table>
+        <thead><tr>
+            <th>Buyer Agent</th>
+            <th>HubSpot Match</th>
+            <th>Classification</th>
+            <th>Brokerage</th>
+            <th>Evals</th>
+            <th>Property</th>
+        </tr></thead>
+        <tbody>
+        <tr>
+            <td><strong>Sue Kerata</strong><br><span class="match-tag">phone</span></td>
+            <td>Sue Kerata</td>
+            <td><span class="cls-badge" style="background:#e9d8fd; color:#805ad5;">Lead</span></td>
+            <td style="font-size:12px; color:#4a5568;">Century 21 Triangle Group</td>
+            <td><span class="eval-count eval-zero">0</span></td>
+            <td style="font-size:12px; color:#718096;">2950 Hickory Field Drive, Raleigh, NC 27616</td>
+        </tr>
+        <tr>
+            <td><strong>Trevor Miller</strong><br><span class="match-tag">phone</span></td>
+            <td>Trevor Miller</td>
+            <td><span class="cls-badge" style="background:#fefcbf; color:#d69e2e;">Partner</span></td>
+            <td style="font-size:12px; color:#4a5568;">EXP Realty LLC</td>
+            <td><span class="eval-count">8</span></td>
+            <td style="font-size:12px; color:#718096;">124 Vulcan Street, Garner, NC 27529</td>
+        </tr>
+        <tr>
+            <td><strong>Amy Hickey</strong><br><span class="match-tag">phone</span></td>
+            <td>Amy Hickey</td>
+            <td><span class="cls-badge" style="background:#e9d8fd; color:#805ad5;">Lead</span></td>
+            <td style="font-size:12px; color:#4a5568;">Coldwell Banker Advantage</td>
+            <td><span class="eval-count eval-zero">0</span></td>
+            <td style="font-size:12px; color:#718096;">109 Prince William Lane, Unit Number, Cary, NC 27511</td>
+        </tr>
+        <tr>
+            <td><strong>Bryn Terry</strong><br><span class="match-tag">phone</span></td>
+            <td>Bryn Terry</td>
+            <td><span class="cls-badge" style="background:#fed7d7; color:#e53e3e;">Churned</span></td>
+            <td style="font-size:12px; color:#4a5568;">Choice Residential Real Estate</td>
+            <td><span class="eval-count">7</span></td>
+            <td style="font-size:12px; color:#718096;">2016 Satinwood Drive, Unit Number, Clayton, NC 27520</td>
+        </tr>
+        <tr>
+            <td><strong>Christina Valkanoff</strong><br><span class="match-tag">phone</span></td>
+            <td>Christina Valkanoff</td>
+            <td><span class="cls-badge" style="background:#fefcbf; color:#d69e2e;">Partner</span></td>
+            <td style="font-size:12px; color:#4a5568;"></td>
+            <td><span class="eval-count">7</span></td>
+            <td style="font-size:12px; color:#718096;">5405 Chimney Swift Drive, Unit Number, Wake Forest, NC 27587</td>
+        </tr>
+        <tr>
+            <td><strong>Kenneth M Jackson</strong><br><span class="match-tag">phone</span></td>
+            <td>Ken Jackson</td>
+            <td><span class="cls-badge" style="background:#e9d8fd; color:#805ad5;">Lead</span></td>
+            <td style="font-size:12px; color:#4a5568;"></td>
+            <td><span class="eval-count eval-zero">0</span></td>
+            <td style="font-size:12px; color:#718096;">11808 Friendship Oak Trail, Unit Number, Raleigh, NC 27613</td>
+        </tr>
+        <tr>
+            <td><strong>Lakendria T Williams</strong><br><span class="match-tag">phone</span></td>
+            <td>Lakendria Williams</td>
+            <td><span class="cls-badge" style="background:#e9d8fd; color:#805ad5;">Lead</span></td>
+            <td style="font-size:12px; color:#4a5568;"></td>
+            <td><span class="eval-count eval-zero">0</span></td>
+            <td style="font-size:12px; color:#718096;">1910 Cedar Dam Lane, Unit Number, Wendell, NC 27591</td>
+        </tr>
+        <tr>
+            <td><strong>Chambrea Daniels</strong><br><span class="match-tag">phone</span></td>
+            <td>Chambrea Daniels</td>
+            <td><span class="cls-badge" style="background:#fefcbf; color:#d69e2e;">Partner</span></td>
+            <td style="font-size:12px; color:#4a5568;"></td>
+            <td><span class="eval-count">1</span></td>
+            <td style="font-size:12px; color:#718096;">7416 Bourbon Briar Drive, Unit Number, Raleigh, NC 27604</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="action-section">
+        <div class="action-title">Action Items</div>
+        <div class="action-card high">
+            <div><span style="background:#e53e3e; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">HIGH</span></div>
+            <div class="action-body">
+                <div class="action-agent">Sue Kerata <span style="font-weight:400; color:#718096; font-size:12px;">(0 evals)</span></div>
+                <div class="action-detail">Lead · Century 21 Triangle Group · 2950 Hickory Field Drive, Raleigh, NC 27616</div>
+                <div class="action-text">New lead — reach out and introduce HomeCloud</div>
+                <div class="contact-info">sue.kerata@gmail.com · +19194549098</div>
+            </div>
+        </div>
+        <div class="action-card high">
+            <div><span style="background:#e53e3e; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">HIGH</span></div>
+            <div class="action-body">
+                <div class="action-agent">Amy Hickey <span style="font-weight:400; color:#718096; font-size:12px;">(0 evals)</span></div>
+                <div class="action-detail">Lead · Coldwell Banker Advantage · 109 Prince William Lane, Unit Number, Cary, NC 27511</div>
+                <div class="action-text">New lead — reach out and introduce HomeCloud</div>
+                <div class="contact-info">amyhickey@cbadvantage.com · 919-931-1970</div>
+            </div>
+        </div>
+        <div class="action-card high">
+            <div><span style="background:#e53e3e; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">HIGH</span></div>
+            <div class="action-body">
+                <div class="action-agent">Bryn Terry <span style="font-weight:400; color:#718096; font-size:12px;">(7 evals)</span></div>
+                <div class="action-detail">Churned · Choice Residential Real Estate · 2016 Satinwood Drive, Unit Number, Clayton, NC 27520</div>
+                <div class="action-text">Offer incentive to return</div>
+                <div class="contact-info">brynterryrealtor@gmail.com · +12522877514</div>
+            </div>
+        </div>
+        <div class="action-card high">
+            <div><span style="background:#e53e3e; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">HIGH</span></div>
+            <div class="action-body">
+                <div class="action-agent">Kenneth M Jackson <span style="font-weight:400; color:#718096; font-size:12px;">(0 evals)</span></div>
+                <div class="action-detail">Lead · 11808 Friendship Oak Trail, Unit Number, Raleigh, NC 27613</div>
+                <div class="action-text">New lead — reach out and introduce HomeCloud</div>
+                <div class="contact-info">ken.m.jackso@gmail.com · +18282792198</div>
+            </div>
+        </div>
+        <div class="action-card high">
+            <div><span style="background:#e53e3e; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">HIGH</span></div>
+            <div class="action-body">
+                <div class="action-agent">Lakendria T Williams <span style="font-weight:400; color:#718096; font-size:12px;">(0 evals)</span></div>
+                <div class="action-detail">Lead · 1910 Cedar Dam Lane, Unit Number, Wendell, NC 27591</div>
+                <div class="action-text">New lead — reach out and introduce HomeCloud</div>
+                <div class="contact-info">lakendria.williams@compass.com · +13345051985</div>
+            </div>
+        </div>
+        <div class="action-card medium">
+            <div><span style="background:#dd6b20; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">MEDIUM</span></div>
+            <div class="action-body">
+                <div class="action-agent">Chambrea Daniels <span style="font-weight:400; color:#718096; font-size:12px;">(1 evals)</span></div>
+                <div class="action-detail">Partner · 7416 Bourbon Briar Drive, Unit Number, Raleigh, NC 27604</div>
+                <div class="action-text">Opportunity to get them to do their second in a month</div>
+                <div class="contact-info">cmdaniels@drgsoldit.com · +19196568780</div>
+            </div>
+        </div>
+        <div class="action-card low">
+            <div><span style="background:#38a169; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">LOW</span></div>
+            <div class="action-body">
+                <div class="action-agent">Trevor Miller <span style="font-weight:400; color:#718096; font-size:12px;">(8 evals)</span></div>
+                <div class="action-detail">Partner · EXP Realty LLC · 124 Vulcan Street, Garner, NC 27529</div>
+                <div class="action-text">Congratulate on new deal</div>
+                <div class="contact-info">trevor@caulteam.com · +19194105674</div>
+            </div>
+        </div>
+        <div class="action-card low">
+            <div><span style="background:#38a169; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">LOW</span></div>
+            <div class="action-body">
+                <div class="action-agent">Christina Valkanoff <span style="font-weight:400; color:#718096; font-size:12px;">(7 evals)</span></div>
+                <div class="action-detail">Partner · 5405 Chimney Swift Drive, Unit Number, Wake Forest, NC 27587</div>
+                <div class="action-text">Congratulate on new deal</div>
+                <div class="contact-info">christina@cvrealtygroup.com · +19193454538</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="day-section">
+    <div class="day-header">
+        <div class="day-title">Wednesday, April 15</div>
+        <div class="day-count">2 matched of 67 transactions</div>
+    </div>
+    <table>
+        <thead><tr>
+            <th>Buyer Agent</th>
+            <th>HubSpot Match</th>
+            <th>Classification</th>
+            <th>Brokerage</th>
+            <th>Evals</th>
+            <th>Property</th>
+        </tr></thead>
+        <tbody>
+        <tr>
+            <td><strong>Barbara G Purtee</strong><br><span class="match-tag">phone</span></td>
+            <td>Barbara Purtee</td>
+            <td><span class="cls-badge" style="background:#e9d8fd; color:#805ad5;">Lead</span></td>
+            <td style="font-size:12px; color:#4a5568;">EXP Realty LLC</td>
+            <td><span class="eval-count eval-zero">0</span></td>
+            <td style="font-size:12px; color:#718096;">3824 Coach Lantern Avenue, Unit Number, Wake Forest, NC 27587</td>
+        </tr>
+        <tr>
+            <td><strong>John Delgado</strong><br><span class="match-tag">phone</span></td>
+            <td>John Delgado</td>
+            <td><span class="cls-badge" style="background:#e9d8fd; color:#805ad5;">Lead</span></td>
+            <td style="font-size:12px; color:#4a5568;">Keller Williams Elite Realty</td>
+            <td><span class="eval-count eval-zero">0</span></td>
+            <td style="font-size:12px; color:#718096;">2317 Stagecoach Drive, Hillsborough, NC 27278</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="action-section">
+        <div class="action-title">Action Items</div>
+        <div class="action-card high">
+            <div><span style="background:#e53e3e; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">HIGH</span></div>
+            <div class="action-body">
+                <div class="action-agent">Barbara G Purtee <span style="font-weight:400; color:#718096; font-size:12px;">(0 evals)</span></div>
+                <div class="action-detail">Lead &middot; EXP Realty LLC &middot; 3824 Coach Lantern Avenue, Unit Number, Wake Forest, NC 27587</div>
+                <div class="action-text">New lead — reach out and introduce HomeCloud</div>
+                <div class="contact-info">barbara@martihampton.com &middot; +19197609878</div>
+            </div>
+        </div>
+        <div class="action-card high">
+            <div><span style="background:#e53e3e; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">HIGH</span></div>
+            <div class="action-body">
+                <div class="action-agent">John Delgado <span style="font-weight:400; color:#718096; font-size:12px;">(0 evals)</span></div>
+                <div class="action-detail">Lead &middot; Keller Williams Elite Realty &middot; 2317 Stagecoach Drive, Hillsborough, NC 27278</div>
+                <div class="action-text">New lead — reach out and introduce HomeCloud</div>
+                <div class="contact-info">john@jpattersonrealty.com &middot; +19143161893</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="day-section">
+    <div class="day-header">
+        <div class="day-title">Thursday, April 16</div>
+        <div class="day-count">3 matched of 61 transactions</div>
+    </div>
+    <table>
+        <thead><tr>
+            <th>Buyer Agent</th>
+            <th>HubSpot Match</th>
+            <th>Classification</th>
+            <th>Brokerage</th>
+            <th>Evals</th>
+            <th>Property</th>
+        </tr></thead>
+        <tbody>
+        <tr>
+            <td><strong>Sherri Richter</strong><br><span class="match-tag">name</span></td>
+            <td>Sherri Richter</td>
+            <td><span class="cls-badge" style="background:#e9d8fd; color:#805ad5;">Lead</span></td>
+            <td style="font-size:12px; color:#4a5568;">DASH Carolina</td>
+            <td><span class="eval-count eval-zero">0</span></td>
+            <td style="font-size:12px; color:#718096;">119 Ferndale Drive, Garner, NC 27529</td>
+        </tr>
+        <tr>
+            <td><strong>K.C. McLaughlin</strong><br><span class="match-tag">name</span></td>
+            <td>K.C. McLaughlin</td>
+            <td><span class="cls-badge" style="background:#e9d8fd; color:#805ad5;">Lead</span></td>
+            <td style="font-size:12px; color:#4a5568;">RE/MAX United</td>
+            <td><span class="eval-count eval-zero">0</span></td>
+            <td style="font-size:12px; color:#718096;">3020 Winfred Dell Lane, Cary, NC 27511</td>
+        </tr>
+        <tr>
+            <td><strong>Nick Kolb</strong><br><span class="match-tag">name</span></td>
+            <td>Nick Kolb</td>
+            <td><span class="cls-badge" style="background:#e9d8fd; color:#805ad5;">Lead</span></td>
+            <td style="font-size:12px; color:#4a5568;">DASH Carolina</td>
+            <td><span class="eval-count eval-zero">0</span></td>
+            <td style="font-size:12px; color:#718096;">635 Sawcut Lane, Unit Number, Apex, NC 27502</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="action-section">
+        <div class="action-title">Action Items</div>
+        <div class="action-card high">
+            <div><span style="background:#e53e3e; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">HIGH</span></div>
+            <div class="action-body">
+                <div class="action-agent">Sherri Richter <span style="font-weight:400; color:#718096; font-size:12px;">(0 evals)</span></div>
+                <div class="action-detail">Lead &middot; DASH Carolina &middot; 119 Ferndale Drive, Garner, NC 27529</div>
+                <div class="action-text">New lead — reach out and introduce HomeCloud</div>
+                <div class="contact-info">sherri.richter@dashnc.com &middot; +13174083709</div>
+            </div>
+        </div>
+        <div class="action-card high">
+            <div><span style="background:#e53e3e; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">HIGH</span></div>
+            <div class="action-body">
+                <div class="action-agent">K.C. McLaughlin <span style="font-weight:400; color:#718096; font-size:12px;">(0 evals)</span></div>
+                <div class="action-detail">Lead &middot; RE/MAX United &middot; 3020 Winfred Dell Lane, Cary, NC 27511</div>
+                <div class="action-text">New lead — reach out and introduce HomeCloud</div>
+                <div class="contact-info">kc@kcmclaughlin.com &middot; +19196097463</div>
+            </div>
+        </div>
+        <div class="action-card high">
+            <div><span style="background:#e53e3e; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">HIGH</span></div>
+            <div class="action-body">
+                <div class="action-agent">Nick Kolb <span style="font-weight:400; color:#718096; font-size:12px;">(0 evals)</span></div>
+                <div class="action-detail">Lead &middot; DASH Carolina &middot; 635 Sawcut Lane, Unit Number, Apex, NC 27502</div>
+                <div class="action-text">New lead — reach out and introduce HomeCloud</div>
+                <div class="contact-info">nick.kolb@dashnc.com &middot; +19193498912</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="day-section">
+    <div class="day-header">
+        <div class="day-title">Friday, April 17</div>
+        <div class="day-count">8 matched of 58 transactions</div>
+    </div>
+    <table>
+        <thead><tr>
+            <th>Buyer Agent</th>
+            <th>HubSpot Match</th>
+            <th>Classification</th>
+            <th>Brokerage</th>
+            <th>Evals</th>
+            <th>Property</th>
+        </tr></thead>
+        <tbody>
+        <tr>
+            <td><strong>Alex Bingham</strong><br><span class="match-tag">phone</span></td>
+            <td>Alex Bingham</td>
+            <td><span class="cls-badge" style="background:#fefcbf; color:#d69e2e;">Partner</span></td>
+            <td style="font-size:12px; color:#4a5568;">Compass -- Chapel Hill - Durham</td>
+            <td><span class="eval-count ">19</span></td>
+            <td style="font-size:12px; color:#718096;">101 Thomas Lane, Unit Number D-3, Carrboro, NC 27510</td>
+        </tr>
+        <tr>
+            <td><strong>Dave Wylie</strong><br><span class="match-tag">phone</span></td>
+            <td>Dave Wylie</td>
+            <td><span class="cls-badge" style="background:#fefcbf; color:#d69e2e;">Partner</span></td>
+            <td style="font-size:12px; color:#4a5568;">Compass -- Chapel Hill - Durham</td>
+            <td><span class="eval-count eval-zero">?</span></td>
+            <td style="font-size:12px; color:#718096;">932 Watercolor Way, Unit Number, Durham, NC 27713</td>
+        </tr>
+        <tr>
+            <td><strong>Jenni Koppe</strong><br><span class="match-tag">phone</span></td>
+            <td>Jenni Koppe</td>
+            <td><span class="cls-badge" style="background:#fefcbf; color:#d69e2e;">Partner</span></td>
+            <td style="font-size:12px; color:#4a5568;">Christina Valkanoff Realty Group</td>
+            <td><span class="eval-count eval-zero">?</span></td>
+            <td style="font-size:12px; color:#718096;">1859 Lake Glen Drive, Unit Number, Fuquay Varina, NC 27526</td>
+        </tr>
+        <tr>
+            <td><strong>Justin Burleson</strong><br><span class="match-tag">phone</span></td>
+            <td>Justin Burleson</td>
+            <td><span class="cls-badge" style="background:#fefcbf; color:#d69e2e;">Partner</span></td>
+            <td style="font-size:12px; color:#4a5568;">Premier Agents Network</td>
+            <td><span class="eval-count eval-zero">?</span></td>
+            <td style="font-size:12px; color:#718096;">16 Crystal Oaks Court, Unit Number, Durham, NC 27707</td>
+        </tr>
+        <tr>
+            <td><strong>Matt Perry</strong><br><span class="match-tag">name</span></td>
+            <td>Matt Perry</td>
+            <td><span class="cls-badge" style="background:#fefcbf; color:#d69e2e;">Partner</span></td>
+            <td style="font-size:12px; color:#4a5568;">Keller Williams Elite Realty</td>
+            <td><span class="eval-count eval-zero">?</span></td>
+            <td style="font-size:12px; color:#718096;">128 Galway Glenn Lane, Durham, NC 27705</td>
+        </tr>
+        <tr>
+            <td><strong>Kerry Brubaker</strong><br><span class="match-tag">phone</span></td>
+            <td>Kerry Brubaker</td>
+            <td><span class="cls-badge" style="background:#e9d8fd; color:#805ad5;">Lead</span></td>
+            <td style="font-size:12px; color:#4a5568;">DASH Carolina</td>
+            <td><span class="eval-count eval-zero">0</span></td>
+            <td style="font-size:12px; color:#718096;">813 Keiths Road, Unit Number, Knightdale, NC 27545</td>
+        </tr>
+        <tr>
+            <td><strong>Kevin Gracey</strong><br><span class="match-tag">phone</span></td>
+            <td>Kevin Gracey</td>
+            <td><span class="cls-badge" style="background:#e9d8fd; color:#805ad5;">Lead</span></td>
+            <td style="font-size:12px; color:#4a5568;">Coldwell Banker Advantage</td>
+            <td><span class="eval-count eval-zero">0</span></td>
+            <td style="font-size:12px; color:#718096;">337 Kineton Woods Way, Unit Number, Garner, NC 27529</td>
+        </tr>
+        <tr>
+            <td><strong>Stephanie Carrillo</strong><br><span class="match-tag">phone</span></td>
+            <td>Stephanie Carrillo</td>
+            <td><span class="cls-badge" style="background:#e9d8fd; color:#805ad5;">Lead</span></td>
+            <td style="font-size:12px; color:#4a5568;">eXp Realty, LLC - C</td>
+            <td><span class="eval-count eval-zero">0</span></td>
+            <td style="font-size:12px; color:#718096;">3223 Tryon Road, Unit Number, Raleigh, NC 27603</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="action-section">
+        <div class="action-title">Action Items</div>
+        <div class="action-card medium">
+            <div><span style="background:#dd6b20; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">MEDIUM</span></div>
+            <div class="action-body">
+                <div class="action-agent">Alex Bingham <span style="font-weight:400; color:#718096; font-size:12px;">(19 evals)</span></div>
+                <div class="action-detail">Partner · Compass -- Chapel Hill - Durham · 101 Thomas Lane, Unit Number D-3, Carrboro, NC 27510</div>
+                <div class="action-text">Opportunity to get them to do their second in a month</div>
+                <div class="contact-info">alex@spotlightnc.com · +15405897854</div>
+            </div>
+        </div>
+        <div class="action-card medium">
+            <div><span style="background:#dd6b20; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">MEDIUM</span></div>
+            <div class="action-body">
+                <div class="action-agent">Dave Wylie <span style="font-weight:400; color:#718096; font-size:12px;">(? evals)</span></div>
+                <div class="action-detail">Partner · Compass -- Chapel Hill - Durham · 932 Watercolor Way, Unit Number, Durham, NC 27713</div>
+                <div class="action-text">Opportunity to get them to do their second in a month</div>
+                <div class="contact-info">dave@spotlightnc.com · +12524124646</div>
+            </div>
+        </div>
+        <div class="action-card medium">
+            <div><span style="background:#dd6b20; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">MEDIUM</span></div>
+            <div class="action-body">
+                <div class="action-agent">Jenni Koppe <span style="font-weight:400; color:#718096; font-size:12px;">(? evals)</span></div>
+                <div class="action-detail">Partner · Christina Valkanoff Realty Group · 1859 Lake Glen Drive, Unit Number, Fuquay Varina, NC 27526</div>
+                <div class="action-text">Opportunity to get them to do their second in a month</div>
+                <div class="contact-info">jenni@christinacv.com · +19196498085</div>
+            </div>
+        </div>
+        <div class="action-card medium">
+            <div><span style="background:#dd6b20; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">MEDIUM</span></div>
+            <div class="action-body">
+                <div class="action-agent">Justin Burleson <span style="font-weight:400; color:#718096; font-size:12px;">(? evals)</span></div>
+                <div class="action-detail">Partner · Premier Agents Network · 16 Crystal Oaks Court, Unit Number, Durham, NC 27707</div>
+                <div class="action-text">Opportunity to get them to do their second in a month</div>
+                <div class="contact-info">justin@nchouse2home.com · +19196095161</div>
+            </div>
+        </div>
+        <div class="action-card medium">
+            <div><span style="background:#dd6b20; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">MEDIUM</span></div>
+            <div class="action-body">
+                <div class="action-agent">Matt Perry <span style="font-weight:400; color:#718096; font-size:12px;">(? evals)</span></div>
+                <div class="action-detail">Partner · Keller Williams Elite Realty · 128 Galway Glenn Lane, Durham, NC 27705</div>
+                <div class="action-text">Opportunity to get them to do their second in a month</div>
+                <div class="contact-info">matt@theperrygroupnc.com · +19198187016</div>
+            </div>
+        </div>
+        <div class="action-card high">
+            <div><span style="background:#e53e3e; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">HIGH</span></div>
+            <div class="action-body">
+                <div class="action-agent">Kerry Brubaker <span style="font-weight:400; color:#718096; font-size:12px;">(0 evals)</span></div>
+                <div class="action-detail">Lead · DASH Carolina · 813 Keiths Road, Unit Number, Knightdale, NC 27545</div>
+                <div class="action-text">New lead — reach out and introduce HomeCloud</div>
+                <div class="contact-info">kerry.brubaker@dashnc.com · +19195593474</div>
+            </div>
+        </div>
+        <div class="action-card high">
+            <div><span style="background:#e53e3e; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">HIGH</span></div>
+            <div class="action-body">
+                <div class="action-agent">Kevin Gracey <span style="font-weight:400; color:#718096; font-size:12px;">(0 evals)</span></div>
+                <div class="action-detail">Lead · Coldwell Banker Advantage · 337 Kineton Woods Way, Unit Number, Garner, NC 27529</div>
+                <div class="action-text">New lead — reach out and introduce HomeCloud</div>
+                <div class="contact-info">kgracey@cbadvantage.com · 919-980-5478</div>
+            </div>
+        </div>
+        <div class="action-card high">
+            <div><span style="background:#e53e3e; color:white; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600;">HIGH</span></div>
+            <div class="action-body">
+                <div class="action-agent">Stephanie Carrillo <span style="font-weight:400; color:#718096; font-size:12px;">(0 evals)</span></div>
+                <div class="action-detail">Lead · eXp Realty, LLC - C · 3223 Tryon Road, Unit Number, Raleigh, NC 27603</div>
+                <div class="action-text">New lead — reach out and introduce HomeCloud</div>
+                <div class="contact-info">stephanie.carrillo@exprealty.com · +19192327075</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+</body>
+</html>
