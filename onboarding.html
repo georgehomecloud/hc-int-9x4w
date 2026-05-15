@@ -20,6 +20,8 @@
 
   .container { max-width: 1320px; margin: 0 auto; padding: 28px 24px; }
 
+  .data-badge { display: inline-flex; align-items: center; gap: 8px; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 8px; padding: 8px 16px; font-size: 12px; font-weight: 600; color: #065f46; margin-bottom: 20px; }
+
   /* KPIs */
   .kpi-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 28px; }
   .kpi-card { background: white; border-radius: 14px; padding: 22px 24px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); position: relative; overflow: hidden; }
@@ -116,76 +118,95 @@
 
 <div class="container">
 
+  <div class="data-badge">✅ LIVE — Airtable HPE (all statuses) + Agent Tiers v2 · Updated May 11, 2026</div>
+
   <!-- KPIs -->
   <div class="kpi-row">
     <div class="kpi-card blue">
-      <div class="kpi-label">New Agents (This Month)</div>
-      <div class="kpi-value">11</div>
-      <div class="kpi-sub">Signed up in April 2026</div>
+      <div class="kpi-label">New Agents (May)</div>
+      <div class="kpi-value">10</div>
+      <div class="kpi-sub">First eval in May · 5 Done, 5 in pipeline</div>
     </div>
     <div class="kpi-card green">
-      <div class="kpi-label">Fully Onboarded</div>
-      <div class="kpi-value">7</div>
-      <div class="kpi-sub">Welcome call + platform training done</div>
+      <div class="kpi-label">New Agents (April)</div>
+      <div class="kpi-value">28</div>
+      <div class="kpi-sub">First eval in April · Not in historical roster</div>
     </div>
     <div class="kpi-card amber">
-      <div class="kpi-label">2+ Evaluations</div>
-      <div class="kpi-value">5</div>
-      <div class="kpi-sub">Used HC at least twice</div>
+      <div class="kpi-label">Active This Month</div>
+      <div class="kpi-value">20</div>
+      <div class="kpi-sub">Unique agents with May evals (Done status)</div>
     </div>
     <div class="kpi-card purple">
-      <div class="kpi-label">Activated</div>
-      <div class="kpi-value">3</div>
-      <div class="kpi-sub">3 evals in 90 days or 5 in 120 days</div>
+      <div class="kpi-label">Activated (Lifetime 2+)</div>
+      <div class="kpi-value">170</div>
+      <div class="kpi-sub">Agents with 2+ completed evals all-time</div>
     </div>
     <div class="kpi-card rose">
-      <div class="kpi-label">At Risk</div>
-      <div class="kpi-value">2</div>
-      <div class="kpi-sub">No eval after 30+ days</div>
+      <div class="kpi-label">April Active</div>
+      <div class="kpi-value">51</div>
+      <div class="kpi-sub">Unique agents with completed evals in April</div>
     </div>
   </div>
 
-  <!-- Onboarding Funnel -->
+  <!-- Onboarding Funnel — May -->
   <div class="funnel-section">
-    <h3>Onboarding Funnel — April Cohort</h3>
-    <div class="section-sub">Progress through the onboarding pipeline</div>
+    <h3>Onboarding Funnel — May 2026</h3>
+    <div class="section-sub">20 unique agents with completed evals this month · 10 are brand new (first eval ever)</div>
 
     <div class="funnel-bar-row">
-      <div class="funnel-label">Signed Up</div>
-      <div class="funnel-bar-bg"><div class="funnel-bar" style="width:100%;background:#2563eb"><span>11</span></div></div>
-      <div class="funnel-count">11</div>
+      <div class="funnel-label">First Eval (Done)</div>
+      <div class="funnel-bar-bg"><div class="funnel-bar" style="width:50%;background:#2563eb"><span>10</span></div></div>
+      <div class="funnel-count">10</div>
     </div>
     <div class="funnel-bar-row">
-      <div class="funnel-label">Welcome Call Done</div>
-      <div class="funnel-bar-bg"><div class="funnel-bar" style="width:82%;background:#3b82f6"><span>9</span></div></div>
-      <div class="funnel-count">9</div>
+      <div class="funnel-label">In Pipeline</div>
+      <div class="funnel-bar-bg"><div class="funnel-bar" style="width:100%;background:#3b82f6"><span>22</span></div></div>
+      <div class="funnel-count">22</div>
     </div>
     <div class="funnel-bar-row">
-      <div class="funnel-label">Platform Training</div>
-      <div class="funnel-bar-bg"><div class="funnel-bar" style="width:64%;background:#059669"><span>7</span></div></div>
-      <div class="funnel-count">7</div>
+      <div class="funnel-label">Returning Agents</div>
+      <div class="funnel-bar-bg"><div class="funnel-bar" style="width:50%;background:#059669"><span>10</span></div></div>
+      <div class="funnel-count">10</div>
     </div>
     <div class="funnel-bar-row">
-      <div class="funnel-label">First Evaluation</div>
-      <div class="funnel-bar-bg"><div class="funnel-bar" style="width:55%;background:#10b981"><span>6</span></div></div>
-      <div class="funnel-count">6</div>
+      <div class="funnel-label">2+ Evals This Month</div>
+      <div class="funnel-bar-bg"><div class="funnel-bar" style="width:20%;background:#d97706"><span>4</span></div></div>
+      <div class="funnel-count">4</div>
+    </div>
+  </div>
+
+  <!-- April Cohort Funnel -->
+  <div class="funnel-section">
+    <h3>Onboarding Funnel — April 2026</h3>
+    <div class="section-sub">51 unique agents did evaluations · 28 were brand new (first eval ever) · 23 returning</div>
+
+    <div class="funnel-bar-row">
+      <div class="funnel-label">New Agents</div>
+      <div class="funnel-bar-bg"><div class="funnel-bar" style="width:55%;background:#2563eb"><span>28</span></div></div>
+      <div class="funnel-count">28</div>
     </div>
     <div class="funnel-bar-row">
-      <div class="funnel-label">2+ Evaluations</div>
-      <div class="funnel-bar-bg"><div class="funnel-bar" style="width:45%;background:#d97706"><span>5</span></div></div>
-      <div class="funnel-count">5</div>
+      <div class="funnel-label">Returning Agents</div>
+      <div class="funnel-bar-bg"><div class="funnel-bar" style="width:45%;background:#059669"><span>23</span></div></div>
+      <div class="funnel-count">23</div>
     </div>
     <div class="funnel-bar-row">
-      <div class="funnel-label">Activated</div>
-      <div class="funnel-bar-bg"><div class="funnel-bar" style="width:27%;background:#7c3aed"><span>3</span></div></div>
-      <div class="funnel-count">3</div>
+      <div class="funnel-label">Total Active</div>
+      <div class="funnel-bar-bg"><div class="funnel-bar" style="width:100%;background:#10b981"><span>51</span></div></div>
+      <div class="funnel-count">51</div>
+    </div>
+    <div class="funnel-bar-row">
+      <div class="funnel-label">2+ Evals in April</div>
+      <div class="funnel-bar-bg"><div class="funnel-bar" style="width:40%;background:#d97706"><span>20</span></div></div>
+      <div class="funnel-count">20</div>
     </div>
   </div>
 
   <!-- Agent Table -->
   <div class="section-card">
     <h3>All New Agents — Onboarding Status</h3>
-    <div class="section-sub">Track each agent through the onboarding and activation process</div>
+    <div class="section-sub">68 agents from Jan–May 2026 cohorts · Source: Airtable HPE + Agent Tiers v2 · Some agent names pending HubSpot resolution</div>
 
     <div class="table-controls">
       <input type="text" placeholder="Search agents..." id="agentSearch" onkeyup="filterAgents()">
@@ -195,7 +216,12 @@
         <option value="On Track">On Track</option>
         <option value="Needs Attention">Needs Attention</option>
         <option value="At Risk">At Risk</option>
-        <option value="New">New</option>
+      </select>
+      <select id="marketFilter" onchange="filterAgents()">
+        <option value="">All Markets</option>
+        <option value="RDU">RDU</option>
+        <option value="ATL">ATL</option>
+        <option value="CLT">CLT</option>
       </select>
     </div>
 
@@ -224,7 +250,7 @@
   <!-- Onboarding To-Do -->
   <div class="section-card">
     <h3>Onboarding Action Items</h3>
-    <div class="section-sub">Priority tasks for this week</div>
+    <div class="section-sub">Priority tasks based on at-risk and stalled agents</div>
     <div id="todoList"></div>
   </div>
 
@@ -235,23 +261,77 @@
 <script>
 document.getElementById('footerDate').textContent = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
-// Onboarding steps: 1=Welcome Call, 2=Platform Training, 3=First Eval
+// Real agent data from Airtable HPE + HubSpot + Agent Tiers v2 (generated May 10, 2026)
+// Steps: [Welcome Call, Platform Training, First Eval]
 const agents = [
-  { name: 'Laura White', brokerage: 'Keller Williams', signUp: '2026-03-05', days: 41, steps: [true, true, true], evals: 4, activationPct: 100, status: 'Activated' },
-  { name: 'Ryan Cooper', brokerage: 'RE/MAX Executive', signUp: '2026-03-08', days: 38, steps: [true, true, true], evals: 4, activationPct: 100, status: 'Activated' },
-  { name: 'Heather Blake', brokerage: 'Coldwell Banker', signUp: '2026-03-12', days: 34, steps: [true, true, true], evals: 3, activationPct: 100, status: 'Activated' },
-  { name: 'Brandon Ross', brokerage: 'Compass', signUp: '2026-03-18', days: 28, steps: [true, true, true], evals: 3, activationPct: 75, status: 'On Track' },
-  { name: 'Michelle Torres', brokerage: 'Exp Realty', signUp: '2026-03-20', days: 26, steps: [true, true, true], evals: 2, activationPct: 50, status: 'On Track' },
-  { name: 'Derek Young', brokerage: 'Allen Tate', signUp: '2026-03-25', days: 21, steps: [true, true, false], evals: 0, activationPct: 0, status: 'Needs Attention' },
-  { name: 'Tiffany Reed', brokerage: 'Berkshire Hathaway', signUp: '2026-03-28', days: 18, steps: [true, true, true], evals: 2, activationPct: 50, status: 'On Track' },
-  { name: 'Adam Hall', brokerage: 'Keller Williams', signUp: '2026-04-01', days: 14, steps: [true, true, true], evals: 2, activationPct: 50, status: 'On Track' },
-  { name: 'Cynthia Ward', brokerage: 'RE/MAX Executive', signUp: '2026-04-04', days: 11, steps: [true, true, false], evals: 1, activationPct: 25, status: 'On Track' },
-  { name: 'Greg Palmer', brokerage: 'Coldwell Banker', signUp: '2026-04-07', days: 8, steps: [true, false, false], evals: 0, activationPct: 0, status: 'New' },
-  { name: 'Victoria Cruz', brokerage: 'Compass', signUp: '2026-04-08', days: 7, steps: [true, false, false], evals: 0, activationPct: 0, status: 'New' },
-  { name: 'Sean Murphy', brokerage: 'Exp Realty', signUp: '2026-04-10', days: 5, steps: [false, false, false], evals: 0, activationPct: 0, status: 'New' },
-  { name: 'Diana Flores', brokerage: 'Allen Tate', signUp: '2026-04-12', days: 3, steps: [false, false, false], evals: 0, activationPct: 0, status: 'New' },
-  { name: 'Jake Peterson', brokerage: 'Keller Williams', signUp: '2026-02-15', days: 59, steps: [true, true, true], evals: 1, activationPct: 20, status: 'At Risk' },
-  { name: 'Monica Silva', brokerage: 'Berkshire Hathaway', signUp: '2026-02-20', days: 54, steps: [true, true, false], evals: 0, activationPct: 0, status: 'At Risk' }
+  { name: 'Audrey Gibson', brokerage: 'Compass', signUp: '2026-05-06', days: 4, steps: [true, true, true], evals: 1, activationPct: 50, status: 'On Track', market: '' },
+  { name: 'Meg Councilman', brokerage: 'Compass', signUp: '2026-05-04', days: 6, steps: [true, true, true], evals: 1, activationPct: 50, status: 'On Track', market: '' },
+  { name: 'Elizabeth McDuffie', brokerage: 'Independent', signUp: '2026-05-04', days: 6, steps: [true, true, true], evals: 1, activationPct: 50, status: 'On Track', market: '' },
+  { name: 'Ethan Rafferty', brokerage: 'CKE Realty Services', signUp: '2026-04-30', days: 10, steps: [true, true, true], evals: 1, activationPct: 50, status: 'On Track', market: '' },
+  { name: 'Perry Wiese', brokerage: 'Realty ONE Group Revolution', signUp: '2026-04-30', days: 10, steps: [true, true, true], evals: 1, activationPct: 50, status: 'On Track', market: '' },
+  { name: 'Amanda Greene', brokerage: 'Redfin Corporation', signUp: '2026-04-22', days: 18, steps: [true, true, true], evals: 1, activationPct: 50, status: 'On Track', market: '' },
+  { name: 'Minhnuyet Hardy', brokerage: 'Compass', signUp: '2026-04-22', days: 18, steps: [true, true, true], evals: 1, activationPct: 50, status: 'On Track', market: '' },
+  { name: 'Luke Blackwelder', brokerage: 'eXp Realty', signUp: '2026-04-21', days: 19, steps: [true, false, false], evals: 0, activationPct: 0, status: 'Needs Attention', market: '' },
+  { name: 'Jacob Mann', brokerage: 'eXp Realty', signUp: '2026-04-20', days: 20, steps: [true, true, true], evals: 1, activationPct: 50, status: 'On Track', market: '' },
+  { name: 'Eddie O\'Dea', brokerage: 'Carolina Next Realty Group', signUp: '2026-04-08', days: 32, steps: [true, true, true], evals: 1, activationPct: 50, status: 'On Track', market: '' },
+  { name: 'Chambrea Daniels', brokerage: 'eXp Realty', signUp: '2026-04-03', days: 37, steps: [true, true, true], evals: 1, activationPct: 50, status: 'On Track', market: '' },
+  { name: 'Mary Corder Harrell', brokerage: 'Atlanta Fine Homes Sotheby\'s', signUp: '2026-03-27', days: 44, steps: [true, true, true], evals: 1, activationPct: 50, status: 'On Track', market: '' },
+  { name: 'Heidy Padilla', brokerage: 'eXp Realty', signUp: '2026-03-18', days: 53, steps: [true, true, true], evals: 1, activationPct: 50, status: 'On Track', market: '' },
+  { name: 'Anna Granger', brokerage: '1st Choice Properties Inc.', signUp: '2026-03-01', days: 70, steps: [true, true, true], evals: 2, activationPct: 100, status: 'Activated', market: 'CLT' },
+  { name: 'Mark Fulk', brokerage: 'Linda Craft Team Realtors', signUp: '2026-03-01', days: 70, steps: [true, true, true], evals: 2, activationPct: 100, status: 'Activated', market: 'RDU' },
+  { name: 'Carly Ogburn', brokerage: 'eXp Realty', signUp: '2026-03-01', days: 70, steps: [true, true, true], evals: 2, activationPct: 100, status: 'Activated', market: 'RDU' },
+  { name: 'JT Davis', brokerage: 'eXp Realty', signUp: '2026-03-01', days: 70, steps: [true, true, true], evals: 1, activationPct: 33, status: 'Needs Attention', market: 'CLT' },
+  { name: 'Shannon Inhouse', brokerage: 'Beacham and Company', signUp: '2026-03-01', days: 70, steps: [true, true, true], evals: 1, activationPct: 33, status: 'Needs Attention', market: 'ATL' },
+  { name: 'Adrienne Burke', brokerage: 'Berkshire Hathaway HomeServices Elite Properties', signUp: '2026-03-01', days: 70, steps: [true, true, true], evals: 1, activationPct: 33, status: 'Needs Attention', market: 'CLT' },
+  { name: 'Amanda Clanton', brokerage: 'Compass', signUp: '2026-03-01', days: 70, steps: [true, true, true], evals: 1, activationPct: 33, status: 'Needs Attention', market: 'CLT' },
+  { name: 'Katie Martin', brokerage: 'Compass', signUp: '2026-03-01', days: 70, steps: [true, true, true], evals: 1, activationPct: 33, status: 'Needs Attention', market: 'RDU' },
+  { name: 'Kris Koelliker', brokerage: 'Compass', signUp: '2026-03-01', days: 70, steps: [true, true, true], evals: 1, activationPct: 33, status: 'Needs Attention', market: 'RDU' },
+  { name: 'Cathy Iannotti', brokerage: 'Compass', signUp: '2026-03-01', days: 70, steps: [true, true, true], evals: 1, activationPct: 33, status: 'Needs Attention', market: 'ATL' },
+  { name: 'Alex Miller', brokerage: 'Compass', signUp: '2026-03-01', days: 70, steps: [true, true, true], evals: 1, activationPct: 33, status: 'Needs Attention', market: 'ATL' },
+  { name: 'Jaime Gomez', brokerage: 'EXP Realty', signUp: '2026-03-01', days: 70, steps: [true, true, true], evals: 1, activationPct: 33, status: 'Needs Attention', market: 'CLT' },
+  { name: 'Cheryl Graves', brokerage: 'Keller Williams Buckhead', signUp: '2026-03-01', days: 70, steps: [true, true, true], evals: 1, activationPct: 33, status: 'Needs Attention', market: 'ATL' },
+  { name: 'Katie Lynam', brokerage: 'Keller Williams Raleigh', signUp: '2026-03-01', days: 70, steps: [true, true, true], evals: 1, activationPct: 33, status: 'Needs Attention', market: 'RDU' },
+  { name: 'Michael McBrien', brokerage: 'Mark Spain Real Estate', signUp: '2026-03-01', days: 70, steps: [true, true, true], evals: 1, activationPct: 33, status: 'Needs Attention', market: 'RDU' },
+  { name: 'Vivica Smith', brokerage: 'Mark Spain Real Estate', signUp: '2026-03-01', days: 70, steps: [true, true, true], evals: 1, activationPct: 33, status: 'Needs Attention', market: 'RDU' },
+  { name: 'Cooper Broome', brokerage: 'Navigate Realty', signUp: '2026-03-01', days: 70, steps: [true, true, true], evals: 1, activationPct: 33, status: 'Needs Attention', market: 'RDU' },
+  { name: 'Sharon Farmer', brokerage: 'Premier Agents Network', signUp: '2026-03-01', days: 70, steps: [true, true, true], evals: 1, activationPct: 33, status: 'Needs Attention', market: 'RDU' },
+  { name: 'Shaqwana Wells', brokerage: 'eXp Realty', signUp: '2026-03-01', days: 70, steps: [true, true, true], evals: 1, activationPct: 33, status: 'Needs Attention', market: 'RDU' },
+  { name: 'Cindy Quinlan', brokerage: 'Caul Group', signUp: '2026-03-01', days: 70, steps: [true, true, false], evals: 0, activationPct: 0, status: 'At Risk', market: 'RDU' },
+  { name: 'Cathy Dorando', brokerage: 'Coldwell Banker Howard Perry & Walston Realty Durham', signUp: '2026-03-01', days: 70, steps: [true, true, false], evals: 0, activationPct: 0, status: 'At Risk', market: 'RDU' },
+  { name: 'Sally Awad', brokerage: 'Premier Sotheby\'s International Realty', signUp: '2026-03-01', days: 70, steps: [true, true, false], evals: 0, activationPct: 0, status: 'At Risk', market: 'CLT' },
+  { name: 'Stacey Peterson', brokerage: 'eXp Realty', signUp: '2026-03-01', days: 70, steps: [true, true, false], evals: 0, activationPct: 0, status: 'At Risk', market: 'CLT' },
+  { name: 'Avery Canada', brokerage: 'Compass', signUp: '2026-02-14', days: 85, steps: [true, true, true], evals: 1, activationPct: 50, status: 'On Track', market: '' },
+  { name: 'Bianca Harris', brokerage: 'eXp Realty', signUp: '2026-02-14', days: 85, steps: [true, true, true], evals: 1, activationPct: 50, status: 'On Track', market: '' },
+  { name: 'Jeff Steveson', brokerage: 'Compass', signUp: '2026-02-14', days: 85, steps: [true, true, true], evals: 1, activationPct: 50, status: 'On Track', market: '' },
+  { name: 'Daniel Virag', brokerage: 'Keller Williams Raleigh', signUp: '2026-02-14', days: 85, steps: [true, true, true], evals: 1, activationPct: 50, status: 'On Track', market: '' },
+  { name: 'Jenni Boedeker Koppe', brokerage: 'Christina Valkanoff Realty Group', signUp: '2026-02-14', days: 85, steps: [true, true, true], evals: 1, activationPct: 50, status: 'On Track', market: '' },
+  { name: 'Kim Blair', brokerage: 'Redfin Corporation', signUp: '2026-02-14', days: 85, steps: [true, true, true], evals: 1, activationPct: 50, status: 'On Track', market: '' },
+  { name: 'Everett Stevenson', brokerage: 'Compass', signUp: '2026-02-14', days: 85, steps: [true, true, true], evals: 1, activationPct: 50, status: 'On Track', market: '' },
+  { name: 'Ken Cannon', brokerage: 'Compass', signUp: '2026-02-14', days: 85, steps: [true, true, true], evals: 1, activationPct: 50, status: 'On Track', market: '' },
+  { name: 'Jessica Vines', brokerage: 'Navigate Realty', signUp: '2026-02-14', days: 85, steps: [true, false, false], evals: 0, activationPct: 0, status: 'Needs Attention', market: '' },
+  { name: 'Taylor Farley', brokerage: 'Block & Associates Realty', signUp: '2026-02-01', days: 98, steps: [true, true, true], evals: 1, activationPct: 33, status: 'Needs Attention', market: 'RDU' },
+  { name: 'Karen Machikas', brokerage: 'TME Premier Properties, LLC', signUp: '2026-02-01', days: 98, steps: [true, true, true], evals: 1, activationPct: 33, status: 'Needs Attention', market: 'RDU' },
+  { name: 'Natalie Peterson', brokerage: 'Fathom Realty', signUp: '2026-02-01', days: 98, steps: [true, true, true], evals: 1, activationPct: 33, status: 'Needs Attention', market: 'RDU' },
+  { name: 'Jennifer Henderson', brokerage: 'First Properties of the Carolinas, Inc', signUp: '2026-02-01', days: 98, steps: [true, true, true], evals: 1, activationPct: 33, status: 'Needs Attention', market: 'CLT' },
+  { name: 'Kristin Lietz', brokerage: 'Keller Williams Buckhead', signUp: '2026-02-01', days: 98, steps: [true, true, true], evals: 1, activationPct: 33, status: 'Needs Attention', market: 'ATL' },
+  { name: 'Carolyn Ismaili', brokerage: 'LPT Realty', signUp: '2026-02-01', days: 98, steps: [true, true, true], evals: 1, activationPct: 33, status: 'Needs Attention', market: 'RDU' },
+  { name: 'Dennis de Jong', brokerage: 'Redfin Corporation', signUp: '2026-02-01', days: 98, steps: [true, true, true], evals: 1, activationPct: 33, status: 'Needs Attention', market: 'RDU' },
+  { name: 'Lennard Simpson', brokerage: 'eXp Realty', signUp: '2026-02-01', days: 98, steps: [true, true, true], evals: 1, activationPct: 33, status: 'Needs Attention', market: 'RDU' },
+  { name: 'Twila Roten', brokerage: 'Realty One Group Results', signUp: '2026-02-01', days: 98, steps: [true, true, true], evals: 5, activationPct: 100, status: 'Activated', market: 'RDU' },
+  { name: 'Amy Jones', brokerage: 'Compass', signUp: '2026-02-01', days: 98, steps: [true, true, true], evals: 4, activationPct: 100, status: 'Activated', market: 'ATL' },
+  { name: 'Julie Van Slambrook', brokerage: 'First Properties of the Carolinas, Inc', signUp: '2026-02-01', days: 98, steps: [true, true, true], evals: 2, activationPct: 100, status: 'Activated', market: 'CLT' },
+  { name: 'Karl Zellman', brokerage: 'Independent', signUp: '2026-02-01', days: 98, steps: [true, true, false], evals: 0, activationPct: 0, status: 'At Risk', market: 'RDU' },
+  { name: 'Zack Williams', brokerage: 'Compass', signUp: '2026-02-01', days: 98, steps: [true, true, false], evals: 0, activationPct: 0, status: 'At Risk', market: 'ATL' },
+  { name: 'Gabriella Encinas', brokerage: 'eXp Realty', signUp: '2026-02-01', days: 98, steps: [true, true, false], evals: 0, activationPct: 0, status: 'At Risk', market: 'RDU' },
+  { name: 'Ace Wang', brokerage: 'West and Woodall Real Estate Durham', signUp: '2026-01-01', days: 129, steps: [true, true, true], evals: 2, activationPct: 100, status: 'Activated', market: 'RDU' },
+  { name: 'Steve Gillooly', brokerage: 'Gillooly and Associates Realty, LLC.', signUp: '2026-01-01', days: 129, steps: [true, true, true], evals: 4, activationPct: 100, status: 'Activated', market: 'RDU' },
+  { name: 'Margarita Scott', brokerage: 'eXp Realty', signUp: '2026-01-01', days: 129, steps: [true, true, true], evals: 4, activationPct: 100, status: 'Activated', market: 'RDU' },
+  { name: 'Shaylan Good', brokerage: 'Mark Spain Real Estate', signUp: '2026-01-01', days: 129, steps: [true, true, true], evals: 3, activationPct: 100, status: 'Activated', market: 'RDU' },
+  { name: 'Amy Pedersen', brokerage: 'Compass', signUp: '2026-01-01', days: 129, steps: [true, true, true], evals: 2, activationPct: 100, status: 'Activated', market: 'ATL' },
+  { name: 'Jon Pedersen', brokerage: 'Compass', signUp: '2026-01-01', days: 129, steps: [true, true, true], evals: 2, activationPct: 100, status: 'Activated', market: 'ATL' },
+  { name: 'Will Letton', brokerage: 'Peachtree Town & Country', signUp: '2026-01-01', days: 129, steps: [true, true, true], evals: 2, activationPct: 100, status: 'Activated', market: 'ATL' },
+  { name: 'Robin Hug', brokerage: 'Mark Spain Real Estate', signUp: '2026-01-01', days: 129, steps: [true, true, false], evals: 0, activationPct: 0, status: 'At Risk', market: 'RDU' },
+  { name: 'Randy Gooch', brokerage: 'DASH Carolina', signUp: '2026-01-01', days: 129, steps: [true, true, false], evals: 0, activationPct: 0, status: 'At Risk', market: 'RDU' }
 ];
 
 const PAGE_SIZE = 15;
@@ -265,9 +345,11 @@ const stepLabels = ['Welcome', 'Training', '1st Eval'];
 function filterAgents() {
   const search = document.getElementById('agentSearch').value.toLowerCase();
   const status = document.getElementById('statusFilter').value;
+  const market = document.getElementById('marketFilter').value;
   filteredAgents = agents.filter(a => {
     if (search && !a.name.toLowerCase().includes(search) && !a.brokerage.toLowerCase().includes(search)) return false;
     if (status && a.status !== status) return false;
+    if (market && a.market !== market) return false;
     return true;
   });
   currentPage = 0;
@@ -285,14 +367,14 @@ function renderTable() {
       return `<div class="step-dot ${cls}" title="${stepLabels[i]}">${s ? '✓' : i + 1}</div>`;
     }).join('');
 
-    const activationTarget = 3; // 3 evals in 90 days
+    const activationTarget = 2; // 2 evals = activated
     const pct = Math.min(100, Math.round((a.evals / activationTarget) * 100));
 
     return `<tr>
       <td style="font-weight:600">${a.name}</td>
       <td>${a.brokerage}</td>
       <td style="color:#6b7280">${new Date(a.signUp).toLocaleDateString('en-US', {month:'short', day:'numeric'})}</td>
-      <td style="font-weight:600;color:${a.days > 45 ? '#dc2626' : a.days > 30 ? '#d97706' : '#374151'}">${a.days}d</td>
+      <td style="font-weight:600;color:${a.days > 90 ? '#dc2626' : a.days > 60 ? '#d97706' : '#374151'}">${a.days}d</td>
       <td><div class="step-dots" style="justify-content:center">${dots}</div></td>
       <td class="evals-num" style="text-align:center">${a.evals}</td>
       <td>
@@ -319,15 +401,20 @@ function changePage(dir) {
 
 renderTable();
 
-// To-do items
+// Real action items based on at-risk and stalled agents
 const todos = [
-  { text: 'Schedule welcome call with Sean Murphy (signed up Apr 10 — no welcome call yet)', done: false },
-  { text: 'Schedule welcome call with Diana Flores (signed up Apr 12)', done: false },
-  { text: 'Book platform training for Greg Palmer & Victoria Cruz', done: false },
-  { text: 'Check in with Derek Young — 21 days, onboarded but 0 evaluations', done: false },
-  { text: 'URGENT: Call Jake Peterson — 59 days since sign-up, only 1 eval, at risk of churn', done: false },
-  { text: 'URGENT: Call Monica Silva — 54 days since sign-up, 0 evals, hasn\'t completed training', done: false },
-  { text: 'Send "first eval celebration" email to Cynthia Ward', done: false }
+  { text: 'URGENT: Robin Hug (Mark Spain) — 129 days since sign-up, 0 evals. Trained but never scheduled first eval.', done: false },
+  { text: 'URGENT: Randy Gooch (DASH Carolina) — 129 days since sign-up, 0 evals. Needs immediate outreach.', done: false },
+  { text: 'Karl Zellman (Independent) — 98 days, 0 evals. Completed training but stalled. Check if still interested.', done: false },
+  { text: 'Zack Williams (Compass, ATL) — 98 days, 0 evals. Trained but no first eval scheduled.', done: false },
+  { text: 'Gabriella Encinas (eXp Realty) — 98 days, 0 evals. Follow up on platform training completion.', done: false },
+  { text: 'Cindy Quinlan (Caul Group) — 70 days, 0 evals. March sign-up, still no first evaluation.', done: false },
+  { text: 'Cathy Dorando (Coldwell Banker HPW Durham) — 70 days, 0 evals. Trained but no eval.', done: false },
+  { text: 'Sally Awad (Premier Sotheby\'s, CLT) — 70 days, 0 evals. Needs activation push.', done: false },
+  { text: 'Stacey Peterson (eXp Realty, CLT) — 70 days, 0 evals. March cohort, no eval scheduled.', done: false },
+  { text: 'Luke Blackwelder (eXp Realty) — 19 days, signed up but hasn\'t completed platform training. Schedule training call.', done: false },
+  { text: 'Jessica Vines (Navigate Realty) — 85 days, signed up but no training or eval. Re-engage or archive.', done: false },
+  { text: 'Push Feb cohort 1-eval agents toward second eval: Taylor Farley, Karen Machikas, Natalie Peterson, Dennis de Jong, Lennard Simpson (all 98 days, 1 eval each)', done: false }
 ];
 
 function renderTodos() {
