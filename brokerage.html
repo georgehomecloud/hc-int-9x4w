@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Brokerage Meeting Initiative — HomeCloud Sales</title>
+<title>Brokerage Meeting Initiative â HomeCloud Sales</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -36,6 +36,7 @@
   .kpi-sub { font-size: 11px; color: #b0b7c3; margin-top: 6px; }
   .kpi-change { display: inline-flex; align-items: center; gap: 4px; margin-top: 8px; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 6px; }
   .kpi-change.up { background: #ecfdf5; color: #059669; }
+  .kpi-change.neutral { background: #f3f4f6; color: #6b7280; }
 
   .section-card { background: white; border-radius: 14px; padding: 24px 28px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); margin-bottom: 24px; }
   .section-card h3 { font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
@@ -56,7 +57,6 @@
   .timeline-item::before { content: ''; position: absolute; left: -23px; top: 20px; width: 10px; height: 10px; border-radius: 50%; border: 2px solid #fff; }
   .timeline-item.completed::before { background: #059669; }
   .timeline-item.upcoming::before { background: #2563eb; }
-  .timeline-item.target::before { background: #d97706; }
   .tl-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
   .tl-name { font-size: 14px; font-weight: 700; color: #1a1a2e; }
   .tl-date { font-size: 12px; color: #6b7280; font-weight: 500; }
@@ -64,7 +64,9 @@
   .tl-badge { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 4px; }
   .tl-badge.done { background: #ecfdf5; color: #059669; }
   .tl-badge.booked { background: #eff6ff; color: #2563eb; }
-  .tl-badge.needs-scheduling { background: #fffbeb; color: #d97706; }
+  .tl-location { font-size: 11px; color: #9ca3af; margin-top: 4px; display: flex; align-items: center; gap: 4px; }
+  .tl-contacts { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .tl-contact-chip { font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 6px; background: #eff6ff; color: #2563eb; }
 
   /* Tables */
   table { width: 100%; border-collapse: collapse; font-size: 13px; }
@@ -73,17 +75,17 @@
   tr:hover td { background: #f9fafb; }
 
   .status-badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 10px; font-weight: 700; }
+  .status-completed { background: #ecfdf5; color: #059669; }
   .status-scheduled { background: #eff6ff; color: #2563eb; }
-  .status-overdue { background: #fef2f2; color: #dc2626; }
-  .status-recent { background: #ecfdf5; color: #059669; }
-  .status-target { background: #fef3c7; color: #92400e; }
-
-  .priority-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px; }
-  .priority-dot.high { background: #dc2626; }
-  .priority-dot.med { background: #d97706; }
-  .priority-dot.low { background: #059669; }
 
   .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+  .empty-state { text-align: center; padding: 40px 20px; color: #9ca3af; }
+  .empty-state .empty-icon { font-size: 40px; margin-bottom: 12px; }
+  .empty-state .empty-text { font-size: 14px; font-weight: 600; color: #6b7280; }
+  .empty-state .empty-sub { font-size: 12px; margin-top: 4px; }
+
+  .data-source { font-size: 10px; color: #b0b7c3; margin-top: 12px; text-align: right; font-style: italic; }
 
   .footer { text-align: center; padding: 24px; font-size: 11px; color: #b0b7c3; }
 
@@ -95,7 +97,7 @@
 <div class="header">
   <div>
     <h1>Brokerage Meeting Initiative</h1>
-    <div class="subtitle">Continuing Education, Partner Check-ins & Target Opportunities</div>
+    <div class="subtitle">Brokerage Presentations â Workshops, Happy Hours & Events</div>
   </div>
 </div>
 
@@ -112,249 +114,184 @@
   <!-- KPIs -->
   <div class="kpi-row">
     <div class="kpi-card green">
-      <div class="kpi-label">Meetings This Month</div>
-      <div class="kpi-value">8</div>
-      <div class="kpi-change up">↑ +2 vs March</div>
-      <div class="kpi-sub">April 2026</div>
+      <div class="kpi-label">Total Presentations</div>
+      <div class="kpi-value">3</div>
+      <div class="kpi-sub">All-time brokerage presentations completed</div>
     </div>
     <div class="kpi-card blue">
-      <div class="kpi-label">Currently Booked</div>
-      <div class="kpi-value">3</div>
-      <div class="kpi-sub">Upcoming meetings on calendar</div>
+      <div class="kpi-label">This Month (May)</div>
+      <div class="kpi-value">1</div>
+      <div class="kpi-sub">MSRE Cinco De Mayo â Alpharetta, GA</div>
     </div>
     <div class="kpi-card amber">
-      <div class="kpi-label">Need Scheduling</div>
-      <div class="kpi-value">5</div>
-      <div class="kpi-sub">Partner brokerages overdue for check-in</div>
+      <div class="kpi-label">Currently Booked</div>
+      <div class="kpi-value">0</div>
+      <div class="kpi-sub">No upcoming presentations scheduled</div>
     </div>
     <div class="kpi-card purple">
-      <div class="kpi-label">Target Opportunities</div>
-      <div class="kpi-value">7</div>
-      <div class="kpi-sub">New brokerage targets from HubSpot</div>
+      <div class="kpi-label">Contacts Reached</div>
+      <div class="kpi-value">13</div>
+      <div class="kpi-sub">Unique contacts across all presentations</div>
     </div>
   </div>
 
   <!-- Monthly Progress -->
   <div class="section-card">
-    <h3>April Meeting Progress</h3>
-    <div class="section-sub">Goal: 12 brokerage meetings this month</div>
+    <h3>May 2026 Presentation Activity</h3>
+    <div class="section-sub">1 completed, 0 scheduled â tracking brokerage presentations from HubSpot</div>
     <div class="progress-bar-container">
       <div class="progress-bar-label">
-        <span>8 completed + 3 booked = 11 of 12 goal</span>
-        <span style="color:#059669;font-weight:700">92%</span>
+        <span>1 completed this month</span>
+        <span style="color:#059669;font-weight:700">1 event</span>
       </div>
       <div class="progress-bar-bg">
-        <div class="progress-bar green" style="width: 92%"></div>
+        <div class="progress-bar green" style="width: 100%"></div>
       </div>
     </div>
   </div>
 
   <!-- Meeting Timeline -->
   <div class="section-card">
-    <h3>Meeting Timeline — April 2026</h3>
-    <div class="section-sub">Completed and upcoming brokerage meetings</div>
+    <h3>Brokerage Presentation Timeline</h3>
+    <div class="section-sub">All presentations â sourced from HubSpot (activity type: Brokerage Presentation)</div>
     <div class="timeline">
+
       <div class="timeline-item completed">
         <div class="tl-header">
-          <div class="tl-name">Allen Tate Realtors — Ballantyne Office</div>
-          <div><span class="tl-badge done">Completed</span> <span class="tl-date">Apr 2</span></div>
+          <div class="tl-name">MSRE Cinco De Mayo Happy Hour</div>
+          <div><span class="tl-badge done">Completed</span> <span class="tl-date">May 5, 2026 Â· 4:00â5:30 PM</span></div>
         </div>
-        <div class="tl-detail">Continuing education session — 14 agents attended. Covered inspection process & HomeCloud platform walkthrough.</div>
+        <div class="tl-detail">Happy Hour hosted by HomeCloud at Mark Spain Real Estate's new Alpharetta office. Cinco de Mayo celebration with MSRE team.</div>
+        <div class="tl-location">ð 13000 Deerfield Pkwy Suite 270, Alpharetta, GA 30004</div>
+        <div class="tl-contacts">
+          <span class="tl-contact-chip">Katelyn Fletcher â VP Sales</span>
+          <span class="tl-contact-chip">Katie Ciarochi</span>
+          <span class="tl-contact-chip">Lindsey Haste</span>
+          <span class="tl-contact-chip">Alisha Burdette</span>
+        </div>
       </div>
+
       <div class="timeline-item completed">
         <div class="tl-header">
-          <div class="tl-name">Keller Williams — South Charlotte</div>
-          <div><span class="tl-badge done">Completed</span> <span class="tl-date">Apr 4</span></div>
+          <div class="tl-name">Happy Hour with HomeCloud</div>
+          <div><span class="tl-badge done">Completed</span> <span class="tl-date">Apr 23, 2026 Â· 5:30â7:30 PM</span></div>
         </div>
-        <div class="tl-detail">Lunch & learn — 8 agents. Focused on pre-listing evaluation benefits.</div>
+        <div class="tl-detail">Happy hour event at Selwyn Pub in Charlotte. 8 attendees from Andy Griesinger's team (eXp Realty), Compass, and The Closing Compass.</div>
+        <div class="tl-location">ð Selwyn Pub â 2801 Selwyn Ave, Charlotte, NC 28209</div>
+        <div class="tl-contacts">
+          <span class="tl-contact-chip">Andy Griesinger</span>
+          <span class="tl-contact-chip">Farrah Biggerstaff â Dir. of Ops</span>
+          <span class="tl-contact-chip">Luke Blackwelder</span>
+          <span class="tl-contact-chip">Jacob Mann</span>
+          <span class="tl-contact-chip">Jaime Gomez</span>
+          <span class="tl-contact-chip">Garrett Hoag</span>
+          <span class="tl-contact-chip">Amanda Clanton</span>
+          <span class="tl-contact-chip">Stacey Peterson</span>
+        </div>
       </div>
+
       <div class="timeline-item completed">
         <div class="tl-header">
-          <div class="tl-name">Compass — Uptown Office</div>
-          <div><span class="tl-badge done">Completed</span> <span class="tl-date">Apr 7</span></div>
+          <div class="tl-name">Workshop &amp; Lunch with HomeCloud</div>
+          <div><span class="tl-badge done">Completed</span> <span class="tl-date">Apr 22, 2026 Â· 11:00 AMâ1:00 PM</span></div>
         </div>
-        <div class="tl-detail">Team meeting presentation — 11 agents. Demo'd mobile app features.</div>
-      </div>
-      <div class="timeline-item completed">
-        <div class="tl-header">
-          <div class="tl-name">RE/MAX Executive — Raleigh</div>
-          <div><span class="tl-badge done">Completed</span> <span class="tl-date">Apr 8</span></div>
+        <div class="tl-detail">Workshop and lunch presentation at Redfin. Covered full home evaluations, scope of work with line-item pricing, photo documentation, and pre-listing / buy-side use cases.</div>
+        <div class="tl-location">ð Redfin Office â NC/SC Region</div>
+        <div class="tl-contacts">
+          <span class="tl-contact-chip">Mark Stephens â Sales Mgr NC &amp; SC</span>
         </div>
-        <div class="tl-detail">Quarterly partnership review — 6 agents. Discussed volume commitments.</div>
       </div>
-      <div class="timeline-item completed">
-        <div class="tl-header">
-          <div class="tl-name">Exp Realty — Virtual</div>
-          <div><span class="tl-badge done">Completed</span> <span class="tl-date">Apr 9</span></div>
-        </div>
-        <div class="tl-detail">Virtual CE credit session — 22 agents. Record attendance for Exp virtual events.</div>
-      </div>
-      <div class="timeline-item completed">
-        <div class="tl-header">
-          <div class="tl-name">Berkshire Hathaway — South End</div>
-          <div><span class="tl-badge done">Completed</span> <span class="tl-date">Apr 10</span></div>
-        </div>
-        <div class="tl-detail">Manager 1:1 + team huddle — 5 agents. Upsell opportunity for renovation services.</div>
-      </div>
-      <div class="timeline-item completed">
-        <div class="tl-header">
-          <div class="tl-name">Coldwell Banker — Cary</div>
-          <div><span class="tl-badge done">Completed</span> <span class="tl-date">Apr 11</span></div>
-        </div>
-        <div class="tl-detail">New agent orientation integration — 4 new agents onboarded.</div>
-      </div>
-      <div class="timeline-item completed">
-        <div class="tl-header">
-          <div class="tl-name">Allen Tate — Lake Norman</div>
-          <div><span class="tl-badge done">Completed</span> <span class="tl-date">Apr 14</span></div>
-        </div>
-        <div class="tl-detail">Office meeting presentation — 9 agents. Follow-up: 3 interested in trial.</div>
-      </div>
-      <div class="timeline-item upcoming">
-        <div class="tl-header">
-          <div class="tl-name">Keller Williams — Raleigh North</div>
-          <div><span class="tl-badge booked">Booked</span> <span class="tl-date">Apr 17</span></div>
-        </div>
-        <div class="tl-detail">Team meeting slot confirmed — prep materials needed. Expected 10 agents.</div>
-      </div>
-      <div class="timeline-item upcoming">
-        <div class="tl-header">
-          <div class="tl-name">RE/MAX — Durham</div>
-          <div><span class="tl-badge booked">Booked</span> <span class="tl-date">Apr 22</span></div>
-        </div>
-        <div class="tl-detail">Lunch & learn — budget approved. 15 RSVPs so far.</div>
-      </div>
-      <div class="timeline-item upcoming">
-        <div class="tl-header">
-          <div class="tl-name">Compass — Raleigh</div>
-          <div><span class="tl-badge booked">Booked</span> <span class="tl-date">Apr 28</span></div>
-        </div>
-        <div class="tl-detail">CE session — virtual. Marketing collateral in progress.</div>
-      </div>
+
     </div>
+    <div class="data-source">Source: HubSpot CRM â hs_activity_type = "Brokerage Presentation" Â· Owner: Jennifer Patchen</div>
   </div>
 
   <div class="two-col">
-    <!-- Partner Brokerages Check-in Schedule -->
+    <!-- Meeting Details Table -->
     <div class="section-card">
-      <h3>Partner Brokerage Check-ins</h3>
-      <div class="section-sub">When we last met with top partner brokerages</div>
+      <h3>Meeting Summary</h3>
+      <div class="section-sub">All brokerage presentations with attendee counts</div>
       <table>
         <thead>
-          <tr><th>Brokerage</th><th>Last Meeting</th><th>Status</th></tr>
+          <tr><th>Event</th><th>Date</th><th>Location</th><th>Attendees</th><th>Status</th></tr>
         </thead>
         <tbody>
-          <tr><td style="font-weight:600">Allen Tate Realtors</td><td>Apr 14</td><td><span class="status-badge status-recent">Recent</span></td></tr>
-          <tr><td style="font-weight:600">Keller Williams</td><td>Apr 4</td><td><span class="status-badge status-scheduled">Booked Apr 17</span></td></tr>
-          <tr><td style="font-weight:600">Compass</td><td>Apr 7</td><td><span class="status-badge status-scheduled">Booked Apr 28</span></td></tr>
-          <tr><td style="font-weight:600">RE/MAX Executive</td><td>Apr 8</td><td><span class="status-badge status-scheduled">Booked Apr 22</span></td></tr>
-          <tr><td style="font-weight:600">Exp Realty</td><td>Apr 9</td><td><span class="status-badge status-recent">Recent</span></td></tr>
-          <tr><td style="font-weight:600">Berkshire Hathaway</td><td>Apr 10</td><td><span class="status-badge status-recent">Recent</span></td></tr>
-          <tr><td style="font-weight:600">Coldwell Banker</td><td>Apr 11</td><td><span class="status-badge status-recent">Recent</span></td></tr>
-          <tr><td style="font-weight:600">Century 21</td><td>Feb 18</td><td><span class="status-badge status-overdue">Overdue — 56 days</span></td></tr>
-          <tr><td style="font-weight:600">Howard Hanna</td><td>Jan 22</td><td><span class="status-badge status-overdue">Overdue — 83 days</span></td></tr>
-          <tr><td style="font-weight:600">Redfin</td><td>Mar 5</td><td><span class="status-badge status-overdue">Overdue — 41 days</span></td></tr>
+          <tr>
+            <td style="font-weight:600">MSRE Cinco De Mayo</td>
+            <td>May 5</td>
+            <td>Alpharetta, GA</td>
+            <td style="text-align:center">4</td>
+            <td><span class="status-badge status-completed">Completed</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:600">Happy Hour â Selwyn Pub</td>
+            <td>Apr 23</td>
+            <td>Charlotte, NC</td>
+            <td style="text-align:center">8</td>
+            <td><span class="status-badge status-completed">Completed</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:600">Workshop &amp; Lunch</td>
+            <td>Apr 22</td>
+            <td>Redfin â NC/SC</td>
+            <td style="text-align:center">1</td>
+            <td><span class="status-badge status-completed">Completed</span></td>
+          </tr>
         </tbody>
       </table>
     </div>
 
-    <!-- Target Opportunities -->
+    <!-- Brokerages Reached -->
     <div class="section-card">
-      <h3>Target Brokerage Opportunities</h3>
-      <div class="section-sub">New brokerage targets — from HubSpot pipeline</div>
+      <h3>Brokerages &amp; Teams Reached</h3>
+      <div class="section-sub">Organizations represented across all presentations</div>
       <table>
         <thead>
-          <tr><th>Brokerage</th><th>Priority</th><th>Market</th><th>Status</th></tr>
+          <tr><th>Brokerage / Team</th><th>Contacts</th><th>Last Presentation</th></tr>
         </thead>
         <tbody>
           <tr>
-            <td style="font-weight:600"><span class="priority-dot high"></span>Nest Realty</td>
-            <td>High</td>
-            <td>Durham</td>
-            <td><span class="status-badge status-target">Initial Outreach</span></td>
+            <td style="font-weight:600">Mark Spain Real Estate</td>
+            <td>4</td>
+            <td>May 5, 2026</td>
           </tr>
           <tr>
-            <td style="font-weight:600"><span class="priority-dot high"></span>Helen Adams Realty</td>
-            <td>High</td>
-            <td>Charlotte</td>
-            <td><span class="status-badge status-target">Meeting Requested</span></td>
+            <td style="font-weight:600">eXp Realty (Andy Griesinger Team)</td>
+            <td>6</td>
+            <td>Apr 23, 2026</td>
           </tr>
           <tr>
-            <td style="font-weight:600"><span class="priority-dot high"></span>Savvy + Co.</td>
-            <td>High</td>
-            <td>Charlotte</td>
-            <td><span class="status-badge status-target">Email Sent</span></td>
+            <td style="font-weight:600">Compass / The Closing Compass</td>
+            <td>2</td>
+            <td>Apr 23, 2026</td>
           </tr>
           <tr>
-            <td style="font-weight:600"><span class="priority-dot med"></span>Hodge & Kittrell</td>
-            <td>Medium</td>
-            <td>Raleigh</td>
-            <td><span class="status-badge status-target">Researching</span></td>
-          </tr>
-          <tr>
-            <td style="font-weight:600"><span class="priority-dot med"></span>LKN Realty</td>
-            <td>Medium</td>
-            <td>Lake Norman</td>
-            <td><span class="status-badge status-target">Initial Outreach</span></td>
-          </tr>
-          <tr>
-            <td style="font-weight:600"><span class="priority-dot med"></span>Mark Spain Real Estate</td>
-            <td>Medium</td>
-            <td>Charlotte</td>
-            <td><span class="status-badge status-target">Email Sent</span></td>
-          </tr>
-          <tr>
-            <td style="font-weight:600"><span class="priority-dot low"></span>Fonville Morisey</td>
-            <td>Low</td>
-            <td>Raleigh</td>
-            <td><span class="status-badge status-target">Researching</span></td>
+            <td style="font-weight:600">Redfin</td>
+            <td>1</td>
+            <td>Apr 22, 2026</td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 
-  <!-- To-Do -->
+  <!-- Upcoming / Empty State -->
   <div class="section-card">
-    <h3>Brokerage Meeting To-Do</h3>
-    <div class="section-sub">Action items for this week</div>
-    <div id="todoList"></div>
+    <h3>Upcoming Presentations</h3>
+    <div class="section-sub">Scheduled brokerage presentations from HubSpot</div>
+    <div class="empty-state">
+      <div class="empty-icon">ð</div>
+      <div class="empty-text">No Upcoming Presentations Scheduled</div>
+      <div class="empty-sub">When new brokerage presentations are created in HubSpot with activity type "Brokerage Presentation" and status "Scheduled", they'll appear here automatically.</div>
+    </div>
   </div>
 
 </div>
 
-<div class="footer">HomeCloud Sales Command Center — Brokerage Meetings &middot; <span id="footerDate"></span></div>
+<div class="footer">HomeCloud Sales Command Center â Brokerage Meetings &middot; Data from HubSpot CRM &middot; <span id="footerDate"></span></div>
 
 <script>
 document.getElementById('footerDate').textContent = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-
-const todos = [
-  { text: 'Prep presentation deck for Keller Williams Raleigh North (Apr 17)', done: false },
-  { text: 'Confirm catering for RE/MAX Durham lunch & learn (Apr 22)', done: false },
-  { text: 'Send follow-up emails to 3 interested agents from Allen Tate Lake Norman meeting', done: false },
-  { text: 'Schedule overdue check-in with Century 21 — 56 days since last meeting', done: false },
-  { text: 'Reach out to Nest Realty (Durham) — high-priority target', done: false },
-  { text: 'Create marketing collateral for Compass Raleigh virtual CE session', done: false }
-];
-
-function renderTodos() {
-  const list = document.getElementById('todoList');
-  list.innerHTML = todos.map((t, i) => `
-    <div style="display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #f3f4f6">
-      <div style="width:22px;height:22px;border-radius:6px;border:2px solid ${t.done ? '#059669' : '#d1d5db'};background:${t.done ? '#059669' : 'white'};cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s" onclick="toggleTodo(${i})">
-        ${t.done ? '<span style="color:white;font-size:13px;font-weight:700">✓</span>' : ''}
-      </div>
-      <span style="font-size:14px;color:${t.done ? '#9ca3af' : '#374151'};${t.done ? 'text-decoration:line-through' : ''}">${t.text}</span>
-    </div>
-  `).join('');
-}
-
-function toggleTodo(i) {
-  todos[i].done = !todos[i].done;
-  renderTodos();
-}
-
-renderTodos();
 </script>
 </body>
 </html>
