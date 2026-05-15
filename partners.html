@@ -90,7 +90,7 @@
     <div>
       <h1>Current Partners</h1>
       <div class="subtitle">Retention, Relationship Management & Outreach Tracking</div>
-      <div class="data-badge">✅ LIVE — Agent Tiers v2 + HubSpot Calls · Updated May 9, 2026</div>
+      <div class="data-badge">✅ LIVE — Agent Tiers v2 + HubSpot Calls · Updated May 15, 2026</div>
     </div>
   </div>
 </div>
@@ -165,9 +165,9 @@
     </div>    <div class="alert-row warning">
       <div>
         <div class="alert-name">Nogui Aramburo</div>
-        <div class="alert-detail">Team Encompass — Last eval: Feb 1, 2026 (97 days ago) · 11 evals lifetime</div>
+        <div class="alert-detail">Team Encompass — Last eval: Feb 2, 2026 (102 days ago) · 8 evals lifetime</div>
       </div>
-      <span class="alert-badge warning">97 days</span>
+      <span class="alert-badge warning">102 days</span>
       <a class="alert-action">📞 Call</a>
     </div>    <div class="alert-row danger">
       <div>
@@ -286,6 +286,7 @@
           <th>Tier</th>
           <th>Evals (LTD)</th>
           <th>Last Eval</th>
+          <th>6-Mo Revenue</th>
           <th style="text-align:center">Emailed</th>
           <th style="text-align:center">Called</th>
           <th style="text-align:center">Meeting Set</th>
@@ -310,46 +311,46 @@ document.getElementById('footerDate').textContent = new Date().toLocaleDateStrin
 
 // --- LIVE Agent Data from Agent Tiers v2 Excel (generated Apr 3, 2026) ---
 const agents = [
-  { name: 'Shenita St Clair', brokerage: 'eXp Realty', tier: 'Gold', evals: 26, lastEval: '1/7/26', daysSince: 128, market: 'RDU', score: 93.9, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Denise Alala', brokerage: 'Coldwell Banker Advantage Apex', tier: 'Gold', evals: 20, lastEval: '9/5/25', daysSince: 252, market: 'RDU', score: 92.6, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Phillip DeMuth', brokerage: 'Aspire Real Estate', tier: 'Gold', evals: 55, lastEval: '5/1/26', daysSince: 14, market: 'RDU', score: 92.5, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Justin Burleson', brokerage: 'Premier Agents Network', tier: 'Gold', evals: 39, lastEval: '5/8/26', daysSince: 7, market: 'RDU', score: 90.9, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Derek Nereu', brokerage: 'eXp Realty', tier: 'Gold', evals: 14, lastEval: '3/1/26', daysSince: 75, market: 'RDU', score: 89.6, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Nogui Aramburo', brokerage: 'Team Encompass', tier: 'Gold', evals: 11, lastEval: '2/1/26', daysSince: 103, market: 'RDU', score: 88.7, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Dave Wylie', brokerage: 'Compass', tier: 'Gold', evals: 24, lastEval: '3/1/26', daysSince: 75, market: 'RDU', score: 88.1, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Yandry Mastromihalis', brokerage: 'eXp Realty', tier: 'Gold', evals: 7, lastEval: '7/9/25', daysSince: 310, market: 'RDU', score: 86.9, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Trevor Miller', brokerage: 'eXp Realty', tier: 'Gold', evals: 9, lastEval: '5/13/26', daysSince: 2, market: 'RDU', score: 86.3, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'CJ Jones', brokerage: 'Mark Spain Real Estate', tier: 'Gold', evals: 7, lastEval: '3/12/26', daysSince: 64, market: 'RDU', score: 85.6, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Sarai Peotdi', brokerage: 'Mark Spain Real Estate', tier: 'Gold', evals: 6, lastEval: '4/28/26', daysSince: 17, market: 'RDU', score: 85.5, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Mallory Tomczykowski', brokerage: 'Keller Williams Elite Realty', tier: 'Gold', evals: 20, lastEval: '4/15/26', daysSince: 30, market: 'RDU', score: 85.3, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Neil Hediger', brokerage: 'Compass', tier: 'Gold', evals: 9, lastEval: '5/6/26', daysSince: 9, market: 'ATL', score: 84.5, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Eric Miller', brokerage: 'Navigate Realty', tier: 'Gold', evals: 6, lastEval: '4/27/26', daysSince: 18, market: 'RDU', score: 84.2, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Meaghan Reney', brokerage: 'Christina Valkanoff Realty Group', tier: 'Gold', evals: 8, lastEval: '5/6/26', daysSince: 9, market: 'RDU', score: 83.2, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Melanie Higgins', brokerage: 'Aspire Real Estate', tier: 'Gold', evals: 8, lastEval: '3/1/26', daysSince: 75, market: 'RDU', score: 83.2, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Austin Penninger', brokerage: 'LPT Realty', tier: 'Gold', evals: 30, lastEval: '11/1/25', daysSince: 195, market: 'RDU', score: 82.8, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Glen Clemmons', brokerage: 'Compass', tier: 'Gold', evals: 11, lastEval: '4/21/26', daysSince: 24, market: 'RDU', score: 82.6, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Katti Battaglia', brokerage: 'Long & Foster', tier: 'Gold', evals: 4, lastEval: '3/1/26', daysSince: 75, market: 'RDU', score: 82.1, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Christine Harvey', brokerage: 'Orchard', tier: 'Gold', evals: 6, lastEval: '9/30/25', daysSince: 227, market: 'ATL', score: 81.0, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Kim Crump', brokerage: 'Linda Craft Team Realtors', tier: 'Gold', evals: 5, lastEval: '2/1/26', daysSince: 103, market: 'RDU', score: 79.8, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Victoria Loredo', brokerage: 'Brian Trainum (GSO)', tier: 'Gold', evals: 3, lastEval: '7/17/25', daysSince: 302, market: 'RDU', score: 79.4, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Karen Lee', brokerage: 'eXp Realty', tier: 'Gold', evals: 7, lastEval: '11/4/24', daysSince: 557, market: 'RDU', score: 79.4, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Katie Coleman', brokerage: 'DASH Carolina', tier: 'Gold', evals: 3, lastEval: '7/3/25', daysSince: 316, market: 'RDU', score: 78.7, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Cori Grenier', brokerage: 'Coldwell Banker ADVANTAGE', tier: 'Gold', evals: 6, lastEval: '6/16/25', daysSince: 333, market: 'RDU', score: 78.3, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Naomi Richardson', brokerage: 'Mark Spain Real Estate', tier: 'Gold', evals: 5, lastEval: '5/7/25', daysSince: 373, market: 'RDU', score: 77.5, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Nevada Smith Jr', brokerage: 'Navigate Realty', tier: 'Gold', evals: 4, lastEval: '4/3/26', daysSince: 42, market: 'RDU', score: 77.0, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Ace Wang', brokerage: 'West and Woodall Real Estate Durham', tier: 'Gold', evals: 2, lastEval: '3/1/26', daysSince: 75, market: 'RDU', score: 75.9, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Annalee Bergeson', brokerage: 'eXp Realty', tier: 'Gold', evals: 3, lastEval: '3/1/26', daysSince: 75, market: 'RDU', score: 74.0, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Barbara Lyster', brokerage: 'Berkshire Hathaway Home Service Chapel Hill', tier: 'Gold', evals: 2, lastEval: '3/1/26', daysSince: 75, market: 'RDU', score: 69.9, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Jason White', brokerage: 'eXp Realty', tier: 'Gold', evals: 5, lastEval: '12/1/24', daysSince: 530, market: 'RDU', score: 69.4, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Desiree White', brokerage: 'eXp Realty', tier: 'Gold', evals: 5, lastEval: '12/1/24', daysSince: 530, market: 'RDU', score: 69.1, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Ben Herold', brokerage: 'Ownify', tier: 'Gold', evals: 8, lastEval: '2/1/25', daysSince: 468, market: 'RDU', score: 68.8, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Holly Rucker', brokerage: 'eXp Realty', tier: 'Gold', evals: 3, lastEval: '11/1/25', daysSince: 195, market: 'RDU', score: 67.5, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'JT Davis', brokerage: 'eXp Realty', tier: 'Gold', evals: 1, lastEval: '10/23/24', daysSince: 569, market: 'CLT', score: 67.2, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Stephanie Cornette', brokerage: 'eXp Realty', tier: 'Gold', evals: 4, lastEval: '12/1/24', daysSince: 530, market: 'RDU', score: 66.6, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Sheila Tillery', brokerage: 'Mark Spain Real Estate', tier: 'Gold', evals: 2, lastEval: '5/6/25', daysSince: 374, market: 'RDU', score: 65.1, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Taylor Farley', brokerage: 'Block & Associates Realty', tier: 'Gold', evals: 1, lastEval: '4/21/26', daysSince: 24, market: 'RDU', score: 64.9, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Jemima Faugues', brokerage: 'eXp Realty', tier: 'Gold', evals: 36, lastEval: '5/12/26', daysSince: 3, market: 'RDU', score: 64.5, emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Bianca Eckhoff', brokerage: 'Compass', tier: 'Gold', evals: 56, lastEval: '3/1/26', daysSince: 75, market: 'RDU', score: 64.2, emailed: false, called: false, meeting: false, relationship: false }
+  { name: 'Shenita St Clair', brokerage: 'eXp Realty', tier: 'Gold', evals: 25, lastEval: '5/6/26', daysSince: 9, market: 'RDU', score: 93.9, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 7451 },
+  { name: 'Denise Alala', brokerage: 'Coldwell Banker Advantage Apex', tier: 'Gold', evals: 7, lastEval: '9/5/25', daysSince: 252, market: 'RDU', score: 92.6, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 0 },
+  { name: 'Phillip DeMuth', brokerage: 'Aspire Real Estate', tier: 'Gold', evals: 33, lastEval: '5/1/26', daysSince: 14, market: 'RDU', score: 92.5, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 10717 },
+  { name: 'Justin Burleson', brokerage: 'Premier Agents Network', tier: 'Gold', evals: 34, lastEval: '5/8/26', daysSince: 7, market: 'RDU', score: 90.9, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 9015 },
+  { name: 'Derek Nereu', brokerage: 'eXp Realty', tier: 'Gold', evals: 7, lastEval: '7/16/25', daysSince: 303, market: 'RDU', score: 89.6, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 0 },
+  { name: 'Nogui Aramburo', brokerage: 'Team Encompass', tier: 'Gold', evals: 8, lastEval: '2/2/26', daysSince: 102, market: 'RDU', score: 88.7, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 2531 },
+  { name: 'Dave Wylie', brokerage: 'Compass', tier: 'Gold', evals: 24, lastEval: '4/30/26', daysSince: 15, market: 'RDU', score: 88.1, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 7650 },
+  { name: 'Yandry Mastromihalis', brokerage: 'eXp Realty', tier: 'Gold', evals: 2, lastEval: '7/9/25', daysSince: 310, market: 'RDU', score: 86.9, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 0 },
+  { name: 'Trevor Miller', brokerage: 'eXp Realty', tier: 'Gold', evals: 9, lastEval: '5/13/26', daysSince: 2, market: 'RDU', score: 86.3, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 5707 },
+  { name: 'CJ Jones', brokerage: 'Mark Spain Real Estate', tier: 'Gold', evals: 6, lastEval: '3/12/26', daysSince: 64, market: 'RDU', score: 85.6, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 798 },
+  { name: 'Sarai Peotdi', brokerage: 'Mark Spain Real Estate', tier: 'Gold', evals: 3, lastEval: '4/28/26', daysSince: 17, market: 'RDU', score: 85.5, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 2019 },
+  { name: 'Mallory Tomczykowski', brokerage: 'Keller Williams Elite Realty', tier: 'Gold', evals: 16, lastEval: '4/15/26', daysSince: 30, market: 'RDU', score: 85.3, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 4777 },
+  { name: 'Neil Hediger', brokerage: 'Compass', tier: 'Gold', evals: 10, lastEval: '5/6/26', daysSince: 9, market: 'ATL', score: 84.5, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 3120 },
+  { name: 'Eric Miller', brokerage: 'Navigate Realty', tier: 'Gold', evals: 7, lastEval: '4/27/26', daysSince: 18, market: 'RDU', score: 84.2, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 9209 },
+  { name: 'Meaghan Reney', brokerage: 'Christina Valkanoff Realty Group', tier: 'Gold', evals: 16, lastEval: '5/6/26', daysSince: 9, market: 'RDU', score: 83.2, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 6113 },
+  { name: 'Melanie Higgins', brokerage: 'Aspire Real Estate', tier: 'Gold', evals: 8, lastEval: '3/1/26', daysSince: 75, market: 'RDU', score: 83.2, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 0 },
+  { name: 'Austin Penninger', brokerage: 'LPT Realty', tier: 'Gold', evals: 3, lastEval: '2/3/25', daysSince: 466, market: 'RDU', score: 82.8, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 0 },
+  { name: 'Glen Clemmons', brokerage: 'Compass', tier: 'Gold', evals: 10, lastEval: '4/21/26', daysSince: 24, market: 'RDU', score: 82.6, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 1594 },
+  { name: 'Katti Battaglia', brokerage: 'Long & Foster', tier: 'Gold', evals: 4, lastEval: '3/1/26', daysSince: 75, market: 'RDU', score: 82.1, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 0 },
+  { name: 'Christine Harvey', brokerage: 'Orchard', tier: 'Gold', evals: 5, lastEval: '9/30/25', daysSince: 227, market: 'ATL', score: 81.0, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 0 },
+  { name: 'Kim Crump', brokerage: 'Linda Craft Team Realtors', tier: 'Gold', evals: 6, lastEval: '4/16/26', daysSince: 29, market: 'RDU', score: 79.8, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 900 },
+  { name: 'Victoria Loredo', brokerage: 'Brian Trainum (GSO)', tier: 'Gold', evals: 3, lastEval: '7/17/25', daysSince: 302, market: 'RDU', score: 79.4, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 0 },
+  { name: 'Karen Lee', brokerage: 'eXp Realty', tier: 'Gold', evals: 6, lastEval: '6/26/25', daysSince: 323, market: 'RDU', score: 79.4, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 0 },
+  { name: 'Katie Coleman', brokerage: 'DASH Carolina', tier: 'Gold', evals: 1, lastEval: '7/3/25', daysSince: 316, market: 'RDU', score: 78.7, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 0 },
+  { name: 'Cori Grenier', brokerage: 'Coldwell Banker ADVANTAGE', tier: 'Gold', evals: 1, lastEval: '6/16/25', daysSince: 333, market: 'RDU', score: 78.3, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 289 },
+  { name: 'Naomi Richardson', brokerage: 'Mark Spain Real Estate', tier: 'Gold', evals: 1, lastEval: '5/7/25', daysSince: 373, market: 'RDU', score: 77.5, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 0 },
+  { name: 'Nevada Smith Jr', brokerage: 'Navigate Realty', tier: 'Gold', evals: 2, lastEval: '4/3/26', daysSince: 42, market: 'RDU', score: 77.0, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 2948 },
+  { name: 'Ace Wang', brokerage: 'West and Woodall Real Estate Durham', tier: 'Gold', evals: 8, lastEval: '5/5/26', daysSince: 10, market: 'RDU', score: 75.9, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 3407 },
+  { name: 'Annalee Bergeson', brokerage: 'eXp Realty', tier: 'Gold', evals: 4, lastEval: '8/21/25', daysSince: 267, market: 'RDU', score: 74.0, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 0 },
+  { name: 'Barbara Lyster', brokerage: 'Berkshire Hathaway Home Service Chapel Hill', tier: 'Gold', evals: 2, lastEval: '3/1/26', daysSince: 75, market: 'RDU', score: 69.9, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 0 },
+  { name: 'Jason White', brokerage: 'eXp Realty', tier: 'Gold', evals: 5, lastEval: '12/1/24', daysSince: 530, market: 'RDU', score: 69.4, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 0 },
+  { name: 'Desiree White', brokerage: 'eXp Realty', tier: 'Gold', evals: 1, lastEval: '11/6/24', daysSince: 555, market: 'RDU', score: 69.1, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 0 },
+  { name: 'Ben Herold', brokerage: 'Ownify', tier: 'Gold', evals: 8, lastEval: '2/1/25', daysSince: 468, market: 'RDU', score: 68.8, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 0 },
+  { name: 'Holly Rucker', brokerage: 'eXp Realty', tier: 'Gold', evals: 3, lastEval: '11/1/25', daysSince: 195, market: 'RDU', score: 67.5, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 0 },
+  { name: 'JT Davis', brokerage: 'eXp Realty', tier: 'Gold', evals: 2, lastEval: '4/24/26', daysSince: 21, market: 'CLT', score: 67.2, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 1256 },
+  { name: 'Stephanie Cornette', brokerage: 'eXp Realty', tier: 'Gold', evals: 4, lastEval: '12/1/24', daysSince: 530, market: 'RDU', score: 66.6, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 0 },
+  { name: 'Sheila Tillery', brokerage: 'Mark Spain Real Estate', tier: 'Gold', evals: 1, lastEval: '5/6/25', daysSince: 374, market: 'RDU', score: 65.1, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 0 },
+  { name: 'Taylor Farley', brokerage: 'Block & Associates Realty', tier: 'Gold', evals: 2, lastEval: '4/21/26', daysSince: 24, market: 'RDU', score: 64.9, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 1496 },
+  { name: 'Jemima Faugues', brokerage: 'eXp Realty', tier: 'Gold', evals: 41, lastEval: '5/12/26', daysSince: 3, market: 'RDU', score: 64.5, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 8769 },
+  { name: 'Bianca Eckhoff', brokerage: 'Compass', tier: 'Gold', evals: 5, lastEval: '5/4/26', daysSince: 11, market: 'RDU', score: 64.2, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 2199 }
 ];
 
 const PAGE_SIZE = 15;
@@ -395,6 +396,7 @@ function renderTable() {
       '<td><span class="tier-badge ' + (tierClass[a.tier] || '') + '">' + a.tier + '</span></td>' +
       '<td class="evals-num">' + a.evals + '</td>' +
       '<td style="color:#6b7280">' + a.lastEval + '</td>' +
+      '<td style="font-weight:600;color:#059669">' + (a.revenue6mo ? '$' + a.revenue6mo.toLocaleString() : '—') + '</td>' +
       '<td style="text-align:center">' + makeCheck('emailed') + '</td>' +
       '<td style="text-align:center">' + makeCheck('called') + '</td>' +
       '<td style="text-align:center">' + makeCheck('meeting') + '</td>' +
