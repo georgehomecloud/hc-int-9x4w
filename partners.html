@@ -13,6 +13,7 @@
   .header-top { display: flex; justify-content: space-between; align-items: flex-start; }
   .header h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; }
   .header .subtitle { font-size: 14px; opacity: 0.65; margin-top: 4px; }
+  .data-badge { display: inline-block; background: rgba(34,197,94,0.15); color: #4ade80; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; margin-top: 8px; }
 
   .nav-bar { background: #16213e; padding: 0 40px; display: flex; gap: 0; border-top: 1px solid rgba(255,255,255,0.08); }
   .nav-link { padding: 14px 24px; color: rgba(255,255,255,0.55); font-size: 13px; font-weight: 600; text-decoration: none; border-bottom: 3px solid transparent; transition: all 0.2s; letter-spacing: 0.3px; }
@@ -21,7 +22,6 @@
 
   .container { max-width: 1320px; margin: 0 auto; padding: 28px 24px; }
 
-  /* KPI row */
   .kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 28px; }
   .kpi-card { background: white; border-radius: 14px; padding: 22px 24px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); position: relative; overflow: hidden; }
   .kpi-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
@@ -37,7 +37,6 @@
   .kpi-card.red .kpi-value { color: #dc2626; }
   .kpi-sub { font-size: 11px; color: #b0b7c3; margin-top: 6px; }
 
-  /* Churn Alerts */
   .section-card { background: white; border-radius: 14px; padding: 24px 28px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); margin-bottom: 24px; }
   .section-card h3 { font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
   .section-card .section-sub { font-size: 12px; color: #9ca3af; margin-bottom: 18px; }
@@ -51,14 +50,12 @@
   .alert-badge.warning { background: #d97706; color: #fff; }
   .alert-action { font-size: 12px; color: #2563eb; font-weight: 600; cursor: pointer; text-decoration: none; white-space: nowrap; }
 
-  /* Calls this week */
   .calls-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .call-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: #f9fafb; border-radius: 10px; }
   .call-avatar { width: 36px; height: 36px; border-radius: 50%; background: #e0e7ff; color: #3730a3; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
   .call-info .call-name { font-size: 13px; font-weight: 600; color: #1a1a2e; }
   .call-info .call-meta { font-size: 11px; color: #9ca3af; }
 
-  /* Top 40 Agent Table */
   .table-controls { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; align-items: center; }
   .table-controls input { padding: 8px 14px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 13px; width: 260px; font-family: inherit; }
   .table-controls select { padding: 8px 14px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 13px; background: white; font-family: inherit; }
@@ -75,10 +72,6 @@
   .outreach-check:hover { border-color: #059669; }
   .outreach-check.done { background: #059669; border-color: #059669; }
   .outreach-check.done::after { content: '✓'; color: #fff; font-size: 11px; font-weight: 700; }
-  .outreach-group { display: flex; gap: 6px; align-items: center; }
-  .outreach-label { font-size: 9px; text-transform: uppercase; color: #9ca3af; letter-spacing: 0.3px; width: 42px; text-align: center; }
-  .outreach-col { display: flex; flex-direction: column; align-items: center; gap: 3px; }
-  .evals-num { font-weight: 700; color: #1a1a2e; }
 
   .pagination { display: flex; gap: 8px; margin-top: 14px; align-items: center; justify-content: flex-end; }
   .pagination button { padding: 6px 14px; border: 1px solid #d1d5db; border-radius: 6px; background: white; cursor: pointer; font-size: 13px; font-family: inherit; }
@@ -97,6 +90,7 @@
     <div>
       <h1>Current Partners</h1>
       <div class="subtitle">Retention, Relationship Management & Outreach Tracking</div>
+      <div class="data-badge">✅ LIVE — Agent Tiers v2 + HubSpot Calls · Updated May 9, 2026</div>
     </div>
   </div>
 </div>
@@ -115,22 +109,22 @@
   <div class="kpi-row">
     <div class="kpi-card blue">
       <div class="kpi-label">Total Active Partners</div>
-      <div class="kpi-value">87</div>
+      <div class="kpi-value">96</div>
       <div class="kpi-sub">Agents who used HC in last 90 days</div>
     </div>
     <div class="kpi-card green">
       <div class="kpi-label">Partner Calls This Week</div>
-      <div class="kpi-value">6</div>
-      <div class="kpi-sub">Out of 10 target</div>
+      <div class="kpi-value">9</div>
+      <div class="kpi-sub">Out of 10 target · via Primary + Agent Success + Real Producers</div>
     </div>
     <div class="kpi-card amber">
       <div class="kpi-label">Churn Risk Alerts</div>
-      <div class="kpi-value">4</div>
-      <div class="kpi-sub">No activity in 30+ days</div>
+      <div class="kpi-value">8</div>
+      <div class="kpi-sub">Gold agents with 90+ days inactive</div>
     </div>
     <div class="kpi-card red">
       <div class="kpi-label">Relationships Not Started</div>
-      <div class="kpi-value">8</div>
+      <div class="kpi-value">40</div>
       <div class="kpi-sub">Top-40 agents not yet contacted</div>
     </div>
   </div>
@@ -138,41 +132,63 @@
   <!-- Churn Alerts -->
   <div class="section-card">
     <h3>⚠️ Churn Risk Alerts</h3>
-    <div class="section-sub">Partners with no HomeCloud activity in 30+ days — reach out ASAP</div>
+    <div class="section-sub">Gold-tier partners with no HomeCloud activity in 90+ days — reach out ASAP</div>
 
     <div class="alert-row danger">
       <div>
-        <div class="alert-name">Sarah Mitchell</div>
-        <div class="alert-detail">Allen Tate Realtors — Last eval: Feb 28, 2026 (46 days ago) · 18 evals lifetime</div>
+        <div class="alert-name">Austin Penninger</div>
+        <div class="alert-detail">LPT Realty — Last eval: Nov 1, 2025 (189 days ago) · 30 evals lifetime</div>
       </div>
-      <span class="alert-badge danger">46 days</span>
+      <span class="alert-badge danger">189 days</span>
       <a class="alert-action">📞 Call</a>
-    </div>
-
-    <div class="alert-row danger">
+    </div>    <div class="alert-row danger">
       <div>
-        <div class="alert-name">David Park</div>
-        <div class="alert-detail">RE/MAX Executive — Last eval: Mar 3, 2026 (43 days ago) · 12 evals lifetime</div>
+        <div class="alert-name">Lauren Tenuta</div>
+        <div class="alert-detail">Keller Williams Realty Cary — Last eval: Jan 1, 2026 (128 days ago) · 17 evals lifetime</div>
       </div>
-      <span class="alert-badge danger">43 days</span>
+      <span class="alert-badge danger">128 days</span>
       <a class="alert-action">📞 Call</a>
-    </div>
-
-    <div class="alert-row warning">
+    </div>    <div class="alert-row warning">
       <div>
-        <div class="alert-name">Lisa Chen</div>
-        <div class="alert-detail">Coldwell Banker — Last eval: Mar 11, 2026 (35 days ago) · 8 evals lifetime</div>
+        <div class="alert-name">Courtney Hornback</div>
+        <div class="alert-detail">Christina Valkanoff Realty Group — Last eval: Feb 1, 2026 (97 days ago) · 13 evals lifetime</div>
       </div>
-      <span class="alert-badge warning">35 days</span>
+      <span class="alert-badge warning">97 days</span>
       <a class="alert-action">📞 Call</a>
-    </div>
-
-    <div class="alert-row warning">
+    </div>    <div class="alert-row danger">
       <div>
-        <div class="alert-name">Marcus Thompson</div>
-        <div class="alert-detail">Keller Williams — Last eval: Mar 14, 2026 (32 days ago) · 6 evals lifetime</div>
+        <div class="alert-name">Sandy Estacio</div>
+        <div class="alert-detail">Jennifer Patterson Realty — Last eval: Jul 1, 2025 (312 days ago) · 12 evals lifetime</div>
       </div>
-      <span class="alert-badge warning">32 days</span>
+      <span class="alert-badge danger">312 days</span>
+      <a class="alert-action">📞 Call</a>
+    </div>    <div class="alert-row warning">
+      <div>
+        <div class="alert-name">Nogui Aramburo</div>
+        <div class="alert-detail">Team Encompass — Last eval: Feb 1, 2026 (97 days ago) · 11 evals lifetime</div>
+      </div>
+      <span class="alert-badge warning">97 days</span>
+      <a class="alert-action">📞 Call</a>
+    </div>    <div class="alert-row danger">
+      <div>
+        <div class="alert-name">Liz Arvizu</div>
+        <div class="alert-detail">Shumar Richmond (GSO) — Last eval: Jun 1, 2025 (342 days ago) · 11 evals lifetime</div>
+      </div>
+      <span class="alert-badge danger">342 days</span>
+      <a class="alert-action">📞 Call</a>
+    </div>    <div class="alert-row danger">
+      <div>
+        <div class="alert-name">John Delgado</div>
+        <div class="alert-detail">Jennifer Patterson Realty — Last eval: Jul 1, 2025 (312 days ago) · 10 evals lifetime</div>
+      </div>
+      <span class="alert-badge danger">312 days</span>
+      <a class="alert-action">📞 Call</a>
+    </div>    <div class="alert-row warning">
+      <div>
+        <div class="alert-name">Bill Stevenson</div>
+        <div class="alert-detail">Compass — Last eval: Feb 1, 2026 (97 days ago) · 9 evals lifetime</div>
+      </div>
+      <span class="alert-badge warning">97 days</span>
       <a class="alert-action">📞 Call</a>
     </div>
   </div>
@@ -180,48 +196,61 @@
   <!-- Calls This Week -->
   <div class="section-card">
     <h3>📞 Partner Calls This Week</h3>
-    <div class="section-sub">6 of 10 weekly call target completed</div>
+    <div class="section-sub">9 of 10 weekly call target completed · from HubSpot (Primary + Agent Success + Real Producers)</div>
     <div class="calls-grid">
       <div class="call-item">
-        <div class="call-avatar">JR</div>
+        <div class="call-avatar">TB</div>
         <div class="call-info">
-          <div class="call-name">Jennifer Rodriguez</div>
-          <div class="call-meta">Exp Realty · Mon 4/13 · Discussed Q2 pipeline</div>
+          <div class="call-name">Tina Balog</div>
+          <div class="call-meta">Thu 5/8 · Primary line</div>
         </div>
-      </div>
-      <div class="call-item">
-        <div class="call-avatar">BW</div>
+      </div>      <div class="call-item">
+        <div class="call-avatar">DG</div>
         <div class="call-info">
-          <div class="call-name">Brian Wilson</div>
-          <div class="call-meta">Compass · Mon 4/13 · Onboarded 2 new team members</div>
+          <div class="call-name">David Gutheil</div>
+          <div class="call-meta">Wed 5/7 · Primary line</div>
         </div>
-      </div>
-      <div class="call-item">
-        <div class="call-avatar">AK</div>
+      </div>      <div class="call-item">
+        <div class="call-avatar">SV</div>
         <div class="call-info">
-          <div class="call-name">Amy Kim</div>
-          <div class="call-meta">Berkshire Hathaway · Tue 4/14 · Renewal check-in</div>
+          <div class="call-name">Sam Valle</div>
+          <div class="call-meta">Wed 5/7 · Primary line</div>
         </div>
-      </div>
-      <div class="call-item">
-        <div class="call-avatar">TJ</div>
+      </div>      <div class="call-item">
+        <div class="call-avatar">NH</div>
         <div class="call-info">
-          <div class="call-name">Tyler Johnson</div>
-          <div class="call-meta">Allen Tate · Tue 4/14 · Upsell conversation</div>
+          <div class="call-name">Neil Hediger</div>
+          <div class="call-meta">Wed 5/7 · Primary line</div>
         </div>
-      </div>
-      <div class="call-item">
-        <div class="call-avatar">NP</div>
+      </div>      <div class="call-item">
+        <div class="call-avatar">RF</div>
         <div class="call-info">
-          <div class="call-name">Nicole Patel</div>
-          <div class="call-meta">RE/MAX · Wed 4/15 · Quarterly review</div>
+          <div class="call-name">Raquel Foreman</div>
+          <div class="call-meta">Wed 5/7 · Agent Success line</div>
         </div>
-      </div>
-      <div class="call-item">
-        <div class="call-avatar">RS</div>
+      </div>      <div class="call-item">
+        <div class="call-avatar">SV</div>
         <div class="call-info">
-          <div class="call-name">Robert Sanders</div>
-          <div class="call-meta">Keller Williams · Wed 4/15 · New market expansion</div>
+          <div class="call-name">Shani Vardy</div>
+          <div class="call-meta">Wed 5/7 · Primary line</div>
+        </div>
+      </div>      <div class="call-item">
+        <div class="call-avatar">SA</div>
+        <div class="call-info">
+          <div class="call-name">Sally Awad</div>
+          <div class="call-meta">Tue 5/6 · Primary line</div>
+        </div>
+      </div>      <div class="call-item">
+        <div class="call-avatar">EO</div>
+        <div class="call-info">
+          <div class="call-name">Eddie O'Dea</div>
+          <div class="call-meta">Sun 5/4 · Primary line</div>
+        </div>
+      </div>      <div class="call-item">
+        <div class="call-avatar">HP</div>
+        <div class="call-info">
+          <div class="call-name">Heidy Padilla</div>
+          <div class="call-meta">Sun 5/4 · Primary line</div>
         </div>
       </div>
     </div>
@@ -230,7 +259,7 @@
   <!-- Top 40 Agent Table -->
   <div class="section-card">
     <h3>🏆 Top 40 Partner Agents — Outreach Tracker</h3>
-    <div class="section-sub">Track your relationship-building progress with top-performing agents</div>
+    <div class="section-sub">Ranked by composite score (eval volume, construction revenue, frequency, recency) · Source: Agent Tiers v2</div>
 
     <div class="table-controls">
       <input type="text" placeholder="Search agents..." id="agentSearch" onkeyup="filterAgents()">
@@ -239,7 +268,6 @@
         <option value="Gold">Gold</option>
         <option value="Silver">Silver</option>
         <option value="Bronze">Bronze</option>
-        <option value="New">New</option>
       </select>
       <select id="statusFilter" onchange="filterAgents()">
         <option value="">All Statuses</option>
@@ -280,48 +308,48 @@
 <script>
 document.getElementById('footerDate').textContent = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
-// Sample agent data
+// --- LIVE Agent Data from Agent Tiers v2 Excel (generated Apr 3, 2026) ---
 const agents = [
-  { name: 'Jennifer Rodriguez', brokerage: 'Exp Realty', tier: 'Gold', evals: 42, lastEval: '4/12/26', emailed: true, called: true, meeting: true, relationship: true },
-  { name: 'Brian Wilson', brokerage: 'Compass', tier: 'Gold', evals: 38, lastEval: '4/10/26', emailed: true, called: true, meeting: true, relationship: true },
-  { name: 'Amy Kim', brokerage: 'Berkshire Hathaway', tier: 'Gold', evals: 35, lastEval: '4/14/26', emailed: true, called: true, meeting: true, relationship: true },
-  { name: 'Tyler Johnson', brokerage: 'Allen Tate', tier: 'Gold', evals: 33, lastEval: '4/11/26', emailed: true, called: true, meeting: true, relationship: false },
-  { name: 'Nicole Patel', brokerage: 'RE/MAX Executive', tier: 'Gold', evals: 31, lastEval: '4/15/26', emailed: true, called: true, meeting: false, relationship: false },
-  { name: 'Robert Sanders', brokerage: 'Keller Williams', tier: 'Gold', evals: 29, lastEval: '4/8/26', emailed: true, called: true, meeting: true, relationship: true },
-  { name: 'Sarah Mitchell', brokerage: 'Allen Tate', tier: 'Gold', evals: 18, lastEval: '2/28/26', emailed: true, called: false, meeting: false, relationship: false },
-  { name: 'David Park', brokerage: 'RE/MAX Executive', tier: 'Silver', evals: 12, lastEval: '3/3/26', emailed: true, called: false, meeting: false, relationship: false },
-  { name: 'Lisa Chen', brokerage: 'Coldwell Banker', tier: 'Silver', evals: 8, lastEval: '3/11/26', emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Marcus Thompson', brokerage: 'Keller Williams', tier: 'Silver', evals: 6, lastEval: '3/14/26', emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Emily Watson', brokerage: 'Compass', tier: 'Gold', evals: 27, lastEval: '4/13/26', emailed: true, called: true, meeting: true, relationship: true },
-  { name: 'Chris Martinez', brokerage: 'Exp Realty', tier: 'Gold', evals: 26, lastEval: '4/9/26', emailed: true, called: true, meeting: false, relationship: false },
-  { name: 'Danielle Foster', brokerage: 'Berkshire Hathaway', tier: 'Silver', evals: 22, lastEval: '4/7/26', emailed: true, called: true, meeting: true, relationship: true },
-  { name: 'James Okafor', brokerage: 'Keller Williams', tier: 'Silver', evals: 20, lastEval: '4/6/26', emailed: true, called: false, meeting: false, relationship: false },
-  { name: 'Rachel Green', brokerage: 'Allen Tate', tier: 'Silver', evals: 19, lastEval: '4/5/26', emailed: true, called: true, meeting: false, relationship: false },
-  { name: 'Kevin Tran', brokerage: 'RE/MAX Executive', tier: 'Silver', evals: 18, lastEval: '4/11/26', emailed: true, called: true, meeting: true, relationship: false },
-  { name: 'Megan Brooks', brokerage: 'Coldwell Banker', tier: 'Silver', evals: 16, lastEval: '4/2/26', emailed: true, called: false, meeting: false, relationship: false },
-  { name: 'Andrew Lee', brokerage: 'Compass', tier: 'Silver', evals: 15, lastEval: '3/28/26', emailed: true, called: true, meeting: false, relationship: false },
-  { name: 'Jessica Adams', brokerage: 'Exp Realty', tier: 'Silver', evals: 14, lastEval: '4/4/26', emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Daniel Wright', brokerage: 'Berkshire Hathaway', tier: 'Bronze', evals: 13, lastEval: '3/25/26', emailed: true, called: false, meeting: false, relationship: false },
-  { name: 'Samantha Cole', brokerage: 'Allen Tate', tier: 'Bronze', evals: 11, lastEval: '4/1/26', emailed: true, called: true, meeting: false, relationship: false },
-  { name: 'Michael Rivera', brokerage: 'Keller Williams', tier: 'Bronze', evals: 10, lastEval: '3/30/26', emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Ashley Morgan', brokerage: 'RE/MAX Executive', tier: 'Bronze', evals: 9, lastEval: '4/3/26', emailed: true, called: false, meeting: false, relationship: false },
-  { name: 'Patrick Bell', brokerage: 'Coldwell Banker', tier: 'Bronze', evals: 8, lastEval: '3/22/26', emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Olivia Scott', brokerage: 'Compass', tier: 'Bronze', evals: 7, lastEval: '3/20/26', emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Nathan Hill', brokerage: 'Exp Realty', tier: 'Bronze', evals: 7, lastEval: '4/2/26', emailed: true, called: false, meeting: false, relationship: false },
-  { name: 'Stephanie Diaz', brokerage: 'Allen Tate', tier: 'Bronze', evals: 6, lastEval: '3/18/26', emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Jason Nguyen', brokerage: 'Berkshire Hathaway', tier: 'Bronze', evals: 5, lastEval: '3/15/26', emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Laura White', brokerage: 'Keller Williams', tier: 'New', evals: 4, lastEval: '4/8/26', emailed: true, called: false, meeting: false, relationship: false },
-  { name: 'Ryan Cooper', brokerage: 'RE/MAX Executive', tier: 'New', evals: 4, lastEval: '4/10/26', emailed: true, called: true, meeting: false, relationship: false },
-  { name: 'Heather Blake', brokerage: 'Coldwell Banker', tier: 'New', evals: 3, lastEval: '4/12/26', emailed: true, called: false, meeting: false, relationship: false },
-  { name: 'Brandon Ross', brokerage: 'Compass', tier: 'New', evals: 3, lastEval: '4/6/26', emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Michelle Torres', brokerage: 'Exp Realty', tier: 'New', evals: 3, lastEval: '4/9/26', emailed: true, called: false, meeting: false, relationship: false },
-  { name: 'Derek Young', brokerage: 'Allen Tate', tier: 'New', evals: 2, lastEval: '4/11/26', emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Tiffany Reed', brokerage: 'Berkshire Hathaway', tier: 'New', evals: 2, lastEval: '4/13/26', emailed: true, called: false, meeting: false, relationship: false },
-  { name: 'Adam Hall', brokerage: 'Keller Williams', tier: 'New', evals: 2, lastEval: '4/14/26', emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Cynthia Ward', brokerage: 'RE/MAX Executive', tier: 'New', evals: 1, lastEval: '4/15/26', emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Greg Palmer', brokerage: 'Coldwell Banker', tier: 'New', evals: 1, lastEval: '4/14/26', emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Victoria Cruz', brokerage: 'Compass', tier: 'New', evals: 1, lastEval: '4/12/26', emailed: false, called: false, meeting: false, relationship: false },
-  { name: 'Sean Murphy', brokerage: 'Exp Realty', tier: 'New', evals: 1, lastEval: '4/10/26', emailed: false, called: false, meeting: false, relationship: false }
+  { name: 'Shenita St Clair', brokerage: 'eXp Realty', tier: 'Gold', evals: 26, lastEval: '1/7/26', daysSince: 128, market: 'RDU', score: 93.9, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Denise Alala', brokerage: 'Coldwell Banker Advantage Apex', tier: 'Gold', evals: 20, lastEval: '9/5/25', daysSince: 252, market: 'RDU', score: 92.6, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Phillip DeMuth', brokerage: 'Aspire Real Estate', tier: 'Gold', evals: 55, lastEval: '5/1/26', daysSince: 14, market: 'RDU', score: 92.5, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Justin Burleson', brokerage: 'Premier Agents Network', tier: 'Gold', evals: 39, lastEval: '5/8/26', daysSince: 7, market: 'RDU', score: 90.9, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Derek Nereu', brokerage: 'eXp Realty', tier: 'Gold', evals: 14, lastEval: '3/1/26', daysSince: 75, market: 'RDU', score: 89.6, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Nogui Aramburo', brokerage: 'Team Encompass', tier: 'Gold', evals: 11, lastEval: '2/1/26', daysSince: 103, market: 'RDU', score: 88.7, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Dave Wylie', brokerage: 'Compass', tier: 'Gold', evals: 24, lastEval: '3/1/26', daysSince: 75, market: 'RDU', score: 88.1, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Yandry Mastromihalis', brokerage: 'eXp Realty', tier: 'Gold', evals: 7, lastEval: '7/9/25', daysSince: 310, market: 'RDU', score: 86.9, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Trevor Miller', brokerage: 'eXp Realty', tier: 'Gold', evals: 9, lastEval: '5/13/26', daysSince: 2, market: 'RDU', score: 86.3, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'CJ Jones', brokerage: 'Mark Spain Real Estate', tier: 'Gold', evals: 7, lastEval: '3/12/26', daysSince: 64, market: 'RDU', score: 85.6, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Sarai Peotdi', brokerage: 'Mark Spain Real Estate', tier: 'Gold', evals: 6, lastEval: '4/28/26', daysSince: 17, market: 'RDU', score: 85.5, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Mallory Tomczykowski', brokerage: 'Keller Williams Elite Realty', tier: 'Gold', evals: 20, lastEval: '4/15/26', daysSince: 30, market: 'RDU', score: 85.3, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Neil Hediger', brokerage: 'Compass', tier: 'Gold', evals: 9, lastEval: '5/6/26', daysSince: 9, market: 'ATL', score: 84.5, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Eric Miller', brokerage: 'Navigate Realty', tier: 'Gold', evals: 6, lastEval: '4/27/26', daysSince: 18, market: 'RDU', score: 84.2, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Meaghan Reney', brokerage: 'Christina Valkanoff Realty Group', tier: 'Gold', evals: 8, lastEval: '5/6/26', daysSince: 9, market: 'RDU', score: 83.2, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Melanie Higgins', brokerage: 'Aspire Real Estate', tier: 'Gold', evals: 8, lastEval: '3/1/26', daysSince: 75, market: 'RDU', score: 83.2, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Austin Penninger', brokerage: 'LPT Realty', tier: 'Gold', evals: 30, lastEval: '11/1/25', daysSince: 195, market: 'RDU', score: 82.8, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Glen Clemmons', brokerage: 'Compass', tier: 'Gold', evals: 11, lastEval: '4/21/26', daysSince: 24, market: 'RDU', score: 82.6, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Katti Battaglia', brokerage: 'Long & Foster', tier: 'Gold', evals: 4, lastEval: '3/1/26', daysSince: 75, market: 'RDU', score: 82.1, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Christine Harvey', brokerage: 'Orchard', tier: 'Gold', evals: 6, lastEval: '9/30/25', daysSince: 227, market: 'ATL', score: 81.0, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Kim Crump', brokerage: 'Linda Craft Team Realtors', tier: 'Gold', evals: 5, lastEval: '2/1/26', daysSince: 103, market: 'RDU', score: 79.8, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Victoria Loredo', brokerage: 'Brian Trainum (GSO)', tier: 'Gold', evals: 3, lastEval: '7/17/25', daysSince: 302, market: 'RDU', score: 79.4, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Karen Lee', brokerage: 'eXp Realty', tier: 'Gold', evals: 7, lastEval: '11/4/24', daysSince: 557, market: 'RDU', score: 79.4, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Katie Coleman', brokerage: 'DASH Carolina', tier: 'Gold', evals: 3, lastEval: '7/3/25', daysSince: 316, market: 'RDU', score: 78.7, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Cori Grenier', brokerage: 'Coldwell Banker ADVANTAGE', tier: 'Gold', evals: 6, lastEval: '6/16/25', daysSince: 333, market: 'RDU', score: 78.3, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Naomi Richardson', brokerage: 'Mark Spain Real Estate', tier: 'Gold', evals: 5, lastEval: '5/7/25', daysSince: 373, market: 'RDU', score: 77.5, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Nevada Smith Jr', brokerage: 'Navigate Realty', tier: 'Gold', evals: 4, lastEval: '4/3/26', daysSince: 42, market: 'RDU', score: 77.0, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Ace Wang', brokerage: 'West and Woodall Real Estate Durham', tier: 'Gold', evals: 2, lastEval: '3/1/26', daysSince: 75, market: 'RDU', score: 75.9, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Annalee Bergeson', brokerage: 'eXp Realty', tier: 'Gold', evals: 3, lastEval: '3/1/26', daysSince: 75, market: 'RDU', score: 74.0, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Barbara Lyster', brokerage: 'Berkshire Hathaway Home Service Chapel Hill', tier: 'Gold', evals: 2, lastEval: '3/1/26', daysSince: 75, market: 'RDU', score: 69.9, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Jason White', brokerage: 'eXp Realty', tier: 'Gold', evals: 5, lastEval: '12/1/24', daysSince: 530, market: 'RDU', score: 69.4, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Desiree White', brokerage: 'eXp Realty', tier: 'Gold', evals: 5, lastEval: '12/1/24', daysSince: 530, market: 'RDU', score: 69.1, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Ben Herold', brokerage: 'Ownify', tier: 'Gold', evals: 8, lastEval: '2/1/25', daysSince: 468, market: 'RDU', score: 68.8, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Holly Rucker', brokerage: 'eXp Realty', tier: 'Gold', evals: 3, lastEval: '11/1/25', daysSince: 195, market: 'RDU', score: 67.5, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'JT Davis', brokerage: 'eXp Realty', tier: 'Gold', evals: 1, lastEval: '10/23/24', daysSince: 569, market: 'CLT', score: 67.2, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Stephanie Cornette', brokerage: 'eXp Realty', tier: 'Gold', evals: 4, lastEval: '12/1/24', daysSince: 530, market: 'RDU', score: 66.6, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Sheila Tillery', brokerage: 'Mark Spain Real Estate', tier: 'Gold', evals: 2, lastEval: '5/6/25', daysSince: 374, market: 'RDU', score: 65.1, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Taylor Farley', brokerage: 'Block & Associates Realty', tier: 'Gold', evals: 1, lastEval: '4/21/26', daysSince: 24, market: 'RDU', score: 64.9, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Jemima Faugues', brokerage: 'eXp Realty', tier: 'Gold', evals: 36, lastEval: '5/12/26', daysSince: 3, market: 'RDU', score: 64.5, emailed: false, called: false, meeting: false, relationship: false },
+  { name: 'Bianca Eckhoff', brokerage: 'Compass', tier: 'Gold', evals: 56, lastEval: '3/1/26', daysSince: 75, market: 'RDU', score: 64.2, emailed: false, called: false, meeting: false, relationship: false }
 ];
 
 const PAGE_SIZE = 15;
@@ -352,31 +380,31 @@ function renderTable() {
   const tbody = document.getElementById('agentTable');
   const start = currentPage * PAGE_SIZE;
   const page = filteredAgents.slice(start, start + PAGE_SIZE);
-  const tierClass = { Gold: 'tier-gold', Silver: 'tier-silver', Bronze: 'tier-bronze', New: 'tier-new' };
+  const tierClass = { Gold: 'tier-gold', Silver: 'tier-silver', Bronze: 'tier-bronze' };
 
   tbody.innerHTML = page.map((a, i) => {
     const idx = start + i + 1;
-    const makeCheck = (field, agentIdx) => {
+    const makeCheck = (field) => {
       const globalIdx = agents.indexOf(a);
-      return `<div class="outreach-check ${a[field] ? 'done' : ''}" onclick="toggleOutreach(${globalIdx}, '${field}', this)"></div>`;
+      return '<div class="outreach-check ' + (a[field] ? 'done' : '') + '" onclick="toggleOutreach(' + globalIdx + ', \'' + field + '\', this)"></div>';
     };
-    return `<tr data-status="${getOutreachStatus(a)}">
-      <td style="color:#9ca3af;font-weight:600">${idx}</td>
-      <td style="font-weight:600">${a.name}</td>
-      <td>${a.brokerage}</td>
-      <td><span class="tier-badge ${tierClass[a.tier]}">${a.tier}</span></td>
-      <td class="evals-num">${a.evals}</td>
-      <td style="color:#6b7280">${a.lastEval}</td>
-      <td style="text-align:center">${makeCheck('emailed')}</td>
-      <td style="text-align:center">${makeCheck('called')}</td>
-      <td style="text-align:center">${makeCheck('meeting')}</td>
-      <td style="text-align:center">${makeCheck('relationship')}</td>
-    </tr>`;
+    return '<tr data-status="' + getOutreachStatus(a) + '">' +
+      '<td style="color:#9ca3af;font-weight:600">' + idx + '</td>' +
+      '<td style="font-weight:600">' + a.name + '</td>' +
+      '<td>' + a.brokerage + '</td>' +
+      '<td><span class="tier-badge ' + (tierClass[a.tier] || '') + '">' + a.tier + '</span></td>' +
+      '<td class="evals-num">' + a.evals + '</td>' +
+      '<td style="color:#6b7280">' + a.lastEval + '</td>' +
+      '<td style="text-align:center">' + makeCheck('emailed') + '</td>' +
+      '<td style="text-align:center">' + makeCheck('called') + '</td>' +
+      '<td style="text-align:center">' + makeCheck('meeting') + '</td>' +
+      '<td style="text-align:center">' + makeCheck('relationship') + '</td>' +
+    '</tr>';
   }).join('');
 
   const total = filteredAgents.length;
   const pages = Math.ceil(total / PAGE_SIZE);
-  document.getElementById('pageInfo').textContent = `${start + 1}–${Math.min(start + PAGE_SIZE, total)} of ${total}`;
+  document.getElementById('pageInfo').textContent = (start + 1) + '–' + Math.min(start + PAGE_SIZE, total) + ' of ' + total;
   document.getElementById('prevBtn').disabled = currentPage === 0;
   document.getElementById('nextBtn').disabled = currentPage >= pages - 1;
 }
@@ -389,6 +417,9 @@ function changePage(dir) {
 function toggleOutreach(agentIdx, field, el) {
   agents[agentIdx][field] = !agents[agentIdx][field];
   el.classList.toggle('done');
+  // Update "Relationships Not Started" KPI
+  const notStarted = agents.filter(a => !a.emailed && !a.called && !a.meeting && !a.relationship).length;
+  document.querySelector('.kpi-card.red .kpi-value').textContent = notStarted;
 }
 
 renderTable();
