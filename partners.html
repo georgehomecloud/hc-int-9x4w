@@ -49,6 +49,12 @@
   .alert-badge.danger { background: #dc2626; color: #fff; }
   .alert-badge.warning { background: #d97706; color: #fff; }
   .alert-action { font-size: 12px; color: #2563eb; font-weight: 600; cursor: pointer; text-decoration: none; white-space: nowrap; }
+  .dismiss-btn { font-size: 11px; padding: 4px 10px; border-radius: 6px; border: 1px solid #d1d5db; background: white; cursor: pointer; font-family: inherit; font-weight: 600; transition: all 0.15s; }
+  .dismiss-btn:hover { background: #f3f4f6; }
+  .dismiss-btn.perm { color: #dc2626; border-color: #fca5a5; }
+  .dismiss-btn.perm:hover { background: #fef2f2; }
+  .dismiss-btn.temp { color: #d97706; border-color: #fcd34d; }
+  .dismiss-btn.temp:hover { background: #fffbeb; }
 
   .calls-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .call-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: #f9fafb; border-radius: 10px; }
@@ -129,68 +135,11 @@
     </div>
   </div>
 
-  <!-- Churn Alerts -->
+  <!-- Churn Alerts (JS-driven with dismiss system) -->
   <div class="section-card">
     <h3>⚠️ Churn Risk Alerts</h3>
     <div class="section-sub">Gold-tier partners with no HomeCloud activity in 90+ days — reach out ASAP</div>
-
-    <div class="alert-row danger">
-      <div>
-        <div class="alert-name">Austin Penninger</div>
-        <div class="alert-detail">LPT Realty — Last eval: Nov 1, 2025 (189 days ago) · 30 evals lifetime</div>
-      </div>
-      <span class="alert-badge danger">189 days</span>
-      <a class="alert-action">📞 Call</a>
-    </div>    <div class="alert-row danger">
-      <div>
-        <div class="alert-name">Lauren Tenuta</div>
-        <div class="alert-detail">Keller Williams Realty Cary — Last eval: Jan 1, 2026 (128 days ago) · 17 evals lifetime</div>
-      </div>
-      <span class="alert-badge danger">128 days</span>
-      <a class="alert-action">📞 Call</a>
-    </div>    <div class="alert-row warning">
-      <div>
-        <div class="alert-name">Courtney Hornback</div>
-        <div class="alert-detail">Christina Valkanoff Realty Group — Last eval: Feb 1, 2026 (97 days ago) · 13 evals lifetime</div>
-      </div>
-      <span class="alert-badge warning">97 days</span>
-      <a class="alert-action">📞 Call</a>
-    </div>    <div class="alert-row danger">
-      <div>
-        <div class="alert-name">Sandy Estacio</div>
-        <div class="alert-detail">Jennifer Patterson Realty — Last eval: Jul 1, 2025 (312 days ago) · 12 evals lifetime</div>
-      </div>
-      <span class="alert-badge danger">312 days</span>
-      <a class="alert-action">📞 Call</a>
-    </div>    <div class="alert-row warning">
-      <div>
-        <div class="alert-name">Nogui Aramburo</div>
-        <div class="alert-detail">Team Encompass — Last eval: Feb 2, 2026 (102 days ago) · 8 evals lifetime</div>
-      </div>
-      <span class="alert-badge warning">102 days</span>
-      <a class="alert-action">📞 Call</a>
-    </div>    <div class="alert-row danger">
-      <div>
-        <div class="alert-name">Liz Arvizu</div>
-        <div class="alert-detail">Shumar Richmond (GSO) — Last eval: Jun 1, 2025 (342 days ago) · 11 evals lifetime</div>
-      </div>
-      <span class="alert-badge danger">342 days</span>
-      <a class="alert-action">📞 Call</a>
-    </div>    <div class="alert-row danger">
-      <div>
-        <div class="alert-name">John Delgado</div>
-        <div class="alert-detail">Jennifer Patterson Realty — Last eval: Jul 1, 2025 (312 days ago) · 10 evals lifetime</div>
-      </div>
-      <span class="alert-badge danger">312 days</span>
-      <a class="alert-action">📞 Call</a>
-    </div>    <div class="alert-row warning">
-      <div>
-        <div class="alert-name">Bill Stevenson</div>
-        <div class="alert-detail">Compass — Last eval: Feb 1, 2026 (97 days ago) · 9 evals lifetime</div>
-      </div>
-      <span class="alert-badge warning">97 days</span>
-      <a class="alert-action">📞 Call</a>
-    </div>
+    <div id="churnAlerts"></div>
   </div>
 
   <!-- Calls This Week -->
@@ -318,7 +267,7 @@ const agents = [
   { name: 'Derek Nereu', brokerage: 'eXp Realty', tier: 'Gold', evals: 7, lastEval: '7/16/25', daysSince: 303, market: 'RDU', score: 89.6, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 0 },
   { name: 'Nogui Aramburo', brokerage: 'Team Encompass', tier: 'Gold', evals: 8, lastEval: '2/2/26', daysSince: 102, market: 'RDU', score: 88.7, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 2531 },
   { name: 'Dave Wylie', brokerage: 'Compass', tier: 'Gold', evals: 24, lastEval: '4/30/26', daysSince: 15, market: 'RDU', score: 88.1, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 7650 },
-  { name: 'Yandry Mastromihalis', brokerage: 'eXp Realty', tier: 'Gold', evals: 2, lastEval: '7/9/25', daysSince: 310, market: 'RDU', score: 86.9, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 0 },
+  { name: 'Yandry Mastromihalis', brokerage: 'eXp Realty', tier: 'Gold', evals: 3, lastEval: '2/4/26', daysSince: 100, market: 'RDU', score: 86.9, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 399 },
   { name: 'Trevor Miller', brokerage: 'eXp Realty', tier: 'Gold', evals: 9, lastEval: '5/13/26', daysSince: 2, market: 'RDU', score: 86.3, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 5707 },
   { name: 'CJ Jones', brokerage: 'Mark Spain Real Estate', tier: 'Gold', evals: 6, lastEval: '3/12/26', daysSince: 64, market: 'RDU', score: 85.6, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 798 },
   { name: 'Sarai Peotdi', brokerage: 'Mark Spain Real Estate', tier: 'Gold', evals: 3, lastEval: '4/28/26', daysSince: 17, market: 'RDU', score: 85.5, emailed: false, called: false, meeting: false, relationship: false, revenue6mo: 2019 },
@@ -425,6 +374,74 @@ function toggleOutreach(agentIdx, field, el) {
 }
 
 renderTable();
+
+// --- Churn Risk Alerts with Dismiss System ---
+const churnAlerts = [
+  { name: 'Austin Penninger', brokerage: 'LPT Realty', lastEval: 'Nov 1, 2025', daysAgo: 189, evals: 30 },
+  { name: 'Lauren Tenuta', brokerage: 'Keller Williams Realty Cary', lastEval: 'Jan 1, 2026', daysAgo: 128, evals: 17 },
+  { name: 'Courtney Hornback', brokerage: 'Christina Valkanoff Realty Group', lastEval: 'Feb 1, 2026', daysAgo: 97, evals: 13 },
+  { name: 'Sandy Estacio', brokerage: 'Jennifer Patterson Realty', lastEval: 'Jul 1, 2025', daysAgo: 312, evals: 12 },
+  { name: 'Nogui Aramburo', brokerage: 'Team Encompass', lastEval: 'Feb 2, 2026', daysAgo: 102, evals: 8 },
+  { name: 'Liz Arvizu', brokerage: 'Shumar Richmond (GSO)', lastEval: 'Jun 1, 2025', daysAgo: 342, evals: 11 },
+  { name: 'John Delgado', brokerage: 'Jennifer Patterson Realty', lastEval: 'Jul 1, 2025', daysAgo: 312, evals: 10 },
+  { name: 'Bill Stevenson', brokerage: 'Compass', lastEval: 'Feb 1, 2026', daysAgo: 97, evals: 9 },
+];
+
+function getDismissals() {
+  try { return JSON.parse(localStorage.getItem('churnDismissals') || '{}'); } catch(e) { return {}; }
+}
+
+function saveDismissals(d) {
+  localStorage.setItem('churnDismissals', JSON.stringify(d));
+}
+
+function isDismissed(name) {
+  const d = getDismissals();
+  const entry = d[name];
+  if (!entry) return false;
+  if (entry.type === 'permanent') return true;
+  if (entry.type === '2weeks') {
+    const elapsed = Date.now() - entry.dismissedAt;
+    const twoWeeks = 14 * 24 * 60 * 60 * 1000;
+    if (elapsed < twoWeeks) return true;
+    // Expired — clean up
+    delete d[name];
+    saveDismissals(d);
+    return false;
+  }
+  return false;
+}
+
+function dismissAlert(name, type) {
+  const d = getDismissals();
+  d[name] = { type: type, dismissedAt: Date.now() };
+  saveDismissals(d);
+  renderChurnAlerts();
+}
+
+function renderChurnAlerts() {
+  const container = document.getElementById('churnAlerts');
+  const visible = churnAlerts.filter(a => !isDismissed(a.name));
+
+  container.innerHTML = visible.map(a => {
+    const level = a.daysAgo >= 120 ? 'danger' : 'warning';
+    return '<div class="alert-row ' + level + '">' +
+      '<div>' +
+        '<div class="alert-name">' + a.name + '</div>' +
+        '<div class="alert-detail">' + a.brokerage + ' — Last eval: ' + a.lastEval + ' (' + a.daysAgo + ' days ago) · ' + a.evals + ' evals lifetime</div>' +
+      '</div>' +
+      '<span class="alert-badge ' + level + '">' + a.daysAgo + ' days</span>' +
+      '<a class="alert-action">📞 Call</a>' +
+      '<button class="dismiss-btn temp" onclick="dismissAlert(\'' + a.name.replace(/'/g, "\\'") + '\', \'2weeks\')">Dismiss 2 weeks</button>' +
+      '<button class="dismiss-btn perm" onclick="dismissAlert(\'' + a.name.replace(/'/g, "\\'") + '\', \'permanent\')">Dismiss permanently</button>' +
+    '</div>';
+  }).join('');
+
+  // Update KPI count
+  document.querySelector('.kpi-card.amber .kpi-value').textContent = visible.length;
+}
+
+renderChurnAlerts();
 </script>
 </body>
 </html>
