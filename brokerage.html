@@ -90,6 +90,48 @@
   .footer { text-align: center; padding: 24px; font-size: 11px; color: #b0b7c3; }
 
   @media (max-width: 900px) { .kpi-row { grid-template-columns: repeat(2, 1fr); } .two-col { grid-template-columns: 1fr; } }
+
+  /* ── Top Brokerages & Teams section ── */
+  .market-toggles { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+  .market-pill { padding: 7px 18px; border-radius: 20px; font-size: 12px; font-weight: 600; border: none; cursor: pointer; transition: all 0.15s; letter-spacing: 0.3px; font-family: inherit; }
+  .market-pill.active { background: #1a1a2e; color: #fff; }
+  .market-pill:not(.active) { background: #f3f4f6; color: #374151; }
+  .market-pill:not(.active):hover { background: #e5e7eb; }
+
+  .market-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; letter-spacing: 0.3px; }
+  .market-badge.mkt-RDU { background: #eff6ff; color: #2563eb; }
+  .market-badge.mkt-ATL { background: #ecfdf5; color: #059669; }
+  .market-badge.mkt-CLT { background: #f5f3ff; color: #7c3aed; }
+  .market-badge.mkt-GSO { background: #fffbeb; color: #d97706; }
+  .market-badge.mkt-DFW { background: #f3f4f6; color: #6b7280; }
+
+  #topTeamsTable th { cursor: pointer; user-select: none; white-space: nowrap; }
+  #topTeamsTable th .sort-arrow { font-size: 9px; margin-left: 4px; opacity: 0.4; }
+  #topTeamsTable th.sorted .sort-arrow { opacity: 1; }
+  #topTeamsTable td.rev-cell { text-align: right; font-variant-numeric: tabular-nums; }
+  #topTeamsTable th.rev-head { text-align: right; }
+
+  .team-row { cursor: pointer; }
+  .team-row:hover td { background: #f0f4ff !important; }
+  .team-name-cell { display: flex; align-items: center; gap: 6px; }
+  .chevron { display: inline-block; font-size: 10px; color: #9ca3af; transition: transform 0.2s; width: 14px; text-align: center; flex-shrink: 0; }
+  .chevron.open { transform: rotate(90deg); }
+
+  .agent-sub-row { display: none; }
+  .agent-sub-row.visible { display: table-row; }
+  .agent-sub-row td { padding: 0; border-bottom: 1px solid #e5e7eb; }
+  .agent-sub-row:hover td { background: transparent !important; }
+  .agent-sub-table { width: 100%; background: #f8fafc; border-collapse: collapse; font-size: 12px; }
+  .agent-sub-table th { background: #f1f5f9; font-size: 9px; padding: 6px 12px; border-bottom: 1px solid #e2e8f0; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; color: #6b7280; }
+  .agent-sub-table td { padding: 6px 12px; border-bottom: 1px solid #edf2f7; background: #f8fafc; }
+  .agent-sub-table tr:last-child td { border-bottom: none; }
+  .agent-sub-table td.rev-cell { text-align: right; font-variant-numeric: tabular-nums; }
+  .agent-sub-table th.rev-head { text-align: right; }
+
+  .no-events-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 600; background: #fef2f2; color: #dc2626; }
+  .event-date-recent { color: #059669; font-weight: 600; font-size: 12px; }
+  .event-date-old { color: #6b7280; font-size: 12px; }
+  .event-label { font-size: 11px; color: #9ca3af; display: block; margin-top: 1px; }
 </style>
 </head>
 <body>
@@ -149,6 +191,38 @@
       </div>
     </div>
   </div>
+
+  <!-- ═══════ TOP BROKERAGES & TEAMS ═══════ -->
+  <div class="section-card" id="topBrokeragesSection">
+    <h3>Top Brokerages &amp; Teams</h3>
+    <div class="section-sub">Ranked by T12M revenue (Jun 2025 &ndash; May 2026) &mdash; click any team to see members</div>
+
+    <div class="market-toggles" id="marketToggles">
+      <button class="market-pill active" data-market="ALL">ALL</button>
+      <button class="market-pill" data-market="RDU">RDU</button>
+      <button class="market-pill" data-market="ATL">ATL</button>
+      <button class="market-pill" data-market="CLT">CLT</button>
+      <button class="market-pill" data-market="GSO">GSO</button>
+    </div>
+
+    <table id="topTeamsTable">
+      <thead>
+        <tr>
+          <th data-col="rank" style="width:40px"># <span class="sort-arrow">&#9650;</span></th>
+          <th data-col="name">Team / Office <span class="sort-arrow">&#9650;</span></th>
+          <th data-col="market" style="width:70px">Market <span class="sort-arrow">&#9650;</span></th>
+          <th data-col="agents" style="width:80px">Agents <span class="sort-arrow">&#9650;</span></th>
+          <th data-col="revenue" class="rev-head">T12M Revenue <span class="sort-arrow">&#9660;</span></th>
+          <th data-col="evals" style="width:90px">Evals (T12M) <span class="sort-arrow">&#9650;</span></th>
+          <th data-col="lastEvent">Last Event <span class="sort-arrow">&#9650;</span></th>
+        </tr>
+      </thead>
+      <tbody id="topTeamsBody"></tbody>
+    </table>
+
+    <div class="data-source">Source: QuickSight Agent Activity + HubSpot CRM &mdash; office_relationships_t12m_v5.xlsx</div>
+  </div>
+  <!-- ═══════ END TOP BROKERAGES & TEAMS ═══════ -->
 
   <!-- Meeting Timeline -->
   <div class="section-card">
@@ -398,6 +472,155 @@
 
 <script>
 document.getElementById('footerDate').textContent = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
+// ── Top Brokerages & Teams ──
+var TEAMS_DATA = [{"rank":1,"market":"ATL","name":"Maymont Homes","code":null,"brokerage":"Maymont Homes","total":2,"active":2,"revenue":443889.16,"evals":8,"agents":[{"n":"Becca Punch","r":243889.16,"e":4},{"n":"Alex Barnes","r":200000.0,"e":4}],"lastEvent":null},{"rank":2,"market":"RDU","name":"Mark Spain Real Estate","code":"74873","brokerage":"Mark Spain Real Estate","total":33,"active":31,"revenue":368276.43,"evals":138,"agents":[{"n":"CJ Jones","r":151887.43,"e":27},{"n":"Rachel Jones","r":35190.07,"e":11},{"n":"Sarai Peotdi","r":34299.78,"e":19},{"n":"Sheila Tillery","r":27145.51,"e":1},{"n":"Kandy Benton","r":21150.99,"e":5},{"n":"Heather Anagnos","r":14794.5,"e":2},{"n":"Robin Hug","r":14502.7,"e":2},{"n":"Janna Whitehorne","r":13948.08,"e":10},{"n":"Donna Kokol","r":12528.05,"e":2},{"n":"Aiyana Lutkiewicz","r":12069.0,"e":3},{"n":"Jennifer Harrell","r":8000.0,"e":1},{"n":"Naomi Richardson","r":6286.12,"e":15},{"n":"Deidre Jackson","r":5025.66,"e":4},{"n":"Shaylan Good","r":3507.24,"e":5},{"n":"Margaret McPhail","r":2542.55,"e":8},{"n":"Michael McBrien","r":1609.3,"e":2},{"n":"Colin Williams","r":1479.71,"e":2},{"n":"Audrey Johnston","r":654.5,"e":1},{"n":"Lindsay Thomas-Byrd","r":598.5,"e":1},{"n":"Blake Hiott","r":556.74,"e":2},{"n":"Bill Stehney","r":500.0,"e":1},{"n":"George Kirkland","r":0,"e":1},{"n":"Ron Freeman","r":0,"e":2},{"n":"George Kirkland","r":0,"e":0},{"n":"Christine Barnes","r":0,"e":1},{"n":"Mark Hargrove","r":0,"e":0},{"n":"Melissa Heinz","r":0,"e":1},{"n":"Kenny Norris","r":0,"e":1},{"n":"Vivica Smith","r":0,"e":1},{"n":"Joe Norwood","r":0,"e":2},{"n":"Russell Sicoli","r":0,"e":1},{"n":"Tara Hargrove","r":0,"e":3},{"n":"Audra Tennyson","r":0,"e":1}],"lastEvent":{"date":"2026-05-05","label":"May 5, 2026","event":"MSRE Cinco De Mayo Happy Hour"}},{"rank":3,"market":"ATL","name":"Compass","code":null,"brokerage":"Compass","total":25,"active":25,"revenue":256361.41,"evals":123,"agents":[{"n":"Sarah Murphy","r":72049.13,"e":25},{"n":"Neil Hediger","r":64817.25,"e":12},{"n":"Addie Bartlett","r":34572.74,"e":23},{"n":"Natalie Gregory","r":22634.91,"e":3},{"n":"Adam Harris","r":15732.72,"e":5},{"n":"Karyn Parker","r":13923.52,"e":6},{"n":"Amy Jones","r":9582.99,"e":4},{"n":"Amy Pedersen","r":8353.8,"e":9},{"n":"Jon Pedersen","r":6691.95,"e":7},{"n":"Darlene Gillespy","r":3757.77,"e":3},{"n":"Lee Gillespy","r":3757.77,"e":2},{"n":"David Wilson","r":486.86,"e":2},{"n":"Zack Williams","r":0,"e":2},{"n":"Meg Councilman","r":0,"e":2},{"n":"Stephanie Williams","r":0,"e":2},{"n":"Sacha Rady","r":0,"e":1},{"n":"Regina Baker","r":0,"e":1},{"n":"Liz Breen","r":0,"e":1},{"n":"Minhnuyet Hardy","r":0,"e":2},{"n":"Audrey Gibson","r":0,"e":2},{"n":"Yousef Odeh","r":0,"e":1},{"n":"Cathy Iannotti","r":0,"e":3},{"n":"Kimberly Eslinger","r":0,"e":1},{"n":"Avery Canada","r":0,"e":3},{"n":"Alex Miller","r":0,"e":1}],"lastEvent":{"date":"2026-06-02","label":"Jun 2, 2026","event":"Compass CLT Sales Kick Off"}},{"rank":4,"market":"RDU","name":"Compass -- Chapel Hill - Durham","code":"80813","brokerage":"Compass","total":14,"active":13,"revenue":190063.19,"evals":70,"agents":[{"n":"Jason Bingham","r":124267.94,"e":21},{"n":"Anna Lee Ruppard","r":37181.18,"e":2},{"n":"Bill Stevenson","r":15914.23,"e":11},{"n":"Dave Wylie","r":7362.99,"e":20},{"n":"Colin Anderson","r":2952.67,"e":5},{"n":"Ken Cannon","r":2384.18,"e":2},{"n":"Maria Jamieson","r":0,"e":1},{"n":"Brie Cline","r":0,"e":1},{"n":"Roy Ellis","r":0,"e":1},{"n":"Francisco Huizar","r":0,"e":2},{"n":"Jeff Steveson","r":0,"e":1},{"n":"Kris Koelliker","r":0,"e":1},{"n":"Ed Billings","r":0,"e":0},{"n":"Everett Stevenson","r":0,"e":2}],"lastEvent":{"date":"2026-04-22","label":"Apr 22, 2026","event":"Workshop & Lunch at Compass"}},{"rank":5,"market":"RDU","name":"eXp Realty, LLC - C","code":"76917","brokerage":"Unknown; eXp Realty","total":11,"active":8,"revenue":189537.15,"evals":32,"agents":[{"n":"Yandry Mastromihalis","r":115698.48,"e":12},{"n":"Lauren Wagner","r":63253.11,"e":2},{"n":"Karen Lee","r":10585.56,"e":7},{"n":"Kesha Warren","r":0,"e":0},{"n":"Ashley Buchanan","r":0,"e":3},{"n":"Claudia Alzate","r":0,"e":1},{"n":"Samantha  Harding","r":0,"e":0},{"n":"Felicia Hatcher","r":0,"e":1},{"n":"Brette Davis","r":0,"e":3},{"n":"Chambrea Daniels","r":0,"e":3},{"n":"Stephanie Carrillo","r":0,"e":0}],"lastEvent":null},{"rank":6,"market":"RDU","name":"Christina Valkanoff Realty Group","code":"75744","brokerage":"Christina Valkanoff Realty Group","total":5,"active":5,"revenue":172249.47,"evals":58,"agents":[{"n":"Christina Valkanoff","r":106733.6,"e":14},{"n":"Courtney Hornback","r":31127.5,"e":17},{"n":"Jenni Boedeker Koppe","r":17147.82,"e":20},{"n":"Katie Duncan","r":16775.55,"e":5},{"n":"Canady Thomas","r":465.0,"e":2}],"lastEvent":null},{"rank":7,"market":"RDU","name":"eXp Realty","code":"81118","brokerage":"Unknown; eXp Realty","total":2,"active":2,"revenue":172009.66,"evals":64,"agents":[{"n":"Shenita St Clair","r":172009.66,"e":24},{"n":"Jemima Faugues","r":12258.74,"e":30},{"n":"Jeffrey Quick","r":0,"e":0},{"n":"Emily Klosterman","r":0,"e":1},{"n":"Jacob Mann","r":0,"e":3},{"n":"Carly Ogburn","r":0,"e":3},{"n":"Shaqwana Wells","r":0,"e":1},{"n":"Nene Dacus","r":0,"e":1},{"n":"Jason White","r":0,"e":0},{"n":"Stephanie Cornette","r":0,"e":0},{"n":"Monica Rosario","r":0,"e":1}],"lastEvent":null},{"rank":8,"market":"RDU","name":"Keller Williams Elite Realty","code":"74402","brokerage":"Jennifer Patterson Realty; Keller Williams Elite Realty","total":14,"active":11,"revenue":141800.9,"evals":48,"agents":[{"n":"Mallory Tomczykowski","r":119337.93,"e":19},{"n":"Alyson Gulassa","r":20236.97,"e":13},{"n":"John Delgado","r":2226.0,"e":5},{"n":"Jennifer Patterson","r":0,"e":1},{"n":"Ashley Mays","r":0,"e":1},{"n":"Dylan Livingston","r":0,"e":2},{"n":"Matthew Perry","r":0,"e":0},{"n":"Dee Love Anderson","r":0,"e":0},{"n":"Suzy Marcial Armas","r":0,"e":0},{"n":"Andrew Johnston","r":0,"e":1},{"n":"Ashley Williams","r":0,"e":1},{"n":"Candis Shandley","r":0,"e":1},{"n":"Laura Heal","r":0,"e":3},{"n":"Lindsay Polin","r":0,"e":1}],"lastEvent":null},{"rank":9,"market":"RDU","name":"Burton Realty Group Inc","code":"T996","brokerage":"Keller Williams Preferred Realty","total":1,"active":1,"revenue":140152.95,"evals":1,"agents":[{"n":"Tim Chandler","r":140152.95,"e":1}],"lastEvent":null},{"rank":10,"market":"RDU","name":"West & Woodall Real Estate","code":"71581","brokerage":"West & Woodall Real Estate; West and Woodall Real Estate Durham","total":3,"active":2,"revenue":132696.65,"evals":11,"agents":[{"n":"Ace Wang","r":77583.09,"e":4},{"n":"Kirk West","r":55113.56,"e":7},{"n":"Brooke Tart","r":0,"e":0}],"lastEvent":null},{"rank":11,"market":"RDU","name":"DASH Carolina","code":"76598","brokerage":"DASH Carolina","total":16,"active":14,"revenue":127750.02,"evals":50,"agents":[{"n":"Katie Coleman","r":54051.56,"e":16},{"n":"Charles Michael Willis","r":26329.94,"e":4},{"n":"Jacob Lowder","r":23503.47,"e":4},{"n":"Zac Campbell","r":13212.12,"e":3},{"n":"Jacob Stiemann","r":5666.55,"e":1},{"n":"Jennifer Reycroft","r":4686.38,"e":2},{"n":"Victoria Loredo","r":300.0,"e":4},{"n":"Jane Davis","r":0,"e":1},{"n":"Randy Gooch","r":0,"e":2},{"n":"Alveria Mundy","r":0,"e":1},{"n":"Scott Burton","r":0,"e":1},{"n":"Liz Arvizu","r":0,"e":3},{"n":"Sonal Savani","r":0,"e":2},{"n":"Alec Raad","r":0,"e":1},{"n":"LaRadiah Turrentine","r":0,"e":0},{"n":"Paul Overmann","r":0,"e":0},{"n":"Angela Hill","r":0,"e":2},{"n":"Nick Kolb","r":0,"e":2},{"n":"Chris McKee","r":0,"e":1}],"lastEvent":null},{"rank":12,"market":"RDU","name":"Marti Hampton Inc.","code":"75733","brokerage":"eXp Realty; eXp Realty / Marti Hampton Team","total":5,"active":2,"revenue":124654.76,"evals":18,"agents":[{"n":"Derek Nereu","r":124654.76,"e":16},{"n":"Barbara Purtee","r":0,"e":0},{"n":"Greg Bailey","r":0,"e":0},{"n":"Desiree White","r":0,"e":0},{"n":"Holly Rucker","r":0,"e":2}],"lastEvent":null},{"rank":13,"market":"RDU","name":"Team Encompass","code":null,"brokerage":"Team Encompass","total":1,"active":1,"revenue":99814.52,"evals":14,"agents":[{"n":"Nogui Aramburo","r":99814.52,"e":10},{"n":"Allen Smith","r":0,"e":4}],"lastEvent":null},{"rank":14,"market":"GSO","name":"DASH Carolina","code":null,"brokerage":"DASH Carolina","total":3,"active":3,"revenue":97793.77,"evals":20,"agents":[{"n":"Brian Trainum","r":97793.77,"e":17},{"n":"Shumar Richmond","r":0,"e":2},{"n":"Ramez Moustafa","r":0,"e":1}],"lastEvent":null},{"rank":15,"market":"RDU","name":"Premier Agents Network","code":"80871","brokerage":"Independent; Premier Agents Network","total":7,"active":6,"revenue":94969.66,"evals":38,"agents":[{"n":"Justin Burleson","r":80736.61,"e":31},{"n":"Robin McConnell","r":10383.36,"e":1},{"n":"Becky Daly","r":3849.69,"e":2},{"n":"Nicole Mudd","r":0,"e":2},{"n":"Sharon Farmer","r":0,"e":1},{"n":"Peter Milner","r":0,"e":0},{"n":"Jessica Hinkle","r":0,"e":1}],"lastEvent":null},{"rank":16,"market":"RDU","name":"Keller Williams Realty","code":"2337","brokerage":"Aspire Real Estate; Keller Williams Raleigh","total":4,"active":3,"revenue":87009.03,"evals":30,"agents":[{"n":"Daniel Virag","r":44260.45,"e":4},{"n":"Phillip DeMuth","r":36158.27,"e":22},{"n":"Katie Lynam","r":6590.31,"e":4},{"n":"Diana Gutierrez","r":0,"e":0},{"n":"Caleb Lohrei","r":0,"e":0}],"lastEvent":null},{"rank":17,"market":"RDU","name":"Compass -- Raleigh","code":"75688","brokerage":"Compass","total":6,"active":5,"revenue":74380.41,"evals":18,"agents":[{"n":"Glen Clemmons","r":28167.0,"e":8},{"n":"Lesley Row","r":25067.0,"e":2},{"n":"Kate Kenney","r":15716.24,"e":2},{"n":"Lakendria Williams","r":5430.17,"e":3},{"n":"Nico Crecco","r":0,"e":3},{"n":"Patty Owens","r":0,"e":0}],"lastEvent":{"date":"2026-04-22","label":"Apr 22, 2026","event":"Workshop & Lunch at Compass"}},{"rank":18,"market":"ATL","name":"Orchard","code":null,"brokerage":"Orchard","total":2,"active":2,"revenue":74274.36,"evals":11,"agents":[{"n":"Christine Harvey","r":74274.36,"e":9},{"n":"Katie Brooks","r":0,"e":2}],"lastEvent":null},{"rank":19,"market":"RDU","name":"Gabriele Sherrill Team","code":"TEAM-GABRIELE","brokerage":"Gabriele Sherrill Team (eXp)","total":1,"active":1,"revenue":57461.59,"evals":8,"agents":[{"n":"Gabriele Sherrill","r":57461.59,"e":8}],"lastEvent":null},{"rank":20,"market":"RDU","name":"Cary-Raleigh Realty, Inc.","code":null,"brokerage":"Cary-Raleigh Realty, Inc.","total":2,"active":2,"revenue":53362.94,"evals":16,"agents":[{"n":"Danielle Giacona","r":26681.47,"e":4},{"n":"Hannah Chan","r":26681.47,"e":2},{"n":"Yan Xu","r":0,"e":2},{"n":"Royle Sit","r":0,"e":2},{"n":"Elizabeth McDuffie","r":0,"e":6}],"lastEvent":null},{"rank":21,"market":"RDU","name":"Century 21 Southern Lifestyles","code":"75199","brokerage":"Century 21 Southern Lifestyles; Navigate Realty","total":2,"active":1,"revenue":52947.76,"evals":1,"agents":[{"n":"Cooper Broome","r":52947.76,"e":1},{"n":"Mandy Withers","r":0,"e":0}],"lastEvent":{"date":"2026-05-19","label":"May 19, 2026","event":"Century 21 Office Orientation"}},{"rank":22,"market":"RDU","name":"Coldwell Banker Advantage","code":"77233","brokerage":"Coldwell Banker ADVANTAGE; Coldwell Banker Advantage Apex","total":3,"active":2,"revenue":51467.68,"evals":53,"agents":[{"n":"Denise Alala","r":51467.68,"e":33},{"n":"Karl Zellman","r":36138.87,"e":10},{"n":"Jaime Gularte","r":28026.2,"e":3},{"n":"Debby Smith","r":1158.0,"e":1},{"n":"Tammy Williams","r":0,"e":2},{"n":"Kendra Douros","r":0,"e":0},{"n":"John Hartofelis","r":0,"e":1},{"n":"Tammy Caldwell","r":0,"e":0},{"n":"Michelle Gelston","r":0,"e":0},{"n":"Heather Gower","r":0,"e":0},{"n":"Maggie Li","r":0,"e":3}],"lastEvent":null},{"rank":23,"market":"RDU","name":"eXp Realty, LLC #2","code":"T199","brokerage":"eXp Realty","total":1,"active":1,"revenue":48723.96,"evals":2,"agents":[{"n":"Lauren Hairston","r":48723.96,"e":2}],"lastEvent":null},{"rank":24,"market":"ATL","name":"Keller Knapp","code":null,"brokerage":"Keller Knapp","total":3,"active":3,"revenue":48265.93,"evals":4,"agents":[{"n":"Kyle MacDonald","r":35335.88,"e":1},{"n":"Emily Londrillo","r":12930.05,"e":2},{"n":"Amanda Comer","r":0,"e":1}],"lastEvent":null},{"rank":25,"market":"RDU","name":"Linda Craft Team, REALTORS","code":"71649","brokerage":"Linda Craft Team Realtors","total":10,"active":8,"revenue":48110.73,"evals":66,"agents":[{"n":"Steve Kruger","r":39690.77,"e":22},{"n":"Eli Wachtman","r":8419.96,"e":13},{"n":"Joelle Fitts","r":0,"e":1},{"n":"Andrew Truesdale","r":0,"e":0},{"n":"Mark Fulk","r":0,"e":6},{"n":"Anthony Fink","r":0,"e":10},{"n":"Kim Crump","r":0,"e":8},{"n":"Dwayne Reece","r":0,"e":4},{"n":"Linda Craft","r":0,"e":2},{"n":"Maria Moreno","r":0,"e":0}],"lastEvent":null},{"rank":26,"market":"RDU","name":"EXP Realty LLC","code":"75067","brokerage":"Goldilocks Transaction Management; eXp Realty","total":11,"active":5,"revenue":43560.17,"evals":15,"agents":[{"n":"Raquel Lara","r":21229.99,"e":7},{"n":"Brian Carnesecchi","r":14100.42,"e":1},{"n":"Petra Thomas","r":5284.76,"e":3},{"n":"Mary Batrouni","r":2945.0,"e":0},{"n":"Amber King","r":0,"e":0},{"n":"Heidy Padilla","r":0,"e":2},{"n":"Laurice Brannon","r":0,"e":0},{"n":"Marsha Watson","r":0,"e":0},{"n":"Jamie Skojec","r":0,"e":1},{"n":"Amber King","r":0,"e":0},{"n":"Sharon McDuffie","r":0,"e":0},{"n":"Gabriella Encinas","r":0,"e":1},{"n":"Bryant Dargan","r":0,"e":0},{"n":"Steven Norris","r":0,"e":0},{"n":"Apryl Bullock","r":0,"e":0},{"n":"Cathy Rice","r":0,"e":0},{"n":"Jess Deleon","r":0,"e":0}],"lastEvent":null},{"rank":27,"market":"RDU","name":"Coldwell Banker Advantage","code":"2935","brokerage":"Coldwell Banker Advantage Cary; Mark Spain Real Estate","total":3,"active":3,"revenue":37296.87,"evals":53,"agents":[{"n":"Denise Alala","r":51467.68,"e":33},{"n":"Karl Zellman","r":36138.87,"e":10},{"n":"Jaime Gularte","r":28026.2,"e":3},{"n":"Debby Smith","r":1158.0,"e":1},{"n":"Tammy Williams","r":0,"e":2},{"n":"Kendra Douros","r":0,"e":0},{"n":"John Hartofelis","r":0,"e":1},{"n":"Tammy Caldwell","r":0,"e":0},{"n":"Michelle Gelston","r":0,"e":0},{"n":"Heather Gower","r":0,"e":0},{"n":"Maggie Li","r":0,"e":3}],"lastEvent":null},{"rank":28,"market":"RDU","name":"Caul Group (eXp team)","code":"TEAM-CAUL","brokerage":"Caul Group","total":7,"active":6,"revenue":34408.57,"evals":17,"agents":[{"n":"Trevor Miller","r":19454.78,"e":11},{"n":"Reeka Christmann","r":13105.79,"e":1},{"n":"Victoria Coster","r":1848.0,"e":1},{"n":"Brianna Dimino","r":0,"e":0},{"n":"Cindy Quinlan","r":0,"e":1},{"n":"Michael Schwarzweller","r":0,"e":2},{"n":"Lennard Simpson","r":0,"e":1}],"lastEvent":null},{"rank":29,"market":"RDU","name":"Redfin Corporation","code":"72313","brokerage":"Redfin Corporation","total":4,"active":4,"revenue":34031.73,"evals":35,"agents":[{"n":"Sam Valle","r":32484.57,"e":8},{"n":"Tina Balog","r":1547.16,"e":3},{"n":"Laurene Sieli","r":0,"e":2},{"n":"AJ Butcher","r":0,"e":1},{"n":"AMANDA GREENE","r":0,"e":1},{"n":"Kim Blair","r":0,"e":2},{"n":"Leslie Rowls","r":0,"e":3},{"n":"Dennis de Jong","r":0,"e":15}],"lastEvent":{"date":"2026-04-28","label":"Apr 28, 2026","event":"Redfin CLT Orientation"}},{"rank":30,"market":"RDU","name":"Berkshire Hathaway HomeService","code":"3232","brokerage":"Berkshire Hathaway Home Service Chapel Hill; Raleigh Realty","total":2,"active":2,"revenue":30812.79,"evals":8,"agents":[{"n":"Kathy Bennett","r":27494.69,"e":4},{"n":"Barbara Lyster","r":3318.1,"e":4}],"lastEvent":null},{"rank":31,"market":"RDU","name":"Coldwell Banker Advantage","code":"2073","brokerage":"Coldwell Banker ADVANTAGE","total":1,"active":1,"revenue":28026.2,"evals":53,"agents":[{"n":"Denise Alala","r":51467.68,"e":33},{"n":"Karl Zellman","r":36138.87,"e":10},{"n":"Jaime Gularte","r":28026.2,"e":3},{"n":"Debby Smith","r":1158.0,"e":1},{"n":"Tammy Williams","r":0,"e":2},{"n":"Kendra Douros","r":0,"e":0},{"n":"John Hartofelis","r":0,"e":1},{"n":"Tammy Caldwell","r":0,"e":0},{"n":"Michelle Gelston","r":0,"e":0},{"n":"Heather Gower","r":0,"e":0},{"n":"Maggie Li","r":0,"e":3}],"lastEvent":null},{"rank":32,"market":"RDU","name":"Long & Foster Real Estate INC/Triangle East","code":"3229","brokerage":"Long & Foster","total":1,"active":1,"revenue":27093.59,"evals":8,"agents":[{"n":"Katti Battaglia","r":27093.59,"e":8}],"lastEvent":null},{"rank":33,"market":"RDU","name":"Choice Residential Real Estate","code":"75083","brokerage":"Choice Residential Real Estate; Coldwell Banker ADVANTAGE; Mark Spain Real Estate","total":5,"active":3,"revenue":21300.54,"evals":3,"agents":[{"n":"Jacie Dykes","r":20015.54,"e":0},{"n":"Bryn Terry","r":1285.0,"e":0},{"n":"Brian Sculley","r":0,"e":1},{"n":"Brenna Cogliati","r":0,"e":0},{"n":"Dana Reine","r":0,"e":0},{"n":"Jimmy Valley","r":0,"e":2}],"lastEvent":null},{"rank":34,"market":"RDU","name":"LPT Realty, LLC","code":"81548","brokerage":"Aspire Real Estate; LPT Realty; Mark Spain Real Estate","total":6,"active":4,"revenue":16326.87,"evals":8,"agents":[{"n":"Kyle Rank","r":8405.29,"e":0},{"n":"Austin Penninger","r":7921.58,"e":1},{"n":"Melanie Higgins","r":0,"e":0},{"n":"Nicole Hardy","r":0,"e":2},{"n":"Raquel Foreman","r":0,"e":5},{"n":"Raquel Foreman","r":0,"e":0}],"lastEvent":null},{"rank":35,"market":"RDU","name":"Block & Associates Realty","code":"2030","brokerage":"Block & Associates Realty","total":1,"active":1,"revenue":15222.93,"evals":3,"agents":[{"n":"Taylor Farley","r":15222.93,"e":3}],"lastEvent":null},{"rank":36,"market":"ATL","name":"Coldwell Banker Realty","code":null,"brokerage":"Coldwell Banker Realty","total":1,"active":1,"revenue":12881.7,"evals":3,"agents":[{"n":"Donilyn Hodge","r":12881.7,"e":3}],"lastEvent":null},{"rank":37,"market":"RDU","name":"Navigate Realty","code":"75412","brokerage":"Navigate Realty","total":4,"active":4,"revenue":12851.08,"evals":18,"agents":[{"n":"Eric Miller","r":10700.65,"e":9},{"n":"Shujaat Ali","r":2150.43,"e":1},{"n":"Matt Steele","r":0,"e":3},{"n":"Matt Steele","r":0,"e":2},{"n":"Andrea Reeves","r":0,"e":1},{"n":"Danielle Whitman","r":0,"e":1},{"n":"Maria Gonzalez","r":0,"e":1}],"lastEvent":null},{"rank":38,"market":"RDU","name":"eXp Realty","code":null,"brokerage":"eXp Realty","total":9,"active":6,"revenue":12258.74,"evals":64,"agents":[{"n":"Shenita St Clair","r":172009.66,"e":24},{"n":"Jemima Faugues","r":12258.74,"e":30},{"n":"Jeffrey Quick","r":0,"e":0},{"n":"Emily Klosterman","r":0,"e":1},{"n":"Jacob Mann","r":0,"e":3},{"n":"Carly Ogburn","r":0,"e":3},{"n":"Shaqwana Wells","r":0,"e":1},{"n":"Nene Dacus","r":0,"e":1},{"n":"Jason White","r":0,"e":0},{"n":"Stephanie Cornette","r":0,"e":0},{"n":"Monica Rosario","r":0,"e":1}],"lastEvent":null},{"rank":39,"market":"RDU","name":"Century 21 Triangle Group","code":"72189","brokerage":"Century 21 Triangle Group Cary; Century 21 Triangle Group Raleigh","total":2,"active":2,"revenue":10940.55,"evals":1,"agents":[{"n":"Andrew Dames","r":10940.55,"e":0},{"n":"Celeste Minns","r":0,"e":1}],"lastEvent":{"date":"2026-05-19","label":"May 19, 2026","event":"Century 21 Office Orientation"}},{"rank":40,"market":"ATL","name":"Keller Williams Buckhead","code":null,"brokerage":"Keller Williams Buckhead","total":3,"active":3,"revenue":9304.59,"evals":5,"agents":[{"n":"Kristin Lietz","r":6281.97,"e":3},{"n":"Cheryl Graves","r":3022.62,"e":1},{"n":"Doug Graves","r":0,"e":1}],"lastEvent":null},{"rank":41,"market":"RDU","name":"Northside Realty Inc.","code":"1202","brokerage":"Northside Realty","total":1,"active":1,"revenue":7115.75,"evals":1,"agents":[{"n":"Jennifer Feinstein","r":7115.75,"e":1}],"lastEvent":null},{"rank":42,"market":"RDU","name":"Keller Williams Realty Cary","code":"1319","brokerage":"Keller Williams Realty; Keller Williams Realty Cary","total":4,"active":2,"revenue":6246.0,"evals":1,"agents":[{"n":"Kathryn McLean","r":3600.0,"e":1},{"n":"Stewart Mclean","r":2646.0,"e":0},{"n":"Maria Rodriguez","r":0,"e":0},{"n":"Ankur Gupta","r":0,"e":0},{"n":"Brianna LaMonica","r":0,"e":0}],"lastEvent":null},{"rank":43,"market":"CLT","name":"Coldwell Banker Realty","code":null,"brokerage":"Coldwell Banker Realty","total":1,"active":1,"revenue":5529.83,"evals":1,"agents":[{"n":"Shannon McCullough","r":5529.83,"e":1}],"lastEvent":null},{"rank":44,"market":"CLT","name":"EXP Realty","code":null,"brokerage":"EXP Realty","total":2,"active":2,"revenue":5529.83,"evals":3,"agents":[{"n":"Jaime Gomez","r":5529.83,"e":1},{"n":"Luke Blackwelder","r":0,"e":2}],"lastEvent":null},{"rank":45,"market":"ATL","name":"Keller Williams Realty Intown ATL","code":null,"brokerage":"Keller Williams Realty Intown ATL","total":3,"active":3,"revenue":5200.05,"evals":10,"agents":[{"n":"Ryan Todd","r":4815.05,"e":3},{"n":"Nicky Nixon","r":385.0,"e":6},{"n":"Morgan Gailey","r":0,"e":1}],"lastEvent":null},{"rank":46,"market":"RDU","name":"Better Homes & Gardens Real Es","code":"72920","brokerage":"Better Homes & Gardens Real Estate; Better Homes & Gardens Real Estate Paracle","total":2,"active":2,"revenue":2965.52,"evals":7,"agents":[{"n":"Jennifer Woodward","r":2965.52,"e":1},{"n":"Susie Friedel","r":0,"e":6}],"lastEvent":null},{"rank":47,"market":"RDU","name":"Real Broker, LLC","code":"74651","brokerage":"Real Broker, LLC; Unknown","total":2,"active":2,"revenue":2945.0,"evals":2,"agents":[{"n":"Rick McCracken","r":2945.0,"e":0},{"n":"Nyia Johnson","r":0,"e":2}],"lastEvent":null},{"rank":48,"market":"RDU","name":"EXP REALTY LLC","code":"LP32360","brokerage":"eXp Realty","total":5,"active":5,"revenue":2650.0,"evals":22,"agents":[{"n":"Eric Anderson","r":2650.0,"e":5},{"n":"Noelle Reina","r":0,"e":2},{"n":"Asasa Sonkesak","r":0,"e":3},{"n":"Margarita Scott","r":0,"e":6},{"n":"Bianca Harris","r":0,"e":6}],"lastEvent":null},{"rank":49,"market":"RDU","name":"ERA Live Moore","code":"75966","brokerage":"ERA Live Moore Six Forks","total":4,"active":3,"revenue":2178.62,"evals":6,"agents":[{"n":"Dwayne Leatherwood","r":2178.62,"e":3},{"n":"Sharon Andrews","r":0,"e":1},{"n":"Natasia Jackson","r":0,"e":2},{"n":"Robert Conroy","r":0,"e":0}],"lastEvent":null},{"rank":50,"market":"RDU","name":"JASON MITCHELL GROUP","code":"LP35950","brokerage":"Jason Mitchell Group","total":1,"active":1,"revenue":2055.0,"evals":1,"agents":[{"n":"Theresa Pettie","r":2055.0,"e":1}],"lastEvent":null}];
+
+(function() {
+  var activeMarket = 'ALL';
+  var sortCol = 'revenue';
+  var sortAsc = false;
+  var expanded = {};
+  var today = new Date('2026-05-18T00:00:00');
+  var thirtyDaysAgo = new Date(today);
+  thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+
+  function fmtCurrency(v) {
+    if (v === 0) return '$0';
+    return '$' + v.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+  }
+
+  function escapeHtml(s) {
+    var d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function getFiltered() {
+    var list = TEAMS_DATA;
+    if (activeMarket !== 'ALL') {
+      list = list.filter(function(t) { return t.market === activeMarket; });
+    }
+    return list;
+  }
+
+  function getSorted(list) {
+    var col = sortCol;
+    var asc = sortAsc;
+    var sorted = list.slice();
+    sorted.sort(function(a, b) {
+      var va, vb;
+      if (col === 'rank') { va = a.rank; vb = b.rank; }
+      else if (col === 'name') { va = a.name.toLowerCase(); vb = b.name.toLowerCase(); }
+      else if (col === 'market') { va = a.market; vb = b.market; }
+      else if (col === 'agents') { va = a.active; vb = b.active; }
+      else if (col === 'revenue') { va = a.revenue; vb = b.revenue; }
+      else if (col === 'evals') { va = a.evals; vb = b.evals; }
+      else if (col === 'lastEvent') {
+        va = a.lastEvent ? a.lastEvent.date : '';
+        vb = b.lastEvent ? b.lastEvent.date : '';
+      }
+      if (va < vb) return asc ? -1 : 1;
+      if (va > vb) return asc ? 1 : -1;
+      return 0;
+    });
+    return sorted;
+  }
+
+  function renderLastEvent(le) {
+    if (!le) return '<span class="no-events-badge">No events</span>';
+    var eventDate = new Date(le.date + 'T00:00:00');
+    var isRecent = eventDate >= thirtyDaysAgo;
+    var cls = isRecent ? 'event-date-recent' : 'event-date-old';
+    return '<span class="' + cls + '">' + escapeHtml(le.label) + '</span><span class="event-label">' + escapeHtml(le.event) + '</span>';
+  }
+
+  function renderAgentTable(agents) {
+    var html = '<table class="agent-sub-table"><thead><tr><th>Agent Name</th><th class="rev-head">T12M Revenue</th><th>T12M Evals</th></tr></thead><tbody>';
+    var sorted = agents.slice().sort(function(a, b) { return b.r - a.r; });
+    for (var i = 0; i < sorted.length; i++) {
+      var ag = sorted[i];
+      html += '<tr><td>' + escapeHtml(ag.n) + '</td><td class="rev-cell">' + fmtCurrency(ag.r) + '</td><td>' + ag.e + '</td></tr>';
+    }
+    html += '</tbody></table>';
+    return html;
+  }
+
+  function render() {
+    var list = getSorted(getFiltered());
+    var tbody = document.getElementById('topTeamsBody');
+    var html = '';
+    for (var i = 0; i < list.length; i++) {
+      var t = list[i];
+      var key = t.rank + '-' + t.market + '-' + (t.code || t.name);
+      var isOpen = !!expanded[key];
+      html += '<tr class="team-row" data-key="' + escapeHtml(key) + '">';
+      html += '<td>' + (i + 1) + '</td>';
+      html += '<td><div class="team-name-cell"><span class="chevron ' + (isOpen ? 'open' : '') + '">&#9654;</span><strong>' + escapeHtml(t.name) + '</strong></div></td>';
+      html += '<td><span class="market-badge mkt-' + t.market + '">' + t.market + '</span></td>';
+      html += '<td>' + t.active + '/' + t.total + '</td>';
+      html += '<td class="rev-cell">' + fmtCurrency(t.revenue) + '</td>';
+      html += '<td>' + t.evals + '</td>';
+      html += '<td>' + renderLastEvent(t.lastEvent) + '</td>';
+      html += '</tr>';
+      html += '<tr class="agent-sub-row ' + (isOpen ? 'visible' : '') + '" data-subkey="' + escapeHtml(key) + '">';
+      html += '<td colspan="7">' + renderAgentTable(t.agents) + '</td>';
+      html += '</tr>';
+    }
+    tbody.innerHTML = html;
+
+    // Attach row click handlers
+    var rows = tbody.querySelectorAll('.team-row');
+    for (var j = 0; j < rows.length; j++) {
+      rows[j].addEventListener('click', function() {
+        var key = this.getAttribute('data-key');
+        expanded[key] = !expanded[key];
+        render();
+      });
+    }
+  }
+
+  // Market toggle
+  document.getElementById('marketToggles').addEventListener('click', function(e) {
+    if (e.target.classList.contains('market-pill')) {
+      activeMarket = e.target.getAttribute('data-market');
+      var pills = this.querySelectorAll('.market-pill');
+      for (var i = 0; i < pills.length; i++) pills[i].classList.remove('active');
+      e.target.classList.add('active');
+      render();
+    }
+  });
+
+  // Column sort
+  var ths = document.querySelectorAll('#topTeamsTable thead th');
+  for (var i = 0; i < ths.length; i++) {
+    ths[i].addEventListener('click', function() {
+      var col = this.getAttribute('data-col');
+      if (!col) return;
+      if (sortCol === col) {
+        sortAsc = !sortAsc;
+      } else {
+        sortCol = col;
+        sortAsc = (col === 'name' || col === 'market' || col === 'rank');
+      }
+      var allTh = document.querySelectorAll('#topTeamsTable thead th');
+      for (var j = 0; j < allTh.length; j++) {
+        allTh[j].classList.remove('sorted');
+        var arrow = allTh[j].querySelector('.sort-arrow');
+        if (arrow) arrow.innerHTML = '&#9650;';
+      }
+      this.classList.add('sorted');
+      var arrow = this.querySelector('.sort-arrow');
+      if (arrow) arrow.innerHTML = sortAsc ? '&#9650;' : '&#9660;';
+      render();
+    });
+  }
+
+  // Mark revenue column as sorted initially
+  var revTh = document.querySelector('#topTeamsTable thead th[data-col="revenue"]');
+  if (revTh) revTh.classList.add('sorted');
+  render();
+})();
 </script>
 </body>
 </html>
