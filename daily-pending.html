@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RDU Buy-Side Agents — Rolling 7 Days (May 22–May 29, 2026)</title>
+<title>RDU Buy-Side Agents — Rolling 7 Days (May 24–May 30, 2026)</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:#f0f2f5; padding:24px; color:#2d3748; }
@@ -52,16 +52,68 @@ tr:hover { background:#f7fafc; }
 <div class="container">
   <header>
     <h1>RDU Buy-Side Agents</h1>
-    <div class="subtitle">Rolling 7 days · May 22–May 29, 2026</div>
+    <div class="subtitle">Rolling 7 days · May 24–May 30, 2026</div>
   </header>
   <div class="summary-row">
-    <div class="stat-card"><div class="stat-label">Transactions</div><div class="stat-value">327</div></div>
-    <div class="stat-card partner"><div class="stat-label">Partners</div><div class="stat-value">17</div></div>
-    <div class="stat-card active"><div class="stat-label">Customers</div><div class="stat-value">6</div></div>
+    <div class="stat-card"><div class="stat-label">Transactions</div><div class="stat-value">334</div></div>
+    <div class="stat-card partner"><div class="stat-label">Partners</div><div class="stat-value">13</div></div>
+    <div class="stat-card active"><div class="stat-label">Customers</div><div class="stat-value">5</div></div>
     <div class="stat-card churned"><div class="stat-label">Churned</div><div class="stat-value">0</div></div>
-    <div class="stat-card lead"><div class="stat-label">Leads</div><div class="stat-value">10</div></div>
+    <div class="stat-card lead"><div class="stat-label">Leads</div><div class="stat-value">11</div></div>
     <div class="stat-card pipeline"><div class="stat-label">BOOKED</div><div class="stat-value">2</div></div>
   </div>
+<div class="day-section">
+  <div class="day-header">
+    <div class="day-title">Saturday, May 30</div>
+    <div class="day-count">1 matched of 51 transactions • 0 BOOKED</div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Buy-Side Agent</th>
+        <th>HubSpot Contact</th>
+        <th>Status</th>
+        <th>Brokerage</th>
+        <th>Evals</th>
+        <th>Property</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div style="font-weight:600;">Charlie Delgado <span class="match-tag">name</span></div>
+        </td>
+        <td>Charlie Delgado</td>
+        <td><span class="cls-badge" style="background:#e9d8fd;color:#6b46c1;">Lead</span></td>
+        <td style="font-size:12px;color:#4a5568;">Redfin Corporation</td>
+        <td><span class="eval-count eval-zero">0</span><div style="font-size:10px;color:#a0aec0;margin-top:3px;">May: 0 · Apr: 0 · Mar: 0 · Feb: 0</div></td>
+        <td style="font-size:12px;color:#4a5568;">161 Trantham Trail, Clayton, NC 27527</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="action-section">
+    <div class="action-title">Action Items</div>
+    <div class="action-card high">
+      <div class="action-body">
+        <div class="action-agent">Charlie Delgado</div>
+        <div class="action-detail">Lead · Redfin Corporation · 0 lifetime evals</div>
+        <div class="action-text"><strong>FIRST EVAL OPPORTUNITY</strong> — this agent has never done an evaluation with HomeCloud. New deal on 161 Trantham Trail, Clayton, NC 27527 — perfect time to introduce us.</div>
+        <div class="contact-info">charlie.delgado@redfin.com</div>
+      </div>
+    </div>
+  </div>
+  <div class="dq-section">
+    <strong>Data Quality flags:</strong>
+    <ul style="padding-left:18px; margin-top:6px;">
+      <li><strong>QuickSight export 2 days stale</strong> — newest folder is <code>5_28</code> (no <code>5_29</code> or <code>5_30</code> available). Eval counts may understate recent activity.</li>
+      <li><strong>HubSpot bulk phone match yield: 0%</strong> — both <code>phone</code> and <code>mobilephone</code> filtered on E.164 returned no hits for any of today's 49 buy-side agents. Fell through to name search.</li>
+      <li><strong>License→Agent Roster→email pass skipped</strong> — the 12,568-row roster exceeded the pagination budget for this run. Slack cross-check was the planned safety net but the <code>#hubspot-alerts</code> "Selling Agent Under Contract" bot has not fired yet today (Saturday) — so the highest-precedence match path was unavailable.</li>
+      <li><strong>48 of 49 agents unmatched in HubSpot</strong> — direct firstname+lastname EQ search found only Charlie Delgado. Many of these agents are genuinely not in HomeCloud's HubSpot, but the missing roster lookup likely understates true matches. Tomorrow's run (after Slack bot fires Monday) will surface anything we missed.</li>
+      <li><strong>0 YCBM bookings cross-matched to today's properties</strong> — Gmail YCBM sweep returned 56 messages over 7d; none of the booking addresses match today's 51 transactions.</li>
+    </ul>
+  </div>
+</div>
+
 <div class="day-section">
   <div class="day-header">
     <div class="day-title">Friday, May 29</div>
@@ -694,7 +746,7 @@ tr:hover { background:#f7fafc; }
       </div>
     </div>
     <div class="action-card high">
-      <div class=action-body">
+      <div class="action-body">
         <div class="action-agent">Brette Davis <span style="font-weight:400;color:#a0aec0;font-size:11px;">· Customer</span></div>
         <div class="action-text">FIRST EVAL OPPORTUNITY — this agent has never done an evaluation with HomeCloud. New deal on 2613 Morgandale Court, Fuquay Varina, NC 27526 — perfect time to introduce us.</div>
         <div class="contact-info">📧 brette@davisandmain.com · 📞 +19195354578</div>
@@ -743,70 +795,7 @@ tr:hover { background:#f7fafc; }
           <div class="dq-section"><strong style="display:block;margin-bottom:6px;">Data Quality flags</strong><div style="margin-bottom:4px;">• <strong>Off-sheet booking:</strong> Alex Bingham (HS:Jason Bingham) has a Review Call booked for 5527 Ponderosa Dr (May 28, 5:00 PM ET). That property is not on today's MLS feed; flagged BOOKED on the agent's row per skill rules.</div><div style="margin-bottom:4px;">• <strong>Sheet gap:</strong> 2026-05-23 (Saturday) was NOT processed yesterday (no dashboard run). May-23 sheet tab exists but is not represented as a day-section in this rolling window. Window therefore goes May 24 → May 17, skipping May 23.</div><div style="margin-bottom:4px;">• <strong>HubSpot match rate:</strong> 1 of 41 unique buy-side agents matched today (2.4%). Bulk E.164 phone search returned only Jason Bingham; firstname/lastname EQ filters returned 0 (most agents have blank name fields or are not in HubSpot). No #hubspot-alerts posted today (Sunday — bot does not run weekends), so the Slack cross-check path was unavailable.</div><div style="margin-bottom:4px;">• <strong>QuickSight export quality:</strong> Today's run used <em>5_22/Agent_Activity_by_Ho</em> (May 22 export, 2 days stale); no fresher Agent_Activity_by_Ho export available. May 2026 partial-month eval activity may be slightly undercounted.</div><div style="margin-bottom:4px;">• <strong>Agent Roster lookup skipped:</strong> Roster (~12k rows) exceeds single-call response budget. License→email resolution was not performed; phone+name+Slack passes only. Bingham match was via phone (+15405897854) regardless.</div></div>
         </div>
       </div>
-<div class="day-section">
-    <div class="day-header">
-      <div class="day-title">Friday, May 22</div>
-      <div class="day-count">2 matched of 44 transactions • 0 BOOKED</div>
-    </div>
-    <table>
-      <thead>
-        <tr>
-          <th>Buy-Side Agent</th>
-          <th>HubSpot Contact</th>
-          <th>Status</th>
-          <th>Brokerage</th>
-          <th>Evals</th>
-          <th>Property</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <div style="font-weight:600;">Linda Craft <span class="match-tag">name</span></div>
-          </td>
-          <td>Linda Craft</td>
-          <td><span class="cls-badge" style="background:#d69e2e22; color:#d69e2e;">Partner</span></td>
-          <td>Linda Craft Team, REALTORS</td>
-          <td>
-            <span class="eval-count">2</span>
-            <div style="font-size:10px; color:#a0aec0; margin-top:3px;">May: 0 · Apr: 0 · Mar: 0 · Feb: 0</div>
-          </td>
-          <td>7933 Foxwood Drive, Unit Number, Raleigh, NC 27615</td>
-        </tr>
-        <tr>
-          <td>
-            <div style="font-weight:600;">Christopher B McKee <span class="match-tag">phone</span></div>
-          </td>
-          <td>Chris McKee</td>
-          <td><span class="cls-badge" style="background:#3182ce22; color:#3182ce;">Customer</span></td>
-          <td>DASH Carolina</td>
-          <td>
-            <span class="eval-count eval-zero">0</span><span style="display:inline-block; background:#fed7aa; color:#9a3412; font-size:9px; padding:1px 5px; border-radius:8px; margin-left:4px;">?</span>
-            <div style="font-size:10px; color:#a0aec0; margin-top:3px;">May: 0 · Apr: 0 · Mar: 0 · Feb: 0</div>
-          </td>
-          <td>1025 Orchard Grass Road, Unit Number, Durham, NC 27713</td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="action-section">
-      <div class="action-title">Action Items</div>
-        <div class="action-card medium">
-          <div class="action-body">
-            <div class="action-agent">Linda Craft <span style="font-weight:400; color:#a0aec0; font-size:11px;">· Partner</span></div>
-            <div class="action-text">Hasn't done an eval in 3+ months — great opportunity to re-engage on 7933 Foxwood Drive, Unit Number, Raleigh, NC 27615.</div>
-            <div class="contact-info">📧 lc@lindacraft.com · 📞 +19192356300</div>
-          </div>
-        </div>
-        <div class="action-card high">
-          <div class="action-body">
-            <div class="action-agent">Christopher B McKee <span style="font-weight:400; color:#a0aec0; font-size:11px;">· Customer</span></div>
-            <div class="action-text">FIRST EVAL OPPORTUNITY — this agent has never done an evaluation with HomeCloud. New deal on 1025 Orchard Grass Road, Unit Number, Durham, NC 27713 — perfect time to introduce us.</div>
-            <div class="contact-info">📧 chris.mckee@dashnc.com · 📞 +12404985024</div>
-          </div>
-        </div>
-    </div>
-    <div class="dq-section"><strong>Data Quality flags:</strong><ul style="margin:6px 0 0 18px; padding:0;"><li>Agent missing from eval file: Chris McKee — no eval record found, defaulted to 0 evals (likely listed under different name in QuickSight export, or new contact).</li><li>QuickSight export quality: today's run uses 5_19 folder (3 days stale); no fresher Agent_Activity_by_Ho export was available.</li><li>Low HubSpot match rate: 2 of 41 buy-side agents matched (4.9%). Most agents on today's sheet are either not in HubSpot or have name fields blank. Slack alerts cross-check surfaced 2 additional under-contract agents whose properties are not in today's sheet (likely tomorrow's feed).</li><li>Agent Roster lookup skipped this run (full 10k+-row roster pagination exceeded conversation budget). Fell through to phone+name+slack passes only. Linda Craft and Chris McKee both matched without it.</li></ul></div>
-  </div>
+
 </div>
 </body>
 </html>
