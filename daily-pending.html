@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RDU Buy-Side Agents — Rolling 7 Days (May 26–June 4, 2026)</title>
+<title>RDU Buy-Side Agents — Rolling 7 Days (May 27–June 5, 2026)</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:#f0f2f5; padding:24px; color:#2d3748; }
@@ -52,16 +52,88 @@ tr:hover { background:#f7fafc; }
 <div class="container">
   <header>
     <h1>RDU Buy-Side Agents</h1>
-    <div class="subtitle">Rolling 7 days · May 26–June 4, 2026</div>
+    <div class="subtitle">Rolling 7 days · May 27–June 5, 2026</div>
   </header>
   <div class="summary-row">
-    <div class="stat-card"><div class="stat-label">Transactions</div><div class="stat-value">315</div></div>
-    <div class="stat-card partner"><div class="stat-label">Partners</div><div class="stat-value">25</div></div>
-    <div class="stat-card active"><div class="stat-label">Customers</div><div class="stat-value">4</div></div>
+    <div class="stat-card"><div class="stat-label">Transactions</div><div class="stat-value">591</div></div>
+    <div class="stat-card partner"><div class="stat-label">Partners</div><div class="stat-value">21</div></div>
+    <div class="stat-card active"><div class="stat-label">Customers</div><div class="stat-value">5</div></div>
     <div class="stat-card churned"><div class="stat-label">Churned</div><div class="stat-value">0</div></div>
-    <div class="stat-card lead"><div class="stat-label">Leads</div><div class="stat-value">22</div></div>
-    <div class="stat-card pipeline"><div class="stat-label">BOOKED</div><div class="stat-value">1</div></div>
+    <div class="stat-card lead"><div class="stat-label">Leads</div><div class="stat-value">17</div></div>
+    <div class="stat-card pipeline"><div class="stat-label">BOOKED</div><div class="stat-value">2</div></div>
   </div>
+<div class="day-section">
+  <div class="day-header">
+    <div>
+      <div class="day-title">Friday, June 5</div>
+      <div class="day-count">2 matched of 37 transactions • 0 BOOKED</div>
+    </div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Buy-Side Agent</th>
+        <th>HubSpot Contact</th>
+        <th>Status</th>
+        <th>Brokerage</th>
+        <th>Evals</th>
+        <th>Property</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div style="font-weight:600;">Brianna Dimino <span class="match-tag">phone</span></div>
+          <div style="font-size:11px;color:#a0aec0;">→ brianna@caulteam.com</div>
+        </td>
+        <td>Brianna Dimino</td>
+        <td><span class="cls-badge" style="background:#fefcbf;color:#d69e2e;">Partner</span></td>
+        <td style="font-size:12px;color:#4a5568;">Insight Real Estate</td>
+        <td><span class="eval-count ">1</span>
+            <div style="font-size:10px;color:#a0aec0;margin-top:3px;">Jun: 0 · May: 0 · Apr: 0 · Mar: 0</div></td>
+        <td style="font-size:12px;color:#4a5568;">403 1/2 Carolina Avenue, Raleigh, NC 27606</td>
+      </tr>
+      <tr>
+        <td>
+          <div style="font-weight:600;">Barbara Lyster <span class="match-tag">phone</span></div>
+          <div style="font-size:11px;color:#a0aec0;">→ barbara.lyster@bhhsysu.com</div>
+        </td>
+        <td>Barbara Lyster</td>
+        <td><span class="cls-badge" style="background:#bee3f8;color:#2c5282;">Customer</span></td>
+        <td style="font-size:12px;color:#4a5568;">Berkshire Hathaway HomeService</td>
+        <td><span class="eval-count eval-zero">0</span>
+            <div style="font-size:10px;color:#a0aec0;margin-top:3px;">Jun: 0 · May: 0 · Apr: 0 · Mar: 0</div></td>
+        <td style="font-size:12px;color:#4a5568;">1801 Tettanger Drive, Wendell, NC 27591</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="action-section">
+    <div class="action-title">Action Items</div>
+      <div class="action-card high">
+        <div class="action-body">
+          <div class="action-agent">Brianna Dimino <span class="match-tag">Partner</span></div>
+          <div class="action-detail">403 1/2 Carolina Avenue, Raleigh, NC 27606 · Insight Real Estate</div>
+          <div class="action-text">SECOND EVAL OPPORTUNITY — they've done 1 eval with us. Close the second on 403 1/2 Carolina Avenue, Raleigh, NC 27606.</div>
+        </div>
+      </div>
+      <div class="action-card high">
+        <div class="action-body">
+          <div class="action-agent">Barbara Lyster <span class="match-tag">Customer</span></div>
+          <div class="action-detail">1801 Tettanger Drive, Wendell, NC 27591 · Berkshire Hathaway HomeService</div>
+          <div class="action-text">FIRST EVAL OPPORTUNITY — this agent has never done an evaluation with HomeCloud. New deal on 1801 Tettanger Drive, Wendell, NC 27591 — perfect time to introduce us.</div>
+        </div>
+      </div>
+  </div>
+  <div class="dq-section">
+    <strong>Data Quality &amp; run notes (June 5):</strong>
+    <ul style="margin:6px 0 0 16px;padding:0;">
+      <li><strong>QuickSight export is stale.</strong> Yesterday's download failed (SSO expired) and there is no 6_05 or 6_04 folder, so eval counts were read from the 5_28 export (8 days old, last month = May 2026). Current-month (June) and late-May evaluations are not reflected — eval counts may undercount. File passed the row/column sanity check (1,415 rows × 95 cols).</li>
+      <li><strong>Today's Slack "Selling Agent Under Contract" alert had not fired at run time.</strong> The #hubspot-alerts bot posts ~13:02 EST; the most recent batch is June 4 and none of its addresses are on today's sheet. The authoritative Slack→HubSpot enrichment path (and the "Missing from HubSpot alerts" cross-check) was therefore unavailable for today's transactions.</li>
+      <li><strong>Agent Roster email pre-resolution skipped.</strong> The Agent Roster tab is 5,000+ rows and the Sheets reader truncates output, so license→email resolution was not performed. Matching relied on HubSpot phone (E.164), name-filter, and Slack passes.</li>
+      <li><strong>Low buy-side match rate (2 of 34 unique agents).</strong> Both matches were via phone E.164 (Barbara Lyster, Brianna Dimino). All 32 remaining agents returned zero on firstname/lastname EQ filters and on distinctive-surname CONTAINS_TOKEN checks — consistent with cold buyer-side agents, though some could be email-only HubSpot contacts that only the roster-email path or today's (not-yet-fired) Slack alert would recover.</li>
+    </ul>
+  </div>
+</div>
 <div class="day-section">
   <div class="day-header">
     <div>
@@ -1061,135 +1133,6 @@ tr:hover { background:#f7fafc; }
       </div>
     </div>
   </div>
-<div class="day-section">
-  <div class="day-header">
-    <div class="day-title">Tuesday, May 26</div>
-    <div class="day-count">6 matched of 43 transactions • 0 BOOKED</div>
-  </div>
-  <table>
-    <thead>
-      <tr>
-        <th>Buy-Side Agent</th>
-        <th>HubSpot Contact</th>
-        <th>Status</th>
-        <th>Brokerage</th>
-        <th>Evals</th>
-        <th>Property</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          <div style="font-weight:600;">Brianna Dimino <span class="match-tag">phone</span></div>
-        </td>
-        <td>Brianna Dimino</td>
-        <td><span class="cls-badge" style="background:#fefcbf;color:#d69e2e;">Partner</span></td>
-        <td style="font-size:12px;color:#4a5568;">Insight Real Estate</td>
-        <td><span class="eval-count ">1</span>
-            <div style="font-size:10px;color:#a0aec0;margin-top:3px;">May: 0 · Apr: 0 · Mar: 0 · Feb: 0</div></td>
-        <td style="font-size:12px;color:#4a5568;">1213 Huffington Oak Drive, Willow Springs, NC 27592</td>
-      </tr>
-      <tr>
-        <td>
-          <div style="font-weight:600;">Jacie Dykes <span class="match-tag">phone</span></div>
-        </td>
-        <td>Jacie Dykes</td>
-        <td><span class="cls-badge" style="background:#fefcbf;color:#d69e2e;">Partner</span></td>
-        <td style="font-size:12px;color:#4a5568;">Choice Residential Real Estate</td>
-        <td><span class="eval-count ">2</span>
-            <div style="font-size:10px;color:#a0aec0;margin-top:3px;">May: 0 · Apr: 0 · Mar: 0 · Feb: 0</div></td>
-        <td style="font-size:12px;color:#4a5568;">909 Glowing Star Lane, Angier, NC 27501</td>
-      </tr>
-      <tr>
-        <td>
-          <div style="font-weight:600;">Katie Martin <span class="match-tag">phone</span></div>
-        </td>
-        <td>Katie Martin</td>
-        <td><span class="cls-badge" style="background:#fefcbf;color:#d69e2e;">Partner</span></td>
-        <td style="font-size:12px;color:#4a5568;">Compass -- Chapel Hill - Durham</td>
-        <td><span class="eval-count ">1</span>
-            <div style="font-size:10px;color:#a0aec0;margin-top:3px;">May: 0 · Apr: 0 · Mar: 1 · Feb: 0</div></td>
-        <td style="font-size:12px;color:#4a5568;">405 Inclusion Way, Raleigh, NC 27610</td>
-      </tr>
-      <tr>
-        <td>
-          <div style="font-weight:600;">Julie Chapin <span class="match-tag">name</span></div>
-        </td>
-        <td>Julie Chapin</td>
-        <td><span class="cls-badge" style="background:#e9d8fd;color:#6b46c1;">Lead</span></td>
-        <td style="font-size:12px;color:#4a5568;">Navigate Realty</td>
-        <td><span class="eval-count eval-zero">0</span><span style="display:inline-block;background:#fed7aa;color:#9a3412;font-size:9px;padding:1px 5px;border-radius:8px;margin-left:4px;">?</span>
-            <div style="font-size:10px;color:#a0aec0;margin-top:3px;">May: 0 · Apr: 0 · Mar: 0 · Feb: 0</div></td>
-        <td style="font-size:12px;color:#4a5568;">304 Glade Street, Chapel Hill, NC 27516</td>
-      </tr>
-      <tr>
-        <td>
-          <div style="font-weight:600;">PJ Sayah <span class="match-tag">name</span></div>
-        </td>
-        <td>PJ Sayah</td>
-        <td><span class="cls-badge" style="background:#e9d8fd;color:#6b46c1;">Lead</span></td>
-        <td style="font-size:12px;color:#4a5568;">Coldwell Banker Advantage</td>
-        <td><span class="eval-count eval-zero">0</span><span style="display:inline-block;background:#fed7aa;color:#9a3412;font-size:9px;padding:1px 5px;border-radius:8px;margin-left:4px;">?</span>
-            <div style="font-size:10px;color:#a0aec0;margin-top:3px;">May: 0 · Apr: 0 · Mar: 0 · Feb: 0</div></td>
-        <td style="font-size:12px;color:#4a5568;">3605 Britt Street, Durham, NC 27705</td>
-      </tr>
-      <tr>
-        <td>
-          <div style="font-weight:600;">Robert Brown <span class="match-tag">name</span></div>
-        </td>
-        <td>Robert Brown</td>
-        <td><span class="cls-badge" style="background:#e9d8fd;color:#6b46c1;">Lead</span></td>
-        <td style="font-size:12px;color:#4a5568;">Century 21 Triangle Group</td>
-        <td><span class="eval-count eval-zero">0</span><span style="display:inline-block;background:#fed7aa;color:#9a3412;font-size:9px;padding:1px 5px;border-radius:8px;margin-left:4px;">?</span>
-            <div style="font-size:10px;color:#a0aec0;margin-top:3px;">May: 0 · Apr: 0 · Mar: 0 · Feb: 0</div></td>
-        <td style="font-size:12px;color:#4a5568;">103 Sugarhill Drive, Zebulon, NC 27597</td>
-      </tr>
-    </tbody>
-  </table>
-  <div class="action-section">
-    <div class="action-title">Action Items</div>
-      <div class="action-card high">
-        <div class="action-body">
-          <div class="action-agent">Brianna Dimino <span class="match-tag">Partner</span></div>
-          <div class="action-detail">1213 Huffington Oak Drive, Willow Springs, NC 27592 · Insight Real Estate</div>
-          <div class="action-text">SECOND EVAL OPPORTUNITY — they've done 1 eval with us. Close the second on 1213 Huffington Oak Drive, Willow Springs, NC 27592.</div>
-        </div>
-      </div>
-      <div class="action-card medium">
-        <div class="action-body">
-          <div class="action-agent">Jacie Dykes <span class="match-tag">Partner</span></div>
-          <div class="action-detail">909 Glowing Star Lane, Angier, NC 27501 · Choice Residential Real Estate</div>
-          <div class="action-text">Hasn't done an eval in 3+ months — great opportunity to re-engage on 909 Glowing Star Lane, Angier, NC 27501.</div>
-        </div>
-      </div>
-      <div class="action-card high">
-        <div class="action-body">
-          <div class="action-agent">Katie Martin <span class="match-tag">Partner</span></div>
-          <div class="action-detail">405 Inclusion Way, Raleigh, NC 27610 · Compass -- Chapel Hill - Durham</div>
-          <div class="action-text">SECOND EVAL OPPORTUNITY — they've done 1 eval with us. Close the second on 405 Inclusion Way, Raleigh, NC 27610.</div>
-        </div>
-      </div>
-      <div class="action-card high">
-        <div class="action-body">
-          <div class="action-agent">Julie Chapin <span class="match-tag">Lead</span></div>
-          <div class="action-detail">304 Glade Street, Chapel Hill, NC 27516 · Navigate Realty</div>
-          <div class="action-text">FIRST EVAL OPPORTUNITY — this agent has never done an evaluation with HomeCloud. New deal on 304 Glade Street, Chapel Hill, NC 27516 — perfect time to introduce us.</div>
-        </div>
-      </div>
-      <div class="action-card high">
-        <div class="action-body">
-          <div class="action-agent">PJ Sayah <span class="match-tag">Lead</span></div>
-          <div class="action-detail">3605 Britt Street, Durham, NC 27705 · Coldwell Banker Advantage</div>
-          <div class="action-text">FIRST EVAL OPPORTUNITY — this agent has never done an evaluation with HomeCloud. New deal on 3605 Britt Street, Durham, NC 27705 — perfect time to introduce us.</div>
-        </div>
-      </div>
-      <div class="action-card high">
-        <div class="action-body">
-          <div class="action-agent">Robert Brown <span class="match-tag">Lead</span></div>
-          <div class="action-detail">103 Sugarhill Drive, Zebulon, NC 27597 · Century 21 Triangle Group</div>
-          <div class="action-text">FIRST EVAL OPPORTUNITY — this agent has never done an evaluation with HomeCloud. New deal on 103 Sugarhill Drive, Zebulon, NC 27597 — perfect time to introduce us.</div>
-        </div>
-      </div>
   </div>
 </div>
 </body>
