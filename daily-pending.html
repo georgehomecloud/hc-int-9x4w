@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RDU Buy-Side Agents — Rolling 7 Days (June 18–25, 2026)</title>
+<title>RDU Buy-Side Agents — Rolling 7 Days (June 19–26, 2026)</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:#f0f2f5; padding:24px; color:#2d3748; }
@@ -49,15 +49,58 @@ tr:hover { background:#f7fafc; }
 </style>
 </head>
 <body>
+<body>
 <div class="container">
   <header>
     <h1>RDU Buy-Side Agents</h1>
-    <div class="subtitle">Rolling 7 days &middot; June 18&ndash;25, 2026</div>
+    <div class="subtitle">Rolling 7 days &middot; June 19&ndash;26, 2026</div>
   </header>
 
   <div class="summary-row">
-    <div class="stat-card"><div class="stat-label">Transactions</div><div class="stat-value">400</div></div><div class="stat-card partner"><div class="stat-label">Partners</div><div class="stat-value">12</div></div><div class="stat-card active"><div class="stat-label">Customers</div><div class="stat-value">10</div></div><div class="stat-card churned"><div class="stat-label">Churned</div><div class="stat-value">0</div></div><div class="stat-card lead"><div class="stat-label">Leads</div><div class="stat-value">14</div></div><div class="stat-card pipeline"><div class="stat-label">BOOKED</div><div class="stat-value">3</div></div>
+    <div class="stat-card"><div class="stat-label">Transactions</div><div class="stat-value">402</div></div><div class="stat-card partner"><div class="stat-label">Partners</div><div class="stat-value">12</div></div><div class="stat-card active"><div class="stat-label">Customers</div><div class="stat-value">9</div></div><div class="stat-card churned"><div class="stat-label">Churned</div><div class="stat-value">0</div></div><div class="stat-card lead"><div class="stat-label">Leads</div><div class="stat-value">14</div></div><div class="stat-card pipeline"><div class="stat-label">BOOKED</div><div class="stat-value">3</div></div>
   </div>
+
+    <div class="day-section">
+      <div class="day-header">
+        <div class="day-title">Friday, June 26</div>
+        <div class="day-count">1 matched of 57 transactions &bull; 0 BOOKED</div>
+      </div>
+      <table>
+      <thead>
+        <tr><th>Buy-Side Agent</th><th>HubSpot Contact</th><th>Status</th><th>Brokerage</th><th>Evals</th><th>Property</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div style="font-weight:600;">Stephanie Carrillo <span class="match-tag">phone</span></div></td>
+          <td>Stephanie Carrillo</td>
+          <td><span class="cls-badge" style="background:#3182ce22; color:#3182ce;">Customer</span></td>
+          <td>eXp Realty, LLC - C</td>
+          <td><span class="eval-count eval-zero">0</span><div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jun: 0 &middot; May: 0 &middot; Apr: 0 &middot; Mar: 0</div></td>
+          <td>5801 Dogwood Drive, Raleigh, NC 27616</td>
+        </tr>
+      </tbody>
+      </table>
+      <div class="action-section">
+        <div class="action-title">Action Items</div>
+        <div class="action-card high">
+          <div class="action-body">
+            <div class="action-agent">Stephanie Carrillo <span style="font-weight:400; color:#a0aec0; font-size:11px;">&middot; Customer</span></div>
+            <div class="action-detail">Customer &middot; 0 lifetime evals &middot; M0:0 M1:0 M2:0 M3:0</div>
+            <div class="action-text">FIRST EVAL OPPORTUNITY &mdash; this agent has never done an evaluation with HomeCloud. New deal on 5801 Dogwood Drive, Raleigh &mdash; perfect time to introduce us.</div>
+            <div class="contact-info">&#128231; stephanie.carrillo@exprealty.com &middot; &#128222; +19192327075</div>
+          </div>
+        </div>
+      </div>
+      <div class="dq-section"><strong>Data Quality &mdash; June 26, 2026</strong><ul style="margin:6px 0 0 18px; padding:0;">
+        <li style="margin-bottom:4px;"><strong>QuickSight export &mdash; recent folders in reduced format, fell back.</strong> The two newest dated folders <code>6_25</code> and <code>6_23</code> contain an <code>Agent_Activity_by_Ho</code> export in a reduced <strong>9-column / 4-month</strong> shape (Mar&ndash;Jun 2026, ~715 agent rows), which fails the &gt;50-col sanity check. It still has agent-level detail (not the over-aggregated brokerage break), but lacks full lifetime history. Fell back to <code>6_15</code> (1,445 rows &times; 97 cols, full history Apr 2022&ndash;Jun 2026, includes a June 2026 column). Eval figures are ~11 days stale and mid-month, so recent eval activity may be undercounted.</li>
+        <li style="margin-bottom:4px;"><strong>HubSpot match low yield (expected):</strong> 1 of 51 unique buy-side agents matched (~2%). Bulk E.164 phone returned <strong>Stephanie Carrillo</strong> (Customer). The name-filter pass on the other 50 agents returned 0. License&rarr;Agent Roster&rarr;email pass (Step 4a) skipped &mdash; the roster is ~12,000 rows and the Sheets reader caps display at ~50 rows per call, so per-license email lookup is infeasible; phone+name used (consistent with prior runs). Low yield is normal &mdash; most random MLS buy-side agents are not HomeCloud contacts &mdash; but the bigger driver today is the absence of a same-day Slack batch (below), which is usually the primary recovery path for email-only HubSpot contacts.</li>
+        <li style="margin-bottom:4px;"><strong>Eval record:</strong> <strong>Stephanie Carrillo</strong> is present in the eval file as an agent (exact-name match, not fuzzy) but has <em>no Evaluation sub-row</em> &mdash; only a single Non-Eval Estimate (Mar 2025). Lifetime evaluations = 0 is therefore confirmed, not a name miss (no ? pill).</li>
+        <li style="margin-bottom:4px;"><strong>Classification caveat:</strong> Stephanie Carrillo is labeled <em>Customer</em> on <code>homecloud_status=active</code> but has <code>lifecyclestage=lead</code> and 0 lifetime evals &mdash; likely signed-up-but-never-converted. The first-eval CTA applies either way.</li>
+        <li style="margin-bottom:4px;"><strong>Slack #hubspot-alerts &mdash; no same-day batch.</strong> No June 26 &ldquo;Selling Agent Under Contract&rdquo; batch had fired at run time (bot posts ~14:00 EDT; the sheet was populated ~12:09 EDT). Latest batch is June 25 (Brooke Tart, Felicia Hatcher, Sue Kerata, Olga Dovoric) &mdash; none of its addresses overlap today&rsquo;s sheet. Slack primary-match and missing-agent diagnosis could not run; no &ldquo;Missing from HubSpot alerts&rdquo; section this cycle.</li>
+        <li style="margin-bottom:4px;"><strong>Gmail YCBM:</strong> 25 booking emails scanned (newer_than:7d, Jun 24&ndash;26); none match today&rsquo;s 57 transactions or Stephanie Carrillo&rsquo;s email/address &mdash; 0 BOOKED.</li>
+        <li style="margin-bottom:4px;"><strong>Non-Member rows excluded:</strong> 5 transactions had <code>Non Member</code> as the buy-side agent (MLS data gap) and are not shown. <strong>Aimee Vasilik</strong> (SM North Carolina Brokerage) appears as both listing and selling agent (builder dual-agency); no HubSpot match.</li>
+      </ul></div>
+    </div>
 
     <div class="day-section">
       <div class="day-header">
@@ -809,65 +852,7 @@ tr:hover { background:#f7fafc; }
         <li style="margin-bottom:4px;"><strong>Gmail YCBM:</strong> 25 bookings scanned (newer_than:7d); none match today&rsquo;s 43 transactions or the 3 matched agents&rsquo; emails/addresses &mdash; 0 BOOKED.</li>
       </ul></div>
     </div>
-  
-<div class="day-section">
-      <div class="day-header">
-        <div class="day-title">Thursday, June 18</div>
-        <div class="day-count">2 matched of 55 transactions &bull; 0 BOOKED</div>
-      </div>
-      <table>
-      <thead>
-        <tr><th>Buy-Side Agent</th><th>HubSpot Contact</th><th>Status</th><th>Brokerage</th><th>Evals</th><th>Property</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><div style="font-weight:600;">David A Ellsworth <span class="match-tag">phone</span></div></td>
-          <td>David Ellsworth <span style="font-size:10px; color:#a0aec0;">(HubSpot lastname &ldquo;Ellsword&rdquo;)</span></td>
-          <td><span class="cls-badge" style="background:#3182ce22; color:#3182ce;">Customer</span></td>
-          <td>Redfin Corporation</td>
-          <td><span class="eval-count eval-zero">0</span><span style="display:inline-block; background:#fed7aa; color:#9a3412; font-size:9px; padding:1px 5px; border-radius:8px; margin-left:4px;">?</span><div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jun: 0 &middot; May: 0 &middot; Apr: 0 &middot; Mar: 0</div></td>
-          <td>122 Daisy Meadow Lane, Wake Forest, NC 27587</td>
-        </tr>
-        <tr>
-          <td><div style="font-weight:600;">Matthew Dover <span class="match-tag">phone</span></div></td>
-          <td>Matthew Dover</td>
-          <td><span class="cls-badge" style="background:#805ad522; color:#805ad5;">Lead</span></td>
-          <td>Redfin Corporation</td>
-          <td><span class="eval-count eval-zero">0</span><span style="display:inline-block; background:#fed7aa; color:#9a3412; font-size:9px; padding:1px 5px; border-radius:8px; margin-left:4px;">?</span><div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jun: 0 &middot; May: 0 &middot; Apr: 0 &middot; Mar: 0</div></td>
-          <td>4424 Dula Street, Durham, NC 27705</td>
-        </tr>
-      </tbody>
-      </table>
-      <div class="action-section">
-        <div class="action-title">Action Items</div>
-        <div class="action-card high">
-          <div class="action-body">
-            <div class="action-agent">David A Ellsworth <span style="font-weight:400; color:#a0aec0; font-size:11px;">&middot; Customer</span></div>
-            <div class="action-detail">Customer &middot; 0 lifetime evals &middot; M0:0 M1:0 M2:0 M3:0</div>
-            <div class="action-text">FIRST EVAL OPPORTUNITY &mdash; this agent has never done an evaluation with HomeCloud. New deal on 122 Daisy Meadow Lane, Wake Forest &mdash; perfect time to introduce us.</div>
-            <div class="contact-info">&#128231; david.ellsworth@redfin.com &middot; &#128222; +18607246748</div>
-          </div>
-        </div>
-        <div class="action-card high">
-          <div class="action-body">
-            <div class="action-agent">Matthew Dover <span style="font-weight:400; color:#a0aec0; font-size:11px;">&middot; Lead</span></div>
-            <div class="action-detail">Lead &middot; 0 lifetime evals &middot; M0:0 M1:0 M2:0 M3:0</div>
-            <div class="action-text">FIRST EVAL OPPORTUNITY &mdash; this agent has never done an evaluation with HomeCloud. New deal on 4424 Dula Street, Durham &mdash; perfect time to introduce us.</div>
-            <div class="contact-info">&#128231; matthew.dover@redfin.com &middot; &#128222; +15038636521</div>
-          </div>
-        </div>
-      </div>
-      <div class="dq-section"><strong>Data Quality &mdash; June 18, 2026</strong><ul style="margin:6px 0 0 18px; padding:0;">
-        <li style="margin-bottom:4px;"><strong>HubSpot match low yield (expected):</strong> 2 of 51 unique buy-side agents matched (~4%). Bulk E.164 phone returned both (David Ellsworth, Matthew Dover &mdash; both Redfin). Name-filter pass on the other 49 agents returned 0 of today&rsquo;s agents (104 unrelated same-surname contacts). License&rarr;Agent Roster&rarr;email pass (Step 4a) not run &mdash; roster is 5,000+ rows and is infeasible to page via the sheet reader; phone+name+Slack used instead.</li>
-        <li style="margin-bottom:4px;"><strong>Agent missing from eval file:</strong> David Ellsworth, Matthew Dover &mdash; no eval record in the QuickSight Agent Activity export (314 agents parsed); defaulted to 0 evals (? pill). Both are newly-created Redfin leads, so 0 lifetime is almost certainly correct.</li>
-        <li style="margin-bottom:4px;"><strong>Classification caveat:</strong> David Ellsworth labeled <em>Customer</em> on <code>homecloud_status=active</code> but has <code>lifecyclestage=lead</code> and 0 evals &mdash; likely signed-up-never-converted. Matthew Dover has no homecloud_status &rarr; Lead. First-eval CTA applies to both.</li>
-        <li style="margin-bottom:4px;"><strong>HubSpot data typo:</strong> David&rsquo;s HubSpot contact lastname is &ldquo;Ellsword&rdquo; (should be &ldquo;Ellsworth&rdquo;); matched via phone so unaffected, but worth correcting in HubSpot.</li>
-        <li style="margin-bottom:4px;"><strong>QuickSight export:</strong> used <code>6_15</code> folder (3 days stale); no <code>6_16</code>/<code>6_17</code>/<code>6_18</code> export present at runtime. File healthy (1,445 rows &times; 97 cols, includes June 2026 column).</li>
-        <li style="margin-bottom:4px;"><strong>Slack #hubspot-alerts &mdash; no same-day batch.</strong> No June 18 &ldquo;Selling Agent Under Contract&rdquo; batch had fired at run time (bot posts ~14:00 EDT; this run executed ~12:10 EDT). Latest batch is June 17 (Jacob Lowder, Kate Kenney, Steven Squires, Sherri Richter, Lindsay Polin) &mdash; none on today&rsquo;s sheet. Slack primary-match and missing-agent diagnosis could not run.</li>
-        <li style="margin-bottom:4px;"><strong>Gmail YCBM:</strong> bookings scanned across the 7-day window; none match today&rsquo;s 55 transactions or the 2 matched agents&rsquo; emails/addresses &mdash; 0 BOOKED.</li>
-      </ul></div>
-    </div>
-  
+
   </div>
 </body>
 </html>
