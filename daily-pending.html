@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RDU Buy-Side Agents &mdash; Rolling 7 Days (June 30&ndash;July 6, 2026)</title>
+<title>RDU Buy-Side Agents &mdash; Rolling 7 Days (July 1&ndash;July 7, 2026)</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:#f0f2f5; padding:24px; color:#2d3748; }
@@ -52,12 +52,53 @@ tr:hover { background:#f7fafc; }
 <div class="container">
   <header>
     <h1>RDU Buy-Side Agents</h1>
-    <div class="subtitle">Rolling 7 days &middot; June 30&ndash;July 6, 2026</div>
+    <div class="subtitle">Rolling 7 days &middot; July 1&ndash;July 7, 2026</div>
   </header>
 
   <div class="summary-row">
-    <div class="stat-card"><div class="stat-label">Transactions</div><div class="stat-value">315</div></div><div class="stat-card partner"><div class="stat-label">Partners</div><div class="stat-value">7</div></div><div class="stat-card active"><div class="stat-label">Customers</div><div class="stat-value">11</div></div><div class="stat-card churned"><div class="stat-label">Churned</div><div class="stat-value">0</div></div><div class="stat-card lead"><div class="stat-label">Leads</div><div class="stat-value">12</div></div><div class="stat-card pipeline"><div class="stat-label">BOOKED</div><div class="stat-value">3</div></div>
+    <div class="stat-card"><div class="stat-label">Transactions</div><div class="stat-value">312</div></div><div class="stat-card partner"><div class="stat-label">Partners</div><div class="stat-value">7</div></div><div class="stat-card active"><div class="stat-label">Customers</div><div class="stat-value">10</div></div><div class="stat-card churned"><div class="stat-label">Churned</div><div class="stat-value">0</div></div><div class="stat-card lead"><div class="stat-label">Leads</div><div class="stat-value">11</div></div><div class="stat-card pipeline"><div class="stat-label">BOOKED</div><div class="stat-value">3</div></div>
   </div>
+
+  <div class="day-section">
+      <div class="day-header">
+        <div class="day-title">Tuesday, July 7</div>
+        <div class="day-count">1 matched of 48 transactions &bull; 0 BOOKED</div>
+      </div>
+      <table>
+      <thead>
+        <tr><th>Buy-Side Agent</th><th>HubSpot Contact</th><th>Status</th><th>Brokerage</th><th>Evals</th><th>Property</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div style="font-weight:600;">Christina Valkanoff <span class="match-tag">phone</span></div></td>
+          <td>Christina Valkanoff <span style="color:#a0aec0; font-size:10px;">(Partner &middot; homecloud_status: active)</span></td>
+          <td><span class="cls-badge" style="background:#d69e2e22; color:#b7791f;">Partner</span></td>
+          <td>Christina Valkanoff Realty Group</td>
+          <td><span class="eval-count">10</span><div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jul: 0 &middot; Jun: 0 &middot; May: 0 &middot; Apr: 1</div></td>
+          <td>301 Streamwood Drive, Holly Springs, NC 27540</td>
+        </tr>
+      </tbody>
+      </table>
+      <div class="action-section">
+        <div class="action-title">Action Items</div>
+        <div class="action-card medium">
+          <div class="action-body">
+            <div class="action-agent">Christina Valkanoff &mdash; MEDIUM</div>
+            <div class="action-detail">Partner &middot; 10 lifetime evals &middot; M0:0 M1:0 M2:0 M3:1 &middot; matched via phone</div>
+            <div class="action-text">Hasn&rsquo;t done an eval in 3+ months (last was April 2026) &mdash; great opportunity to re-engage on 301 Streamwood Drive, Holly Springs.</div>
+            <div class="contact-info">&#128231; christina@cvrealtygroup.com &middot; +19193454538</div>
+          </div>
+        </div>
+      </div>
+      <div class="dq-section"><strong>Data Quality &mdash; July 7, 2026</strong><ul style="padding-left:16px; margin-top:6px;">
+        <li style="margin-bottom:4px;"><strong>HubSpot match (1 of 41 unique buy-side agents):</strong> bulk E.164 phone returned <strong>Christina Valkanoff</strong> (phone exact, lifecyclestage=Partner, homecloud_status=active &rarr; Partner). Filter-EQ name pass over the other 40 agents returned 0 real hits. Low yield is normal &mdash; a cross-check against the eval exports confirms none of the other 40 have any HomeCloud eval history, i.e. they are genuinely not HomeCloud contacts, not a match failure.</li>
+        <li style="margin-bottom:4px;"><strong>Agent Roster pass skipped:</strong> roster tab exceeds the sheet-read pagination limit (standing convention); license&rarr;roster&rarr;email precedence unavailable. Phone + name filters used.</li>
+        <li style="margin-bottom:4px;"><strong>Eval counts (hybrid):</strong> <code>7_06</code> reduced export (11 cols, Mar&ndash;Jul 2026, 752 rows / 139 agent eval rows, pulled today) for monthly cells + <code>6_15</code> full-history file (1,445 rows &times; 97 cols, Apr 2022&ndash;Jun 2026) for the lifetime base. No <code>7_07</code> folder exists; <code>7_06</code> is the freshest pull (today). Christina present in both &rarr; lifetime 10, last eval April 2026.</li>
+        <li style="margin-bottom:4px;"><strong>Slack #hubspot-alerts &mdash; no same-day batch:</strong> run executed before 14:00 EDT; the daily &ldquo;Selling Agent Under Contract&rdquo; batch had not fired for July 7. Latest present was the July 6 batch (listing agents Dennis de Jong, Nicole Zolnowski, Matt Steele &mdash; none on today&rsquo;s sheet as buy-side). Slack primary-match (4d) and missing-agent diagnosis (Step 8) could not run; no &ldquo;Missing from HubSpot alerts&rdquo; section this cycle. Tomorrow&rsquo;s run covers today&rsquo;s batch.</li>
+        <li style="margin-bottom:4px;"><strong>Gmail YCBM:</strong> 23 booking emails scanned (newer_than:2d) plus a full-text cross-check against all 48 sheet addresses and Christina&rsquo;s email. No booking address matches today&rsquo;s sheet and none list a matched-agent email &mdash; 0 BOOKED.</li>
+        <li style="margin-bottom:4px;"><strong>Non-Member / dual-agency rows excluded:</strong> 7 of 48 transactions had <code>Non Member</code> as the buy-side agent (110 &amp; 113 Vignette Dr, Wilsons Mills; 1404 &amp; 1405 White Verona Way, Knightdale; 1022 Clare Ct, Cary; 3629 Glidewell Ct, Durham; 1007 Apogee Dr, Durham) &mdash; MLS data gap, not shown. <strong>Jeremy Grissom</strong> (United Real Estate Triangle) and <strong>Tammy Register</strong> (eXp Realty) are both listing and selling agent on their rows (self/dual deal); neither matched HubSpot.</li>
+      </ul></div>
+      </div>
 
   <div class="day-section">
       <div class="day-header">
@@ -660,86 +701,6 @@ tr:hover { background:#f7fafc; }
         <li style="margin-bottom:4px;"><strong>Non-Member / dual rows excluded:</strong> 6 of 50 transactions had <code>Non Member</code> buy-side (43 Papillion Way, Clayton; 728 Branthurst Drive, Fuquay Varina; 6016 Brass Lantern Court, Raleigh; 1052 Bolton Pointe Drive, Zebulon; 117 Naperville Drive, Cary; 1041 Canyon Shadows Court, Cary) &mdash; MLS data gap, not shown. <strong>Ryan Buscher</strong> (234 Oak Summit Place) is both listing and selling agent (builder dual-agency, Tri Pointe); no HubSpot match.</li>
       </ul></div>
     </div>
-
-      
-  <div class="day-section">
-      <div class="day-header">
-        <div class="day-title">Tuesday, June 30</div>
-        <div class="day-count">3 matched of 51 transactions &bull; 0 BOOKED</div>
-      </div>
-      <table>
-      <thead>
-        <tr><th>Buy-Side Agent</th><th>HubSpot Contact</th><th>Status</th><th>Brokerage</th><th>Evals</th><th>Property</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><div style="font-weight:600;">Nico D Crecco <span class="match-tag">phone</span></div></td>
-          <td>Nico Crecco</td>
-          <td><span class="cls-badge" style="background:#d69e2e22; color:#d69e2e;">Partner</span></td>
-          <td>Compass -- Chapel Hill - Durham</td>
-          <td><span class="eval-count">2</span><div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jun: 0 &middot; May: 0 &middot; Apr: 1 &middot; Mar: 0</div></td>
-          <td>12216 The Gates Drive, Raleigh, NC 27614</td>
-        </tr>
-        <tr>
-          <td><div style="font-weight:600;">Hannah Cham <span class="match-tag">phone</span></div></td>
-          <td>Hannah Chan <span style="color:#a0aec0; font-size:10px;">(sheet: &ldquo;Cham&rdquo;)</span></td>
-          <td><span class="cls-badge" style="background:#3182ce22; color:#3182ce;">Customer</span></td>
-          <td>Cary-Raleigh Realty, Inc.</td>
-          <td><span class="eval-count eval-zero">0</span><span style="display:inline-block; background:#dd6b2022; color:#dd6b20; font-weight:700; border-radius:50%; width:15px; height:15px; line-height:15px; text-align:center; font-size:10px; margin-left:5px;">?</span><div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jun: 0 &middot; May: 0 &middot; Apr: 0 &middot; Mar: 0</div></td>
-          <td>137 Lucky Ribbon Lane, Holly Springs, NC 27540</td>
-        </tr>
-        <tr>
-          <td><div style="font-weight:600;">Linda Trevor <span class="match-tag">name</span></div></td>
-          <td>Linda Trevor</td>
-          <td><span class="cls-badge" style="background:#805ad522; color:#805ad5;">Lead</span></td>
-          <td>Compass -- Cary</td>
-          <td><span class="eval-count eval-zero">0</span><span style="display:inline-block; background:#dd6b2022; color:#dd6b20; font-weight:700; border-radius:50%; width:15px; height:15px; line-height:15px; text-align:center; font-size:10px; margin-left:5px;">?</span><div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jun: 0 &middot; May: 0 &middot; Apr: 0 &middot; Mar: 0</div></td>
-          <td>1050 Milk Paint Alley, Apex, NC 27502</td>
-        </tr>
-      </tbody>
-      </table>
-      <div class="action-section">
-        <div class="action-title">Action Items</div>
-        <div class="action-card medium">
-          <div class="action-body">
-            <div class="action-agent">Nico D Crecco <span style="font-weight:400; color:#a0aec0; font-size:11px;">&middot; Partner</span></div>
-            <div class="action-detail">Partner &middot; 2 lifetime evals &middot; M0:0 M1:0 M2:1 M3:0</div>
-            <div class="action-text">Last eval 2 months ago (April). Re-engage on 12216 The Gates Drive, Raleigh.</div>
-            <div class="contact-info">&#128231; nico.crecco@compass.com &middot; &#128222; +15853509525</div>
-          </div>
-        </div>
-        <div class="action-card high">
-          <div class="action-body">
-            <div class="action-agent">Hannah Cham &rarr; Chan <span style="font-weight:400; color:#a0aec0; font-size:11px;">&middot; Customer</span></div>
-            <div class="action-detail">Customer &middot; 0 lifetime evals &middot; M0:0 M1:0 M2:0 M3:0</div>
-            <div class="action-text">FIRST EVAL OPPORTUNITY &mdash; no completed evaluation on record with HomeCloud. New deal on 137 Lucky Ribbon Lane, Holly Springs &mdash; perfect time to introduce us. <span style="color:#a0aec0;">(HubSpot HomeCloud Status = Active; see DQ note.)</span></div>
-            <div class="contact-info">&#128231; hannahchan@caryraleighrealty.com &middot; &#128222; +19194261854</div>
-          </div>
-        </div>
-        <div class="action-card high">
-          <div class="action-body">
-            <div class="action-agent">Linda Trevor <span style="font-weight:400; color:#a0aec0; font-size:11px;">&middot; Lead</span></div>
-            <div class="action-detail">Lead &middot; 0 lifetime evals &middot; M0:0 M1:0 M2:0 M3:0</div>
-            <div class="action-text">FIRST EVAL OPPORTUNITY &mdash; this agent has never done an evaluation with HomeCloud. New deal on 1050 Milk Paint Alley, Apex &mdash; perfect time to introduce us.</div>
-            <div class="contact-info">&#128231; linda.trevor@compass.com &middot; &#128222; +19197307746</div>
-          </div>
-        </div>
-      </div>
-      <div class="dq-section"><strong>Data Quality &mdash; June 30, 2026</strong><ul style="margin:6px 0 0 18px; padding:0;">
-        <li style="margin-bottom:4px;"><strong>HubSpot match (3 of 46 unique buy-side agents):</strong> bulk E.164 phone returned <strong>Hannah Chan</strong> (sheet &ldquo;Hannah Cham&rdquo;; lifecyclestage=lead, homecloud_status=active) and <strong>Nico Crecco</strong> (partner_status=Active, lifecyclestage=Partner). Name-filter pass over the other 44 added <strong>Linda Trevor</strong> (lifecyclestage=opportunity &rarr; Lead). 51 transactions, 4 excluded as <code>Non Member</code>, 47 named (46 unique; Almaree Gordon had 2 deals). Spot-check of distinctive surnames (Bytnar, Holoman, Jozwiak, Proddaturi, Lampuri, Cetola, DiGiovanni, Kostinek) returned 0 &mdash; the low yield is real, not a tooling fault, and matches the standing &ldquo;~45 roster agents not in HubSpot&rdquo; cold-outbound pattern.</li>
-        <li style="margin-bottom:4px;"><strong>License&rarr;Roster&rarr;email pass (Step 4a) skipped.</strong> Agent Roster exceeds 5,000 rows and the Sheets reader caps displayed output, so full per-license email resolution was infeasible this run; relied on phone + name (consistent with prior cycles).</li>
-        <li style="margin-bottom:4px;"><strong>QuickSight export &mdash; hybrid (no 6_30 folder).</strong> Newest folder is <code>6_25</code> (5 days stale): reduced <strong>9-column / 4-month</strong> <code>Agent_Activity_by_Ho</code> (Mar&ndash;Jun 2026) used for the M0&ndash;M3 window; <code>6_15</code> (1,445 rows &times; 97 cols, full history, ~15 days stale) used as the lifetime base. Lifetime is therefore window-aware but ends ~Jun 15 &mdash; a very recent eval would not yet appear.</li>
-        <li style="margin-bottom:4px;"><strong>Eval match tier &ldquo;none&rdquo; &mdash; defaulted to 0:</strong> <strong>Hannah Chan</strong> and <strong>Linda Trevor</strong> have no eval record in either export. Hannah&rsquo;s HubSpot <em>HomeCloud Status = Active</em> is mildly inconsistent with 0 lifetime evals (possible post-Jun-15 eval or signup without a completed eval) &mdash; verify before treating the &ldquo;first eval&rdquo; CTA as literal. Nico Crecco matched exactly (2 lifetime).</li>
-        <li style="margin-bottom:4px;"><strong>Slack #hubspot-alerts &mdash; no same-day batch.</strong> No June 30 &ldquo;Selling Agent Under Contract&rdquo; batch had fired at run time (bot posts ~14:00 EDT; sheet populated ~12:09 EDT). Latest batch is June 29 (Maggie Petree, Robert Brown, Michelle Gelston, Marti Hampton, Kim Solomon, Colleen Ellis) &mdash; none overlap today&rsquo;s buy-side agents. Slack primary-match (4d) and missing-agent diagnosis (Step 8) could not run; no &ldquo;Missing from HubSpot alerts&rdquo; section this cycle.</li>
-        <li style="margin-bottom:4px;"><strong>Gmail YCBM:</strong> 50+ booking emails scanned (newer_than:7d) plus targeted searches on all 3 matched agents&rsquo; emails and properties (The Gates Drive, Lucky Ribbon Lane, Milk Paint Alley) &mdash; 0 matches, <strong>0 BOOKED</strong>.</li>
-        <li style="margin-bottom:4px;"><strong>Non-Member / dual rows:</strong> 4 of 51 transactions had <code>Non Member</code> buy-side (5441 Fantasy Moth Drive, Garner; 569 Freedom Trail Drive, Willow Spring; 5008 Overeasy Drive, Apex; 512 Nemesia Drive, Wendell) &mdash; MLS data gap, not shown. Ali Winslow (1011 Coldspring Circle) is both listing and selling agent (dual agency); did not match HubSpot.</li>
-      </ul></div>
-    </div>
-
-        
-      
-
-        
-  </div>
+</div>
 </body>
 </html>
