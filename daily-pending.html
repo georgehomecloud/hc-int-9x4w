@@ -1,685 +1,697 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RDU Buy-Side Agents &mdash; Rolling 7 Days (July 3&ndash;July 9, 2026)</title>
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>RDU Buy-Side Agent Dashboard — Jul 30, 2026</title>
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:#f0f2f5; padding:24px; color:#2d3748; }
-.container { max-width:1200px; margin:0 auto; }
-header { background:white; padding:28px 32px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08); margin-bottom:24px; }
-h1 { font-size:26px; color:#1a202c; margin-bottom:4px; }
-.subtitle { color:#718096; font-size:15px; }
-.summary-row { display:flex; gap:16px; margin-bottom:24px; flex-wrap:wrap; }
-.stat-card { background:white; padding:18px 22px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.08); flex:1; min-width:120px; border-top:3px solid #667eea; }
-.stat-card.partner { border-top-color:#d69e2e; }
-.stat-card.pipeline { border-top-color:#38a169; }
-.stat-card.active { border-top-color:#3182ce; }
-.stat-card.churned { border-top-color:#e53e3e; }
-.stat-card.lead { border-top-color:#805ad5; }
-.stat-label { font-size:11px; color:#a0aec0; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:4px; }
-.stat-value { font-size:26px; font-weight:700; color:#1a202c; }
-.day-section { background:white; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08); margin-bottom:24px; overflow:hidden; }
-.day-header { padding:18px 28px; border-bottom:1px solid #e2e8f0; display:flex; justify-content:space-between; align-items:center; }
-.day-title { font-size:20px; font-weight:700; color:#2d3748; }
-.day-count { font-size:14px; color:#718096; }
-table { width:100%; border-collapse:collapse; }
-th { text-align:left; padding:10px 14px; font-size:11px; color:#a0aec0; text-transform:uppercase; letter-spacing:0.5px; border-bottom:1px solid #edf2f7; background:#fafbfc; }
-td { padding:11px 14px; border-bottom:1px solid #f7fafc; font-size:13px; vertical-align:top; }
-tr:last-child td { border-bottom:none; }
-tr:hover { background:#f7fafc; }
-.cls-badge { display:inline-block; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600; white-space:nowrap; }
-.match-tag { font-size:10px; color:#a0aec0; background:#edf2f7; padding:1px 6px; border-radius:4px; }
-.eval-count { display:inline-block; background:#ebf8ff; color:#2b6cb0; font-weight:700; padding:2px 8px; border-radius:8px; font-size:12px; }
-.eval-zero { background:#edf2f7; color:#a0aec0; }
-.action-section { padding:16px 28px 20px; border-top:2px solid #edf2f7; }
-.action-title { font-size:13px; font-weight:700; color:#4a5568; margin-bottom:10px; text-transform:uppercase; letter-spacing:0.5px; }
-.action-card { display:flex; align-items:flex-start; gap:12px; padding:10px 14px; margin-bottom:8px; border-radius:8px; background:#f7fafc; }
-.action-card.high { background:#fff5f5; border-left:3px solid #e53e3e; }
-.action-card.medium { background:#fffaf0; border-left:3px solid #dd6b20; }
-.action-card.low { background:#f0fff4; border-left:3px solid #38a169; }
-.action-card.done { background:#f0fff4; border-left:3px solid #38a169; }
-.action-body { flex:1; }
-.action-agent { font-weight:700; color:#2d3748; margin-bottom:3px; font-size:13px; }
-.action-detail { font-size:11px; color:#a0aec0; margin-bottom:6px; }
-.action-text { font-size:13px; color:#4a5568; line-height:1.5; }
-.contact-info { font-size:11px; color:#a0aec0; margin-top:6px; padding-top:6px; border-top:1px dashed #edf2f7; }
-.dq-section { background:#fffbeb; border-left:3px solid #d69e2e; padding:10px 14px; font-size:12px; line-height:1.5; margin:0 14px 14px 14px; }
-</style>
-</head>
-<body>
-<div class="container">
-  <header>
-    <h1>RDU Buy-Side Agents</h1>
-    <div class="subtitle">Rolling 7 days &middot; July 3&ndash;July 9, 2026</div>
-  </header>
-
-  <div class="summary-row">
-    <div class="stat-card"><div class="stat-label">Transactions</div><div class="stat-value">511</div></div><div class="stat-card partner"><div class="stat-label">Partners</div><div class="stat-value">4</div></div><div class="stat-card active"><div class="stat-label">Customers</div><div class="stat-value">9</div></div><div class="stat-card churned"><div class="stat-label">Churned</div><div class="stat-value">0</div></div><div class="stat-card lead"><div class="stat-label">Leads</div><div class="stat-value">13</div></div><div class="stat-card pipeline"><div class="stat-label">BOOKED</div><div class="stat-value">2</div></div>
-  </div>
-
-  <div class="day-section">    <div class="day-header">
-        <div class="day-title">Thursday, July 9</div>
-        <div class="day-count">5 matched of 46 transactions &bull; 1 BOOKED</div>
-      </div>
-      <table>
-      <thead>
-        <tr><th>Buy-Side Agent</th><th>HubSpot Contact</th><th>Status</th><th>Brokerage</th><th>Evals</th><th>Property</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><div style="font-weight:600;">Brian Sculley <span class="match-tag">phone</span></div></td>
-          <td>Brian Sculley</td>
-          <td><span class="cls-badge" style="background:#d69e2e22; color:#d69e2e;">Partner</span></td>
-          <td>Choice Residential Real Estate</td>
-          <td><span class="eval-count">2</span> <div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jul: 0 &middot; Jun: 0 &middot; May: 1 &middot; Apr: 0</div></td>
-          <td>707 Chelsea Grove Drive, Cary, NC 27519</td>
-        </tr>
-        <tr>
-          <td><div style="font-weight:600;">Glen Clemmons <span class="match-tag">phone</span> <span style="display:inline-block; background:#38a169; color:white; font-size:9px; font-weight:700; padding:1px 6px; border-radius:8px; margin-left:4px;">BOOKED</span></div></td>
-          <td>Glen Clemmons</td>
-          <td><span class="cls-badge" style="background:#d69e2e22; color:#d69e2e;">Partner</span></td>
-          <td>Compass -- Raleigh</td>
-          <td><span class="eval-count">14</span> <div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jul: 1 &middot; Jun: 0 &middot; May: 0 &middot; Apr: 1</div></td>
-          <td>113 Lyonshall Street, Fuquay Varina, NC 27526</td>
-        </tr>
-        <tr>
-          <td><div style="font-weight:600;">Sherri Richter <span class="match-tag">phone</span></div></td>
-          <td>Sherri Richter <span style="color:#a0aec0; font-size:10px;">(homecloud_status: active)</span></td>
-          <td><span class="cls-badge" style="background:#3182ce22; color:#3182ce;">Customer</span></td>
-          <td>DASH Carolina</td>
-          <td><span class="eval-count eval-zero">0</span><span style="display:inline-block; background:#fed7aa; color:#9a3412; font-size:9px; padding:1px 5px; border-radius:8px; margin-left:4px;">?</span> <div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jul: 0 &middot; Jun: 0 &middot; May: 0 &middot; Apr: 0</div></td>
-          <td>81 Abacos Court, Clayton, NC 27520</td>
-        </tr>
-        <tr>
-          <td><div style="font-weight:600;">Nicole Carroll <span class="match-tag">name</span></div></td>
-          <td>Nicole Carroll <span style="color:#a0aec0; font-size:10px;">(lifecyclestage: lead)</span></td>
-          <td><span class="cls-badge" style="background:#805ad522; color:#805ad5;">Lead</span></td>
-          <td>EXP Realty LLC</td>
-          <td><span class="eval-count eval-zero">0</span><span style="display:inline-block; background:#fed7aa; color:#9a3412; font-size:9px; padding:1px 5px; border-radius:8px; margin-left:4px;">?</span> <div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jul: 0 &middot; Jun: 0 &middot; May: 0 &middot; Apr: 0</div></td>
-          <td>142 Candlenut Lane, Smithfield, NC 27577</td>
-        </tr>
-        <tr>
-          <td><div style="font-weight:600;">Taryn Sanchez <span class="match-tag">phone</span></div></td>
-          <td>Taryn Sanchez <span style="color:#a0aec0; font-size:10px;">(lifecyclestage: lead)</span></td>
-          <td><span class="cls-badge" style="background:#805ad522; color:#805ad5;">Lead</span></td>
-          <td>The Key Team, Inc.</td>
-          <td><span class="eval-count eval-zero">0</span><span style="display:inline-block; background:#fed7aa; color:#9a3412; font-size:9px; padding:1px 5px; border-radius:8px; margin-left:4px;">?</span> <div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jul: 0 &middot; Jun: 0 &middot; May: 0 &middot; Apr: 0</div></td>
-          <td>1061 Azalea Garden Circle, Raleigh, NC 27603</td>
-        </tr>
-      </tbody>
-      </table>
-      <div class="action-section">
-        <div class="action-title">Action Items</div>
-        <div class="action-card done">
-          <div class="action-body">
-            <div class="action-agent">Glen Clemmons <span style="font-weight:400; color:#a0aec0; font-size:11px;">&middot; Partner</span></div>
-            <div class="action-detail">Partner &middot; 14 lifetime evals &middot; M0:1 M1:0 M2:0 M3:1 &middot; matched via phone</div>
-            <div class="action-text">BOOKED (Jul 4) &mdash; Eval: 219 Heidinger Drive, Cary. Client: Diana Cheney. Review Call scheduled Fri Jul 10, 5:15 PM ET. <span style="color:#a0aec0;">(Off-sheet property; today&rsquo;s sheet deal is 113 Lyonshall St, Fuquay Varina.)</span></div>
-            <div class="contact-info">&#128231; glen@umsteadandoak.com &middot; +19199887646</div>
-          </div>
-        </div>
-        <div class="action-card high">
-          <div class="action-body">
-            <div class="action-agent">Sherri Richter <span style="font-weight:400; color:#a0aec0; font-size:11px;">&middot; Customer</span></div>
-            <div class="action-detail">Customer &middot; 0 lifetime evals &middot; M0:0 M1:0 M2:0 M3:0 &middot; matched via phone</div>
-            <div class="action-text">FIRST EVAL OPPORTUNITY &mdash; this agent has never done an evaluation with HomeCloud. New deal on 81 Abacos Court, Clayton &mdash; perfect time to introduce us. <span style="color:#a0aec0;">(HomeCloud Status = Active but no eval record in either export; likely a name mismatch &mdash; see DQ.)</span></div>
-            <div class="contact-info">&#128231; sherri.richter@dashnc.com &middot; +13174083709</div>
-          </div>
-        </div>
-        <div class="action-card high">
-          <div class="action-body">
-            <div class="action-agent">Nicole Carroll <span style="font-weight:400; color:#a0aec0; font-size:11px;">&middot; Lead</span></div>
-            <div class="action-detail">Lead &middot; 0 lifetime evals &middot; M0:0 M1:0 M2:0 M3:0 &middot; matched via name</div>
-            <div class="action-text">FIRST EVAL OPPORTUNITY &mdash; this agent has never done an evaluation with HomeCloud. New deal on 142 Candlenut Lane, Smithfield &mdash; perfect time to introduce us.</div>
-            <div class="contact-info">&#128231; nicolecarrollrealtor@gmail.com &middot; 919-610-0389 (HubSpot)</div>
-          </div>
-        </div>
-        <div class="action-card high">
-          <div class="action-body">
-            <div class="action-agent">Taryn Sanchez <span style="font-weight:400; color:#a0aec0; font-size:11px;">&middot; Lead</span></div>
-            <div class="action-detail">Lead &middot; 0 lifetime evals &middot; M0:0 M1:0 M2:0 M3:0 &middot; matched via phone</div>
-            <div class="action-text">FIRST EVAL OPPORTUNITY &mdash; this agent has never done an evaluation with HomeCloud. New deal on 1061 Azalea Garden Circle, Raleigh &mdash; perfect time to introduce us.</div>
-            <div class="contact-info">&#128231; taryn@tarynsanchez.com &middot; +13053238886</div>
-          </div>
-        </div>
-        <div class="action-card medium">
-          <div class="action-body">
-            <div class="action-agent">Brian Sculley <span style="font-weight:400; color:#a0aec0; font-size:11px;">&middot; Partner</span></div>
-            <div class="action-detail">Partner &middot; 2 lifetime evals &middot; M0:0 M1:0 M2:1 M3:0 &middot; matched via phone</div>
-            <div class="action-text">Last eval 2 months ago (May). Re-engage on 707 Chelsea Grove Drive, Cary.</div>
-            <div class="contact-info">&#128231; brian@briansculleyrealestate.com &middot; +19197038809</div>
-          </div>
-        </div>
-      </div>
-      <div class="dq-section"><strong>Data Quality &mdash; July 9, 2026</strong><ul style="margin:6px 0 0 18px; padding:0;">
-        <li style="margin-bottom:4px;"><strong>HubSpot match (5 of 42 unique buy-side agents):</strong> bulk E.164 phone returned <strong>Brian Sculley</strong> &amp; <strong>Glen Clemmons</strong> (Partners), <strong>Sherri Richter</strong> (homecloud_status=active &rarr; Customer) and <strong>Taryn Sanchez</strong> (Lead). Name-filter EQ pass added <strong>Nicole Carroll</strong> (Lead). The other 37 agents returned 0 on phone and name filters &mdash; consistent with the standing ~85&ndash;90% not-in-HubSpot pattern.</li>
-        <li style="margin-bottom:4px;"><strong>Nicole Carroll phone stored dashed:</strong> her HubSpot phone is <code>919-610-0389</code> (not E.164), so the phone pass missed her; the name pass caught her (sheet phone matches). Consider normalizing in HubSpot.</li>
-        <li style="margin-bottom:4px;"><strong>Agent Roster pass skipped (Step 4a):</strong> roster tab exceeds 5,000-row read window (standing convention); license&rarr;roster&rarr;email precedence unavailable. Phone + name filters used.</li>
-        <li style="margin-bottom:4px;"><strong>Eval counts (hybrid):</strong> <code>7_06</code> reduced export (11 cols, Mar&ndash;Jul 2026, 752 rows / 323 agent eval rows &mdash; <strong>3 days stale</strong>, no <code>7_07</code>/<code>7_08</code>/<code>7_09</code> folder) for monthly cells + <code>6_15</code> full-history file (1,445 rows &times; 97 cols, Apr 2022&ndash;Mar 2026) for lifetime base. Sculley (2) and Clemmons (14) found; Richter, Carroll, Sanchez absent from both &rarr; 0 evals (? pill).</li>
-        <li style="margin-bottom:4px;"><strong>Sherri Richter &mdash; active Customer with 0 eval records:</strong> homecloud_status=active but no row in either eval export (name-key <code>sherri richter</code> not found). Likely a name-spelling mismatch in the export; verify before treating the first-eval CTA literally.</li>
-        <li style="margin-bottom:4px;"><strong>Slack #hubspot-alerts &mdash; no same-day batch:</strong> the daily &ldquo;Selling Agent Under Contract&rdquo; batch fires ~14:00 EDT and had not posted at run time (newest alert: Jul 7). Slack primary-match (Step 4d) and missing-agent diagnosis (Step 8) could not run; no &ldquo;Missing from HubSpot alerts&rdquo; section this cycle. Tomorrow&rsquo;s run covers today&rsquo;s batch.</li>
-        <li style="margin-bottom:4px;"><strong>Gmail YCBM:</strong> 50 messages screened across 2 pages (Jul 2&ndash;9, fully paginated). One BOOKED match: <strong>Glen Clemmons</strong> (exact email <code>glen@umsteadandoak.com</code>) &mdash; eval + review call for <strong>219 Heidinger Drive, Cary</strong>, an <em>off-sheet</em> property (his sheet deal today is 113 Lyonshall St). Flagged BOOKED per off-sheet rule. No other matched agent had a booking.</li>
-        <li style="margin-bottom:4px;"><strong>Non-Member rows excluded:</strong> 3 of 46 transactions had <code>Non Member</code> as the buy-side agent (600 Thatch Lane, Knightdale; 1129 Booth Pk Blvd, Chapel Hill; 617 Richardson Road, Zebulon) &mdash; MLS data gap, not shown. <strong>Leslie Dolde</strong> is both listing and selling agent on 618 Sweetfern Lane (self/dual deal); did not match HubSpot.</li>
-      </ul></div>
-      </div>
-
-      
-  
-  <div class="day-section">
-      <div class="day-header">
-        <div class="day-title">Wednesday, July 8</div>
-        <div class="day-count">5 matched of 56 transactions &bull; 0 BOOKED</div>
-      </div>
-      <table>
-      <thead>
-        <tr><th>Buy-Side Agent</th><th>HubSpot Contact</th><th>Status</th><th>Brokerage</th><th>Evals</th><th>Property</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><div style="font-weight:600;">Ashley Credle <span class="match-tag">phone</span></div></td>
-          <td>Ashley Credle <span style="color:#a0aec0; font-size:10px;">(homecloud_status: active)</span></td>
-          <td><span class="cls-badge" style="background:#3182ce22; color:#3182ce;">Customer</span></td>
-          <td>eXp Realty, LLC - C</td>
-          <td><span class="eval-count eval-zero">0</span><span style="display:inline-block; background:#fed7aa; color:#9a3412; font-size:9px; padding:1px 5px; border-radius:8px; margin-left:4px;">?</span><div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jul: 0 &middot; Jun: 0 &middot; May: 0 &middot; Apr: 0</div></td>
-          <td>79 Purple Trace, Clayton, NC 27527</td>
-        </tr>
-        <tr>
-          <td><div style="font-weight:600;">Julie McGee <span class="match-tag">phone</span></div></td>
-          <td>Julie McGee <span style="color:#a0aec0; font-size:10px;">(lifecyclestage: lead)</span></td>
-          <td><span class="cls-badge" style="background:#805ad522; color:#805ad5;">Lead</span></td>
-          <td>Redfin Corporation</td>
-          <td><span class="eval-count eval-zero">0</span><span style="display:inline-block; background:#fed7aa; color:#9a3412; font-size:9px; padding:1px 5px; border-radius:8px; margin-left:4px;">?</span><div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jul: 0 &middot; Jun: 0 &middot; May: 0 &middot; Apr: 0</div></td>
-          <td>3909 Britt Dawn Lane, Zebulon, NC 27597</td>
-        </tr>
-        <tr>
-          <td><div style="font-weight:600;">Linda Trevor <span class="match-tag">name</span></div></td>
-          <td>Linda Trevor <span style="color:#a0aec0; font-size:10px;">(lifecyclestage: opportunity)</span></td>
-          <td><span class="cls-badge" style="background:#805ad522; color:#805ad5;">Lead</span></td>
-          <td>Compass -- Cary</td>
-          <td><span class="eval-count eval-zero">0</span><span style="display:inline-block; background:#fed7aa; color:#9a3412; font-size:9px; padding:1px 5px; border-radius:8px; margin-left:4px;">?</span><div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jul: 0 &middot; Jun: 0 &middot; May: 0 &middot; Apr: 0</div></td>
-          <td>1004 Manchaca Loop, Apex, NC 27539</td>
-        </tr>
-        <tr>
-          <td><div style="font-weight:600;">Penny Senor <span class="match-tag">name</span></div></td>
-          <td>Penny Senor <span style="color:#a0aec0; font-size:10px;">(lifecyclestage: lead)</span></td>
-          <td><span class="cls-badge" style="background:#805ad522; color:#805ad5;">Lead</span></td>
-          <td>Century 21 Triangle Group</td>
-          <td><span class="eval-count eval-zero">0</span><span style="display:inline-block; background:#fed7aa; color:#9a3412; font-size:9px; padding:1px 5px; border-radius:8px; margin-left:4px;">?</span><div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jul: 0 &middot; Jun: 0 &middot; May: 0 &middot; Apr: 0</div></td>
-          <td>204 Crystal Brook Lane, Cary, NC 27519</td>
-        </tr>
-        <tr>
-          <td><div style="font-weight:600;">Tim Lehan <span class="match-tag">name</span></div></td>
-          <td>Tim Lehan <span style="color:#a0aec0; font-size:10px;">(lifecyclestage: lead)</span></td>
-          <td><span class="cls-badge" style="background:#805ad522; color:#805ad5;">Lead</span></td>
-          <td>Steele Residential</td>
-          <td><span class="eval-count eval-zero">0</span><span style="display:inline-block; background:#fed7aa; color:#9a3412; font-size:9px; padding:1px 5px; border-radius:8px; margin-left:4px;">?</span><div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jul: 0 &middot; Jun: 0 &middot; May: 0 &middot; Apr: 0</div></td>
-          <td>619 Mercer Grant Drive, Cary, NC 27519</td>
-        </tr>
-      </tbody>
-      </table>
-      <div class="action-section">
-        <div class="action-title">Action Items</div>
-        <div class="action-card high">
-          <div class="action-body">
-            <div class="action-agent">Ashley Credle <span style="font-weight:400; color:#a0aec0; font-size:11px;">&middot; Customer</span></div>
-            <div class="action-detail">Customer &middot; 0 lifetime evals &middot; M0:0 M1:0 M2:0 M3:0 &middot; matched via phone</div>
-            <div class="action-text">FIRST EVAL OPPORTUNITY &mdash; this agent has never done an evaluation with HomeCloud. New deal on 79 Purple Trace, Clayton &mdash; perfect time to introduce us. <span style="color:#a0aec0;">(HomeCloud Status = Active but no eval record in either export; see DQ.)</span></div>
-            <div class="contact-info">&#128231; graaldevelopmentllc@gmail.com &middot; +19194808878</div>
-          </div>
-        </div>
-        <div class="action-card high">
-          <div class="action-body">
-            <div class="action-agent">Julie McGee <span style="font-weight:400; color:#a0aec0; font-size:11px;">&middot; Lead</span></div>
-            <div class="action-detail">Lead &middot; 0 lifetime evals &middot; M0:0 M1:0 M2:0 M3:0 &middot; matched via phone</div>
-            <div class="action-text">FIRST EVAL OPPORTUNITY &mdash; this agent has never done an evaluation with HomeCloud. New deal on 3909 Britt Dawn Lane, Zebulon &mdash; perfect time to introduce us.</div>
-            <div class="contact-info">&#128231; julie.mcgee@redfin.com &middot; +17045915225</div>
-          </div>
-        </div>
-        <div class="action-card high">
-          <div class="action-body">
-            <div class="action-agent">Linda Trevor <span style="font-weight:400; color:#a0aec0; font-size:11px;">&middot; Lead</span></div>
-            <div class="action-detail">Lead &middot; 0 lifetime evals &middot; M0:0 M1:0 M2:0 M3:0 &middot; matched via name</div>
-            <div class="action-text">FIRST EVAL OPPORTUNITY &mdash; this agent has never done an evaluation with HomeCloud. New deal on 1004 Manchaca Loop, Apex &mdash; perfect time to introduce us.</div>
-            <div class="contact-info">&#128231; linda.trevor@compass.com &middot; 919-730-7746 (sheet)</div>
-          </div>
-        </div>
-        <div class="action-card high">
-          <div class="action-body">
-            <div class="action-agent">Penny Senor <span style="font-weight:400; color:#a0aec0; font-size:11px;">&middot; Lead</span></div>
-            <div class="action-detail">Lead &middot; 0 lifetime evals &middot; M0:0 M1:0 M2:0 M3:0 &middot; matched via name</div>
-            <div class="action-text">FIRST EVAL OPPORTUNITY &mdash; this agent has never done an evaluation with HomeCloud. New deal on 204 Crystal Brook Lane, Cary &mdash; perfect time to introduce us.</div>
-            <div class="contact-info">&#128231; kentpony966@yahoo.com &middot; 919-961-1841</div>
-          </div>
-        </div>
-        <div class="action-card high">
-          <div class="action-body">
-            <div class="action-agent">Tim Lehan <span style="font-weight:400; color:#a0aec0; font-size:11px;">&middot; Lead</span></div>
-            <div class="action-detail">Lead &middot; 0 lifetime evals &middot; M0:0 M1:0 M2:0 M3:0 &middot; matched via name</div>
-            <div class="action-text">FIRST EVAL OPPORTUNITY &mdash; this agent has never done an evaluation with HomeCloud. New deal on 619 Mercer Grant Drive, Cary &mdash; perfect time to introduce us.</div>
-            <div class="contact-info">&#128231; tim@steeleresidential.com &middot; 919-971-0346 (sheet)</div>
-          </div>
-        </div>
-      </div>
-      <div class="dq-section"><strong>Data Quality &mdash; July 8, 2026</strong><ul style="padding-left:16px; margin-top:6px;">
-        <li style="margin-bottom:4px;"><strong>HubSpot match (5 of 53 unique buy-side agents):</strong> bulk E.164 phone returned <strong>Ashley Credle</strong> (homecloud_status=active &rarr; Customer) and <strong>Julie McGee</strong> (lifecyclestage=lead &rarr; Lead). Name-filter EQ pass added <strong>Tim Lehan</strong>, <strong>Linda Trevor</strong> (opportunity &rarr; Lead) and <strong>Penny Senor</strong> (Lead). The other 48 agents returned 0 on phone and name filters &mdash; consistent with the standing ~10&ndash;15% yield.</li>
-        <li style="margin-bottom:4px;"><strong>Shared-phone dedup:</strong> +19194808878 returned two contacts &mdash; <em>Ashley Credle</em> (used; sheet name match) and <em>Ashley Buchanan</em> (Partner, own mobile 631-838-2010). Chose Credle per name-match rule; flagging in case these records are crossed in HubSpot.</li>
-        <li style="margin-bottom:4px;"><strong>Penny Senor phone stored dashed:</strong> her HubSpot phone is <code>919-961-1841</code> (not E.164), which is why the phone pass missed her; the name pass caught her. Consider normalizing in HubSpot.</li>
-        <li style="margin-bottom:4px;"><strong>Agent Roster pass skipped:</strong> roster tab &gt;10k rows exceeds sheet-read limits (standing convention); license&rarr;roster&rarr;email precedence unavailable. Phone + name filters used.</li>
-        <li style="margin-bottom:4px;"><strong>Eval counts (hybrid):</strong> <code>7_06</code> reduced export (11 cols, Mar&ndash;Jul 2026, 752 rows / 139 agent eval rows, 2 days stale &mdash; no <code>7_07</code> or <code>7_08</code> folder) for monthly cells + <code>6_15</code> full-history file (1,445 rows &times; 97 cols, Apr 2022&ndash;Jun 2026) for lifetime base. All 5 matched agents are absent from both exports &rarr; 0 evals (? pill). Ashley Credle is homecloud_status=active with no eval record &mdash; same pattern as Michelle Lawson (Jul 5) and Colleen Ellis (Jul 4); verify before treating the first-eval CTA literally.</li>
-        <li style="margin-bottom:4px;"><strong>Slack #hubspot-alerts &mdash; no same-day batch:</strong> run executed 12:19 PM EDT; the daily &ldquo;Selling Agent Under Contract&rdquo; batch fires ~14:00 EDT. Today&rsquo;s channel so far has only a First-Eval-Completed alert (bonniecruz@navigaterealty.com) and two New-Agent-Booked alerts (jess@lodestonerealestate.com, danielle.corriveau@compass.com) &mdash; none on today&rsquo;s sheet. Slack primary-match (4d) and missing-agent diagnosis (Step 8) could not run; no &ldquo;Missing from HubSpot alerts&rdquo; section this cycle. Tomorrow&rsquo;s run covers today&rsquo;s batch.</li>
-        <li style="margin-bottom:4px;"><strong>Gmail YCBM:</strong> 61 messages screened across 3 pages (Jul 1&ndash;8, all pages paginated). Today&rsquo;s new bookings (1532 Stark Spring St, 11712 Hawick Valley Ln, 1406 Creston Hill, 80 Glen Abbey Trail) and all earlier ones match none of today&rsquo;s 56 sheet addresses, and no review-call recipient list contains a matched agent&rsquo;s email &rarr; 0 BOOKED (property-level match required per standing rule).</li>
-        <li style="margin-bottom:4px;"><strong>Non-Member / dual-agency rows excluded:</strong> 3 of 56 transactions had <code>Non Member</code> as the buy-side agent (125 W Pine Street, Pine Level; 540 Matthiola Drive, Wendell; 491 Terry Road, Hillsborough) &mdash; MLS data gap, not shown. <strong>Andrea P Cummings</strong>, <strong>Galbert ONeil</strong>, <strong>Benjamin Passwaters</strong>, <strong>Christine A Desautels</strong> and <strong>Julia Smith</strong> are both listing and selling agent on their rows (self/dual deals); none matched HubSpot.</li>
-      </ul></div>
-      </div>
-
-  <div class="day-section">
-      <div class="day-header">
-        <div class="day-title">Tuesday, July 7</div>
-        <div class="day-count">1 matched of 48 transactions &bull; 0 BOOKED</div>
-      </div>
-      <table>
-      <thead>
-        <tr><th>Buy-Side Agent</th><th>HubSpot Contact</th><th>Status</th><th>Brokerage</th><th>Evals</th><th>Property</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><div style="font-weight:600;">Christina Valkanoff <span class="match-tag">phone</span></div></td>
-          <td>Christina Valkanoff <span style="color:#a0aec0; font-size:10px;">(Partner &middot; homecloud_status: active)</span></td>
-          <td><span class="cls-badge" style="background:#d69e2e22; color:#b7791f;">Partner</span></td>
-          <td>Christina Valkanoff Realty Group</td>
-          <td><span class="eval-count">10</span><div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jul: 0 &middot; Jun: 0 &middot; May: 0 &middot; Apr: 1</div></td>
-          <td>301 Streamwood Drive, Holly Springs, NC 27540</td>
-        </tr>
-      </tbody>
-      </table>
-      <div class="action-section">
-        <div class="action-title">Action Items</div>
-        <div class="action-card medium">
-          <div class="action-body">
-            <div class="action-agent">Christina Valkanoff &mdash; MEDIUM</div>
-            <div class="action-detail">Partner &middot; 10 lifetime evals &middot; M0:0 M1:0 M2:0 M3:1 &middot; matched via phone</div>
-            <div class="action-text">Hasn&rsquo;t done an eval in 3+ months (last was April 2026) &mdash; great opportunity to re-engage on 301 Streamwood Drive, Holly Springs.</div>
-            <div class="contact-info">&#128231; christina@cvrealtygroup.com &middot; +19193454538</div>
-          </div>
-        </div>
-      </div>
-      <div class="dq-section"><strong>Data Quality &mdash; July 7, 2026</strong><ul style="padding-left:16px; margin-top:6px;">
-        <li style="margin-bottom:4px;"><strong>HubSpot match (1 of 41 unique buy-side agents):</strong> bulk E.164 phone returned <strong>Christina Valkanoff</strong> (phone exact, lifecyclestage=Partner, homecloud_status=active &rarr; Partner). Filter-EQ name pass over the other 40 agents returned 0 real hits. Low yield is normal &mdash; a cross-check against the eval exports confirms none of the other 40 have any HomeCloud eval history, i.e. they are genuinely not HomeCloud contacts, not a match failure.</li>
-        <li style="margin-bottom:4px;"><strong>Agent Roster pass skipped:</strong> roster tab exceeds the sheet-read pagination limit (standing convention); license&rarr;roster&rarr;email precedence unavailable. Phone + name filters used.</li>
-        <li style="margin-bottom:4px;"><strong>Eval counts (hybrid):</strong> <code>7_06</code> reduced export (11 cols, Mar&ndash;Jul 2026, 752 rows / 139 agent eval rows, pulled today) for monthly cells + <code>6_15</code> full-history file (1,445 rows &times; 97 cols, Apr 2022&ndash;Jun 2026) for the lifetime base. No <code>7_07</code> folder exists; <code>7_06</code> is the freshest pull (today). Christina present in both &rarr; lifetime 10, last eval April 2026.</li>
-        <li style="margin-bottom:4px;"><strong>Slack #hubspot-alerts &mdash; no same-day batch:</strong> run executed before 14:00 EDT; the daily &ldquo;Selling Agent Under Contract&rdquo; batch had not fired for July 7. Latest present was the July 6 batch (listing agents Dennis de Jong, Nicole Zolnowski, Matt Steele &mdash; none on today&rsquo;s sheet as buy-side). Slack primary-match (4d) and missing-agent diagnosis (Step 8) could not run; no &ldquo;Missing from HubSpot alerts&rdquo; section this cycle. Tomorrow&rsquo;s run covers today&rsquo;s batch.</li>
-        <li style="margin-bottom:4px;"><strong>Gmail YCBM:</strong> 23 booking emails scanned (newer_than:2d) plus a full-text cross-check against all 48 sheet addresses and Christina&rsquo;s email. No booking address matches today&rsquo;s sheet and none list a matched-agent email &mdash; 0 BOOKED.</li>
-        <li style="margin-bottom:4px;"><strong>Non-Member / dual-agency rows excluded:</strong> 7 of 48 transactions had <code>Non Member</code> as the buy-side agent (110 &amp; 113 Vignette Dr, Wilsons Mills; 1404 &amp; 1405 White Verona Way, Knightdale; 1022 Clare Ct, Cary; 3629 Glidewell Ct, Durham; 1007 Apogee Dr, Durham) &mdash; MLS data gap, not shown. <strong>Jeremy Grissom</strong> (United Real Estate Triangle) and <strong>Tammy Register</strong> (eXp Realty) are both listing and selling agent on their rows (self/dual deal); neither matched HubSpot.</li>
-      </ul></div>
-      </div>
-
-  
-
-  <div class="day-section">
-      <div class="day-header">
-        <div class="day-title">Monday, July 6</div>
-        <div class="day-count">1 matched of 49 transactions &bull; 0 BOOKED</div>
-      </div>
-      <table>
-      <thead>
-        <tr><th>Buy-Side Agent</th><th>HubSpot Contact</th><th>Status</th><th>Brokerage</th><th>Evals</th><th>Property</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><div style="font-weight:600;">Phillip Singer <span class="match-tag">phone</span></div></td>
-          <td>Phillip Singer <span style="color:#a0aec0; font-size:10px;">(lifecyclestage: lead)</span></td>
-          <td><span class="cls-badge" style="background:#805ad522; color:#805ad5;">Lead</span></td>
-          <td>Century 21 Southern Lifestyles</td>
-          <td><span class="eval-count eval-zero">0</span><span style="display:inline-block; background:#fed7aa; color:#9a3412; font-size:9px; padding:1px 5px; border-radius:8px; margin-left:4px;">?</span><div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jul: 0 &middot; Jun: 0 &middot; May: 0 &middot; Apr: 0</div></td>
-          <td>3533 Choplinshire Way, Apex, NC 27539</td>
-        </tr>
-      </tbody>
-      </table>
-      <div class="action-section">
-        <div class="action-title">Action Items</div>
-        <div class="action-card high">
-          <div class="action-body">
-            <div class="action-agent">Phillip Singer <span style="font-weight:400; color:#a0aec0; font-size:11px;">&middot; Lead</span></div>
-            <div class="action-detail">Lead &middot; 0 lifetime evals &middot; M0:0 M1:0 M2:0 M3:0 &middot; matched via phone</div>
-            <div class="action-text">FIRST EVAL OPPORTUNITY &mdash; this agent has never done an evaluation with HomeCloud. New deal on 3533 Choplinshire Way, Apex &mdash; perfect time to introduce us.</div>
-            <div class="contact-info">&#128231; phillipsinger.realty@gmail.com &middot; +19195382798</div>
-          </div>
-        </div>
-      </div>
-      <div class="dq-section"><strong>Data Quality &mdash; July 6, 2026</strong><ul style="padding-left:16px; margin-top:6px;">
-        <li style="margin-bottom:4px;"><strong>HubSpot match (1 of 44 unique buy-side agents):</strong> bulk E.164 phone returned <strong>Phillip Singer</strong> (phone exact, lifecyclestage=lead &rarr; Lead). Filter-EQ name pass over the other 43 agents returned 0 real hits. Low yield is normal &mdash; most MLS buy-side agents are not HomeCloud contacts.</li>
-        <li style="margin-bottom:4px;"><strong>Agent Roster pass skipped:</strong> roster tab &gt;10k rows exceeds the 50-row/call sheet-read limit (standing convention); license&rarr;roster&rarr;email precedence unavailable. Phone + name filters used.</li>
-        <li style="margin-bottom:4px;"><strong>Eval counts (hybrid):</strong> <code>7_02</code> reduced export (11 cols, Mar&ndash;Jul 2026, 732 agent rows) for monthly cells + <code>6_15</code> full-history file (1,445 rows &times; 97 cols, Apr 2022&ndash;Jun 2026) for lifetime base. No <code>7_06</code> QuickSight folder exists; <code>7_02</code> is 4 days stale. Phillip Singer has no row in either export &rarr; 0 evals (? pill).</li>
-        <li style="margin-bottom:4px;"><strong>Slack #hubspot-alerts &mdash; no same-day batch:</strong> run executed 12:19 PM EDT; the daily &ldquo;Selling Agent Under Contract&rdquo; batch fires ~14:00 EDT. Only the July 5 batch was present (selling agents Michelle Lawson, Derrick Thornton, Anne Bondurant &mdash; all July-5 properties, not on today&rsquo;s sheet). Slack primary-match (4d) and missing-agent diagnosis (Step 8) could not run; no &ldquo;Missing from HubSpot alerts&rdquo; section this cycle. Tomorrow&rsquo;s run covers today&rsquo;s batch.</li>
-        <li style="margin-bottom:4px;"><strong>Gmail YCBM:</strong> 25 booking emails scanned (newer_than:7d) plus a targeted full-text search for Phillip Singer / 3533 Choplinshire. None of the booking addresses match today&rsquo;s 49 sheet addresses and none list Phillip Singer&rsquo;s email &mdash; 0 BOOKED.</li>
-        <li style="margin-bottom:4px;"><strong>Non-Member / dual-agency rows excluded:</strong> 3 of 49 transactions had <code>Non Member</code> as the buy-side agent (2065 Trident Maple Lane, Chapel Hill; 625 Stream Walk Crossing, Wendell; 84 Howell Farm Drive, Selma) &mdash; MLS data gap, not shown. <strong>Ann Barefoot</strong> (Eastwood), <strong>Cindy Poole Roberts</strong> (Merriment) and <strong>Johnny Chappell</strong> (Compass) are both listing and selling agent on their rows (builder/self-deal); none matched HubSpot. <strong>Kimberly F Dixon</strong> and <strong>Tiffany Williamson</strong> each appear on two of today&rsquo;s transactions.</li>
-      </ul></div>
-      </div>
-
-  
-
-  <div class="day-section">
-      <div class="day-header">
-        <div class="day-title">Sunday, July 5</div>
-        <div class="day-count">3 matched of 20 transactions &bull; 0 BOOKED</div>
-      </div>
-      <table>
-      <thead>
-        <tr><th>Buy-Side Agent</th><th>HubSpot Contact</th><th>Status</th><th>Brokerage</th><th>Evals</th><th>Property</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><div style="font-weight:600;">Michelle Lawson <span class="match-tag">phone</span></div></td>
-          <td>Michelle Lawson <span style="color:#a0aec0; font-size:10px;">(homecloud_status: active)</span></td>
-          <td><span class="cls-badge" style="background:#3182ce22; color:#3182ce;">Customer</span></td>
-          <td>Coldwell Banker Advantage</td>
-          <td><span class="eval-count eval-zero">0</span><span style="display:inline-block; background:#fed7aa; color:#9a3412; font-size:9px; padding:1px 5px; border-radius:8px; margin-left:4px;">?</span><div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jul: 0 &middot; Jun: 0 &middot; May: 0 &middot; Apr: 0</div></td>
-          <td>3513 Bloomfield Way, Raleigh, NC 27616</td>
-        </tr>
-        <tr>
-          <td><div style="font-weight:600;">Anne Bondurant <span class="match-tag">name</span></div></td>
-          <td>Anne Bondurant</td>
-          <td><span class="cls-badge" style="background:#805ad522; color:#805ad5;">Lead</span></td>
-          <td>Century 21 Triangle Group</td>
-          <td><span class="eval-count eval-zero">0</span><span style="display:inline-block; background:#fed7aa; color:#9a3412; font-size:9px; padding:1px 5px; border-radius:8px; margin-left:4px;">?</span><div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jul: 0 &middot; Jun: 0 &middot; May: 0 &middot; Apr: 0</div></td>
-          <td>9172 Dupree Meadow Drive, Angier, NC 27501</td>
-        </tr>
-        <tr>
-          <td><div style="font-weight:600;">Derrick Thornton <span class="match-tag">name</span></div></td>
-          <td>Derrick Thornton</td>
-          <td><span class="cls-badge" style="background:#805ad522; color:#805ad5;">Lead</span></td>
-          <td>Coldwell Banker Advantage</td>
-          <td><span class="eval-count eval-zero">0</span><span style="display:inline-block; background:#fed7aa; color:#9a3412; font-size:9px; padding:1px 5px; border-radius:8px; margin-left:4px;">?</span><div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jul: 0 &middot; Jun: 0 &middot; May: 0 &middot; Apr: 0</div></td>
-          <td>2018 Hawkins Street, Durham, NC 27703</td>
-        </tr>
-      </tbody>
-      </table>
-      <div class="action-section">
-        <div class="action-title">Action Items</div>
-        <div class="action-card high">
-          <div class="action-body">
-            <div class="action-agent">Michelle Lawson &mdash; HIGH</div>
-            <div class="action-detail">Customer &middot; Coldwell Banker Advantage &middot; matched via phone</div>
-            <div class="action-text">FIRST EVAL OPPORTUNITY &mdash; this agent has never done an evaluation with HomeCloud. New deal on 3513 Bloomfield Way &mdash; perfect time to introduce us.</div>
-          </div>
-        </div>
-        <div class="action-card high">
-          <div class="action-body">
-            <div class="action-agent">Anne Bondurant &mdash; HIGH</div>
-            <div class="action-detail">Lead &middot; Century 21 Triangle Group &middot; matched via name</div>
-            <div class="action-text">FIRST EVAL OPPORTUNITY &mdash; this agent has never done an evaluation with HomeCloud. New deal on 9172 Dupree Meadow Drive &mdash; perfect time to introduce us.</div>
-          </div>
-        </div>
-        <div class="action-card high">
-          <div class="action-body">
-            <div class="action-agent">Derrick Thornton &mdash; HIGH</div>
-            <div class="action-detail">Lead &middot; Coldwell Banker Advantage &middot; matched via name</div>
-            <div class="action-text">FIRST EVAL OPPORTUNITY &mdash; this agent has never done an evaluation with HomeCloud. New deal on 2018 Hawkins Street &mdash; perfect time to introduce us.</div>
-          </div>
-        </div>
-      </div>
-      <div class="dq-section"><strong>Data Quality &mdash; July 5, 2026</strong><ul style="padding-left:16px; margin-top:6px;">
-        <li style="margin-bottom:4px;"><strong>HubSpot match (3 of 19 unique buy-side agents):</strong> bulk E.164 phone returned <strong>Michelle Lawson</strong> (phone exact, homecloud_status=active, lifecyclestage=lead &rarr; Customer). Name-filter EQ pass over the other 18 returned <strong>Anne Bondurant</strong> and <strong>Derrick Thornton</strong> (both lifecyclestage=lead &rarr; Lead); the remaining 16 had no HubSpot match. Low yield is normal &mdash; most MLS buy-side agents are not HomeCloud contacts.</li>
-        <li style="margin-bottom:4px;"><strong>Agent Roster pass skipped:</strong> roster tab &gt;10k rows exceeds sheet-read limits (standing convention); license&rarr;roster&rarr;email precedence unavailable. Phone + name filters used.</li>
-        <li style="margin-bottom:4px;"><strong>Eval counts (hybrid):</strong> <code>7_02</code> reduced export (11 cols, Mar&ndash;Jul 2026, 217 agent rows) for monthly cells + <code>6_15</code> full-history file (1,445 rows &times; 97 cols, Apr 2022&ndash;Jun 2026) for lifetime base. No <code>7_05</code> QuickSight folder exists; <code>7_02</code> is 3 days stale. All 3 matched agents are absent from both exports &rarr; 0 evals (? pill).</li>
-        <li style="margin-bottom:4px;"><strong>Active customer with no eval record:</strong> Michelle Lawson is homecloud_status=active in HubSpot but has no row in either eval export (same pattern as Colleen Ellis on Jul 4) &mdash; likely estimate/job-only activity or a name variant in QuickSight. Defaulted to 0; verify before treating the &ldquo;first eval&rdquo; CTA literally.</li>
-        <li style="margin-bottom:4px;"><strong>Slack #hubspot-alerts &mdash; no same-day batch:</strong> the daily &ldquo;Selling Agent Under Contract&rdquo; batch fires ~14:00 EDT; at run time only the July 4 batch was present (selling agents Daina Monsma, Colleen Ellis &mdash; neither on today&rsquo;s sheet). Slack primary-match (4d) and missing-agent diagnosis (Step 8) could not run; no &ldquo;Missing from HubSpot alerts&rdquo; section this cycle. Tomorrow&rsquo;s run covers today&rsquo;s batch.</li>
-        <li style="margin-bottom:4px;"><strong>Gmail YCBM:</strong> 25 booking emails scanned (newer_than:7d, Jul 1&ndash;5). None of the booking addresses match any of today&rsquo;s 20 sheet addresses, and none list the 3 matched agents&rsquo; emails &mdash; 0 BOOKED. (3 messages hit a transient 429 on metadata fetch; remaining subjects showed no address overlap.)</li>
-        <li style="margin-bottom:4px;"><strong>Dual property:</strong> <strong>Stacey Horowitz</strong> (Long &amp; Foster) is the selling agent on two of today&rsquo;s transactions (1210 Ballerina Lane and 5033 Mitchell Town Road); no HubSpot match &mdash; not shown as matched. All 20 rows had a real buy-side agent (no <code>Non Member</code>).</li>
-      </ul></div>
-    </div>
-
-  
-  
-
-  <div class="day-section">
-      <div class="day-header">
-        <div class="day-title">Saturday, July 4</div>
-        <div class="day-count">4 matched of 38 transactions &bull; 0 BOOKED</div>
-      </div>
-      <table>
-      <thead>
-        <tr><th>Buy-Side Agent</th><th>HubSpot Contact</th><th>Status</th><th>Brokerage</th><th>Evals</th><th>Property</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><div style="font-weight:600;">Colleen Ellis <span class="match-tag">phone</span></div></td>
-          <td>Colleen Ellis <span style="color:#a0aec0; font-size:10px;">(homecloud_status: active)</span></td>
-          <td><span class="cls-badge" style="background:#3182ce22; color:#3182ce;">Customer</span></td>
-          <td>Keller Williams Elite Realty</td>
-          <td><span class="eval-count eval-zero">0</span><span style="display:inline-block; background:#fed7aa; color:#9a3412; font-size:9px; padding:1px 5px; border-radius:8px; margin-left:4px;">?</span><div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jul: 0 &middot; Jun: 0 &middot; May: 0 &middot; Apr: 0</div></td>
-          <td>4124 Trotter Ridge Road, Durham, NC 27707</td>
-        </tr>
-        <tr>
-          <td><div style="font-weight:600;">Danielle Weeks <span class="match-tag">phone</span></div></td>
-          <td>Danielle Weeks <span style="color:#a0aec0; font-size:10px;">(homecloud_status: active)</span></td>
-          <td><span class="cls-badge" style="background:#3182ce22; color:#3182ce;">Customer</span></td>
-          <td>NextHome Turn Key Realty</td>
-          <td><span class="eval-count eval-zero">0</span><div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jul: 0 &middot; Jun: 0 &middot; May: 0 &middot; Apr: 0</div></td>
-          <td>144 Sudano Court, Holly Springs, NC 27540</td>
-        </tr>
-        <tr>
-          <td><div style="font-weight:600;">Raquel Lara <span class="match-tag">phone</span></div></td>
-          <td>Raquel Lara <span style="color:#a0aec0; font-size:10px;">(homecloud_status: active)</span></td>
-          <td><span class="cls-badge" style="background:#3182ce22; color:#3182ce;">Customer</span></td>
-          <td>eXp Realty, LLC - C</td>
-          <td><span class="eval-count eval-zero">0</span><div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jul: 0 &middot; Jun: 0 &middot; May: 0 &middot; Apr: 0</div></td>
-          <td>2400 Faucette Avenue, Durham, NC 27704</td>
-        </tr>
-        <tr>
-          <td><div style="font-weight:600;">Daina Monsma <span class="match-tag">name</span></div></td>
-          <td>Daina Monsma</td>
-          <td><span class="cls-badge" style="background:#805ad522; color:#805ad5;">Lead</span></td>
-          <td>Century 21 Triangle Group</td>
-          <td><span class="eval-count eval-zero">0</span><span style="display:inline-block; background:#fed7aa; color:#9a3412; font-size:9px; padding:1px 5px; border-radius:8px; margin-left:4px;">?</span><div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jul: 0 &middot; Jun: 0 &middot; May: 0 &middot; Apr: 0</div></td>
-          <td>2004 Little Pond Place, Willow Springs, NC 27592</td>
-        </tr>
-      </tbody>
-      </table>
-      <div class="action-section">
-        <div class="action-title">Action Items</div>
-        <div class="action-card high">
-          <div class="action-body">
-            <div class="action-agent">Colleen Ellis &mdash; HIGH</div>
-            <div class="action-detail">Customer &middot; Keller Williams Elite Realty &middot; matched via phone</div>
-            <div class="action-text">FIRST EVAL OPPORTUNITY &mdash; this agent has never done an evaluation with HomeCloud. New deal on 4124 Trotter Ridge Road &mdash; perfect time to introduce us.</div>
-          </div>
-        </div>
-        <div class="action-card high">
-          <div class="action-body">
-            <div class="action-agent">Danielle Weeks &mdash; HIGH</div>
-            <div class="action-detail">Customer &middot; NextHome Turn Key Realty &middot; matched via phone</div>
-            <div class="action-text">FIRST EVAL OPPORTUNITY &mdash; this agent has never done an evaluation with HomeCloud. New deal on 144 Sudano Court &mdash; perfect time to introduce us.</div>
-          </div>
-        </div>
-        <div class="action-card high">
-          <div class="action-body">
-            <div class="action-agent">Raquel Lara &mdash; HIGH</div>
-            <div class="action-detail">Customer &middot; eXp Realty, LLC - C &middot; matched via phone</div>
-            <div class="action-text">FIRST EVAL OPPORTUNITY &mdash; this agent has never done an evaluation with HomeCloud. New deal on 2400 Faucette Avenue &mdash; perfect time to introduce us.</div>
-          </div>
-        </div>
-        <div class="action-card high">
-          <div class="action-body">
-            <div class="action-agent">Daina Monsma &mdash; HIGH</div>
-            <div class="action-detail">Lead &middot; Century 21 Triangle Group &middot; matched via name</div>
-            <div class="action-text">FIRST EVAL OPPORTUNITY &mdash; this agent has never done an evaluation with HomeCloud. New deal on 2004 Little Pond Place &mdash; perfect time to introduce us.</div>
-          </div>
-        </div>
-      </div>
-      <div class="dq-section"><strong>Data Quality &mdash; July 4</strong><ul style="padding-left:16px; margin-top:6px;">
-        <li style="margin-bottom:4px;"><strong>Agent Roster pass skipped:</strong> roster tab &gt;10k rows exceeds sheet-read limits (standing convention); matching relied on E.164 phone + name-filter passes. License&rarr;roster&rarr;email precedence unavailable.</li>
-        <li style="margin-bottom:4px;"><strong>Eval counts (hybrid):</strong> <code>7_02</code> reduced export (11 cols, Mar&ndash;Jul 2026, agent-level) for monthly cells and <code>6_15</code> full-history file (Apr 2022&ndash;Jun 2026) for lifetime base; effective lifetime = max(full-history, recent-window). No <code>7_04</code> QuickSight folder exists; <code>7_02</code> is 2 days stale.</li>
-        <li style="margin-bottom:4px;"><strong>Agent missing from eval file (? pill), defaulted to 0:</strong> Colleen Ellis (homecloud_status=active, no rows in either export &mdash; same pattern as Aaron Wilson/Christine Buff on Jul 3) and Daina Monsma (Lead; 0 expected). Danielle Weeks and Raquel Lara ARE in the 7_02 export with 0 evaluations &mdash; each shows 1 Non-Eval Estimate in Jun 2026, so they are already in the funnel without an eval.</li>
-        <li style="margin-bottom:4px;"><strong>Slack #hubspot-alerts cross-check unavailable:</strong> run executed 12:17 PM EDT; the daily &ldquo;Selling Agent Under Contract&rdquo; batch fires ~2 PM. Only a First-Eval-Completed alert (Jul 3) present since midnight. Tomorrow&rsquo;s run covers today&rsquo;s batch.</li>
-        <li style="margin-bottom:4px;"><strong>Gmail YCBM sweep:</strong> 50 messages screened by subject across 2 pages (Jun 30&ndash;Jul 4) plus a targeted full-text search for all four matched agents&rsquo; emails/names (0 hits). No booking subject matches any of today&rsquo;s 38 sheet addresses &mdash; 0 BOOKED. Body-level parsing skipped as no candidate emails remained (judgment call).</li>
-        <li style="margin-bottom:4px;"><strong>Dual-agency row:</strong> Jaclyn Smith (HomeTowne Realty) is both listing and selling agent on 222 Cloverleaf Court (builder/self-deal pattern); no HubSpot match &mdash; not shown as matched.</li>
-      </ul></div>
-    </div>
-
-    
-  
-
-  <div class="day-section">
-      <div class="day-header">
-        <div class="day-title">Friday, July 3</div>
-        <div class="day-count">8 matched of 55 transactions &bull; 1 BOOKED</div>
-      </div>
-      <table>
-      <thead>
-        <tr><th>Buy-Side Agent</th><th>HubSpot Contact</th><th>Status</th><th>Brokerage</th><th>Evals</th><th>Property</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><div style="font-weight:600;">Glen Clemmons <span class="match-tag">phone</span></div></td>
-          <td>Glen Clemmons</td>
-          <td><span class="cls-badge" style="background:#d69e2e22; color:#d69e2e;">Partner</span></td>
-          <td>Compass -- Raleigh</td>
-          <td><span class="eval-count">12</span><div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jul: 0 &middot; Jun: 0 &middot; May: 0 &middot; Apr: 1</div></td>
-          <td>219 Heidinger Drive, Cary, NC 27511</td>
-        </tr>
-        <tr>
-          <td><div style="font-weight:600;">Mark A Fulk <span class="match-tag">phone</span> <span style="display:inline-block; background:#38a169; color:white; font-size:9px; font-weight:700; padding:2px 6px; border-radius:8px; margin-left:4px;">BOOKED</span></div></td>
-          <td>Mark Fulk</td>
-          <td><span class="cls-badge" style="background:#d69e2e22; color:#d69e2e;">Partner</span></td>
-          <td>Linda Craft Team, REALTORS</td>
-          <td><span class="eval-count">6</span><div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jul: 0 &middot; Jun: 0 &middot; May: 2 &middot; Apr: 2</div></td>
-          <td>2416 Rainy Lake Street, Wake Forest, NC 27587</td>
-        </tr>
-        <tr>
-          <td><div style="font-weight:600;">Aaron Wilson <span class="match-tag">name</span></div></td>
-          <td>Aaron Wilson <span style="color:#a0aec0; font-size:10px;">(homecloud_status: active)</span></td>
-          <td><span class="cls-badge" style="background:#3182ce22; color:#3182ce;">Customer</span></td>
-          <td>LIVE TRIANGLE REAL ESTATE LLC</td>
-          <td><span class="eval-count eval-zero">0</span><span style="display:inline-block; background:#fed7aa; color:#9a3412; font-size:9px; padding:1px 5px; border-radius:8px; margin-left:4px;">?</span><div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jul: 0 &middot; Jun: 0 &middot; May: 0 &middot; Apr: 0</div></td>
-          <td>8325 Stryker Court, Raleigh, NC 27615</td>
-        </tr>
-        <tr>
-          <td><div style="font-weight:600;">Christine Buff <span class="match-tag">phone</span></div></td>
-          <td>Christine Buff <span style="color:#a0aec0; font-size:10px;">(homecloud_status: active)</span></td>
-          <td><span class="cls-badge" style="background:#3182ce22; color:#3182ce;">Customer</span></td>
-          <td>DASH Carolina</td>
-          <td><span class="eval-count eval-zero">0</span><span style="display:inline-block; background:#fed7aa; color:#9a3412; font-size:9px; padding:1px 5px; border-radius:8px; margin-left:4px;">?</span><div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jul: 0 &middot; Jun: 0 &middot; May: 0 &middot; Apr: 0</div></td>
-          <td>518 Farm House Lane, Durham, NC 27703</td>
-        </tr>
-        <tr>
-          <td><div style="font-weight:600;">Patty L Owens <span class="match-tag">phone</span></div></td>
-          <td>Patty Owens <span style="color:#a0aec0; font-size:10px;">(homecloud_status: active)</span></td>
-          <td><span class="cls-badge" style="background:#3182ce22; color:#3182ce;">Customer</span></td>
-          <td>Compass -- Raleigh</td>
-          <td><span class="eval-count eval-zero">0</span><span style="display:inline-block; background:#fed7aa; color:#9a3412; font-size:9px; padding:1px 5px; border-radius:8px; margin-left:4px;">?</span><div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jul: 0 &middot; Jun: 0 &middot; May: 0 &middot; Apr: 0</div></td>
-          <td>2409 Memory Ridge Drive, Raleigh, NC 27606</td>
-        </tr>
-        <tr>
-          <td><div style="font-weight:600;">Andy Tran <span class="match-tag">name</span></div></td>
-          <td>Andy Tran</td>
-          <td><span class="cls-badge" style="background:#805ad522; color:#805ad5;">Lead</span></td>
-          <td>Coldwell Banker Advantage</td>
-          <td><span class="eval-count eval-zero">0</span><span style="display:inline-block; background:#fed7aa; color:#9a3412; font-size:9px; padding:1px 5px; border-radius:8px; margin-left:4px;">?</span><div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jul: 0 &middot; Jun: 0 &middot; May: 0 &middot; Apr: 0</div></td>
-          <td>8905 Kennebec Crossing Drive, Angier, NC 27501</td>
-        </tr>
-        <tr>
-          <td><div style="font-weight:600;">Marti Hampton <span class="match-tag">name</span></div></td>
-          <td>Marti Hampton</td>
-          <td><span class="cls-badge" style="background:#805ad522; color:#805ad5;">Lead</span></td>
-          <td>EXP Realty LLC</td>
-          <td><span class="eval-count eval-zero">0</span><span style="display:inline-block; background:#fed7aa; color:#9a3412; font-size:9px; padding:1px 5px; border-radius:8px; margin-left:4px;">?</span><div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jul: 0 &middot; Jun: 0 &middot; May: 0 &middot; Apr: 0</div></td>
-          <td>2416 Whitset Place, Willow Springs, NC 27592</td>
-        </tr>
-        <tr>
-          <td><div style="font-weight:600;">PJ Sayah <span class="match-tag">name</span></div></td>
-          <td>PJ Sayah</td>
-          <td><span class="cls-badge" style="background:#805ad522; color:#805ad5;">Lead</span></td>
-          <td>Coldwell Banker Advantage</td>
-          <td><span class="eval-count eval-zero">0</span><span style="display:inline-block; background:#fed7aa; color:#9a3412; font-size:9px; padding:1px 5px; border-radius:8px; margin-left:4px;">?</span><div style="font-size:10px; color:#a0aec0; margin-top:3px;">Jul: 0 &middot; Jun: 0 &middot; May: 0 &middot; Apr: 0</div></td>
-          <td>3608 Pauley Court, Raleigh, NC 27610</td>
-        </tr>
-      </tbody>
-      </table>
-      <div class="action-section">
-        <div class="action-title">Action Items</div>
-        <div class="action-card done">
-          <div class="action-body">
-            <div class="action-agent">Mark A Fulk <span style="font-weight:400; color:#a0aec0; font-size:11px;">&middot; Partner</span></div>
-            <div class="action-detail">Partner &middot; 6 lifetime evals &middot; M0:0 M1:0 M2:2 M3:2</div>
-            <div class="action-text">BOOKED (Jul 2, 4:43 PM EDT) &mdash; Eval: Wednesday, July 8, 2026, 9:00 AM. Client: Jason &amp; Lisa McEwen, 2416 Rainy Lake Street, Wake Forest. Services: Home Evaluation + Radon + Termite (WDIR). Review call requested &mdash; expect a YCBM review-call booking to follow.</div>
-            <div class="contact-info">&#128231; mark@lindacraft.com &middot; +19192471069</div>
-          </div>
-        </div>
-        <div class="action-card high">
-          <div class="action-body">
-            <div class="action-agent">Aaron Wilson <span style="font-weight:400; color:#a0aec0; font-size:11px;">&middot; Customer</span></div>
-            <div class="action-detail">Customer &middot; 0 lifetime evals &middot; M0:0 M1:0 M2:0 M3:0</div>
-            <div class="action-text">FIRST EVAL OPPORTUNITY &mdash; this agent has never done an evaluation with HomeCloud. New deal on 8325 Stryker Court, Raleigh &mdash; perfect time to introduce us. <span style="color:#a0aec0;">(HomeCloud Status = Active but no eval record in either export; see DQ.)</span></div>
-            <div class="contact-info">&#128231; aa.leewilson@gmail.com &middot; 919-632-1229</div>
-          </div>
-        </div>
-        <div class="action-card high">
-          <div class="action-body">
-            <div class="action-agent">Christine Buff <span style="font-weight:400; color:#a0aec0; font-size:11px;">&middot; Customer</span></div>
-            <div class="action-detail">Customer &middot; 0 lifetime evals &middot; M0:0 M1:0 M2:0 M3:0</div>
-            <div class="action-text">FIRST EVAL OPPORTUNITY &mdash; this agent has never done an evaluation with HomeCloud. New deal on 518 Farm House Lane, Durham &mdash; perfect time to introduce us. <span style="color:#a0aec0;">(HomeCloud Status = Active but no eval record; see DQ.)</span></div>
-            <div class="contact-info">&#128231; christine.buff@dashnc.com &middot; +19198802965</div>
-          </div>
-        </div>
-        <div class="action-card high">
-          <div class="action-body">
-            <div class="action-agent">Patty L Owens <span style="font-weight:400; color:#a0aec0; font-size:11px;">&middot; Customer</span></div>
-            <div class="action-detail">Customer &middot; 0 lifetime evals &middot; M0:0 M1:0 M2:0 M3:0</div>
-            <div class="action-text">FIRST EVAL OPPORTUNITY &mdash; this agent has never done an evaluation with HomeCloud. New deal on 2409 Memory Ridge Drive, Raleigh &mdash; perfect time to introduce us. <span style="color:#a0aec0;">(HomeCloud Status = Active but no eval record; see DQ.)</span></div>
-            <div class="contact-info">&#128231; pattyowens@markspain.com &middot; +19196020612</div>
-          </div>
-        </div>
-        <div class="action-card high">
-          <div class="action-body">
-            <div class="action-agent">Andy Tran <span style="font-weight:400; color:#a0aec0; font-size:11px;">&middot; Lead</span></div>
-            <div class="action-detail">Lead &middot; 0 lifetime evals &middot; M0:0 M1:0 M2:0 M3:0</div>
-            <div class="action-text">FIRST EVAL OPPORTUNITY &mdash; this agent has never done an evaluation with HomeCloud. New deal on 8905 Kennebec Crossing Drive, Angier &mdash; perfect time to introduce us.</div>
-            <div class="contact-info">&#128231; andytran@cbadvantage.com &middot; 919-761-0236</div>
-          </div>
-        </div>
-        <div class="action-card high">
-          <div class="action-body">
-            <div class="action-agent">Marti Hampton <span style="font-weight:400; color:#a0aec0; font-size:11px;">&middot; Lead</span></div>
-            <div class="action-detail">Lead &middot; 0 lifetime evals &middot; M0:0 M1:0 M2:0 M3:0</div>
-            <div class="action-text">FIRST EVAL OPPORTUNITY &mdash; this agent has never done an evaluation with HomeCloud. New deal on 2416 Whitset Place, Willow Springs &mdash; perfect time to introduce us. High-profile team lead (Marti Hampton / EXP); also appeared in the Jun 29 listing-side alerts as Never Converted.</div>
-            <div class="contact-info">&#128231; marti@martihampton.com &middot; +19196017710</div>
-          </div>
-        </div>
-        <div class="action-card high">
-          <div class="action-body">
-            <div class="action-agent">PJ Sayah <span style="font-weight:400; color:#a0aec0; font-size:11px;">&middot; Lead</span></div>
-            <div class="action-detail">Lead &middot; 0 lifetime evals &middot; M0:0 M1:0 M2:0 M3:0</div>
-            <div class="action-text">FIRST EVAL OPPORTUNITY &mdash; this agent has never done an evaluation with HomeCloud. New deal on 3608 Pauley Court, Raleigh &mdash; perfect time to introduce us.</div>
-            <div class="contact-info">&#128231; psayah@cbadvantage.com &middot; 919-770-7930</div>
-          </div>
-        </div>
-        <div class="action-card medium">
-          <div class="action-body">
-            <div class="action-agent">Glen Clemmons <span style="font-weight:400; color:#a0aec0; font-size:11px;">&middot; Partner</span></div>
-            <div class="action-detail">Partner &middot; 12 lifetime evals &middot; M0:0 M1:0 M2:0 M3:1</div>
-            <div class="action-text">Hasn&rsquo;t done an eval in 3+ months (last: April) &mdash; great opportunity to re-engage on 219 Heidinger Drive, Cary.</div>
-            <div class="contact-info">&#128231; glen@umsteadandoak.com &middot; +19199887646</div>
-          </div>
-        </div>
-      </div>
-      <div class="dq-section"><strong>Data Quality &mdash; July 3, 2026</strong><ul style="margin:6px 0 0 18px; padding:0;">
-        <li style="margin-bottom:4px;"><strong>HubSpot match (8 of 53 unique buy-side agents):</strong> bulk E.164 phone returned Mark Fulk &amp; Glen Clemmons (Partners) plus Patty Owens &amp; Christine Buff (homecloud_status=active &rarr; Customer). Name-filter pass added PJ Sayah, Andy Tran, Marti Hampton (Leads) and Aaron Wilson (Customer). The other 45 agents returned 0 on phone and name filters &mdash; consistent with the standing ~85&ndash;90% not-in-HubSpot pattern.</li>
-        <li style="margin-bottom:4px;"><strong>Duplicate HubSpot record &mdash; Mark Fulk:</strong> two contacts share +19192471069: <em>Mark Fulk</em> (mark@lindacraft.com, Partner, used) and <em>MARK FULK</em> (mark2sellhomes@gmail.com, lead). Consider merging in HubSpot.</li>
-        <li style="margin-bottom:4px;"><strong>License&rarr;Roster&rarr;email pass (Step 4a) skipped</strong> &mdash; Agent Roster tab exceeds 10,000 rows and the sheet reader caps display at 50 rows/call; relied on phone + name passes, consistent with prior cycles.</li>
-        <li style="margin-bottom:4px;"><strong>QuickSight export &mdash; hybrid, 1 day stale.</strong> No <code>7_03</code> folder at run time; used <code>7_02</code> reduced export (11 cols, Mar&ndash;Jul 2026, agent-level) for monthly cells and <code>6_15</code> full-history file (Apr 2022&ndash;Jun 2026) for lifetime base; effective lifetime = max(full-history, recent-window).</li>
-        <li style="margin-bottom:4px;"><strong>Agent missing from eval file (? pill), defaulted to 0:</strong> Aaron Wilson, Christine Buff, Patty Owens (all three are homecloud_status=active with no eval rows in either export &mdash; same pattern as Leslie Douglas on Jul 2), plus PJ Sayah, Andy Tran, Marti Hampton (Leads; 0 expected).</li>
-        <li style="margin-bottom:4px;"><strong>Slack #hubspot-alerts cross-check unavailable:</strong> run executed at 12:23 PM EDT; the daily &ldquo;Selling Agent Under Contract&rdquo; batch fires ~2 PM (latest batch: Jul 1). No same-day missing-agent diagnosis possible &mdash; tomorrow&rsquo;s run will cover it.</li>
-        <li style="margin-bottom:4px;"><strong>Gmail YCBM sweep:</strong> 61 messages in the 7-day window; all qualifying booking bodies from Jul 1&ndash;3 parsed (one BOOKED match: Mark Fulk, exact email + exact address). One 25-message metadata batch for the Jun 27&ndash;Jul 1 tail timed out; that window was already swept by prior daily runs and prior sections are preserved verbatim.</li>
-        <li style="margin-bottom:4px;"><strong>Non-Member rows excluded:</strong> 2 transactions had <code>Non Member</code> as the buy-side agent (MLS data gap) and are not shown.</li>
-      </ul></div>
-    </div>
-
-    
-  
-
+*{box-sizing:border-box}
+body{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;background:#f7fafc;color:#1a202c}
+.wrap{max-width:1180px;margin:0 auto;padding:26px}
+header h1{margin:0 0 4px;font-size:23px}
+.subtitle{color:#4a5568;font-size:14px;margin-bottom:6px}
+.degraded{background:#fffbeb;border-left:4px solid #d69e2e;padding:12px 16px;border-radius:6px;font-size:13px;margin:14px 0;color:#744210;line-height:1.5}
+.cards{display:flex;gap:12px;margin:18px 0;flex-wrap:wrap}
+.stat{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:14px 18px;flex:1;min-width:120px}
+.stat .n{font-size:26px;font-weight:700}
+.stat .l{font-size:12px;color:#718096;text-transform:uppercase;letter-spacing:.4px;margin-top:2px}
+.grouphdr{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#4a5568;margin:22px 0 8px;padding-bottom:5px;border-bottom:2px solid #e2e8f0}
+.agent{display:grid;grid-template-columns:2.3fr .9fr 1.1fr 1.9fr 2.4fr;gap:14px;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin-bottom:9px;align-items:start}
+.agent.partner{border-left:4px solid #6b46c1}
+.agent.lead{border-left:4px solid #2b6cb0}
+.agent.cold{border-left:4px solid #cbd5e0}
+.an{font-weight:650;font-size:15px}
+.hsname{font-size:12px;color:#4a5568;margin-top:3px}
+.hsname.none{color:#a0aec0;font-style:italic}
+.meta{font-size:12px;color:#718096;margin-top:3px}
+.meta a{color:#3182ce;text-decoration:none}
+.rownote{font-size:11px;color:#c05621;margin-top:4px}
+.cls{color:#fff;font-size:11px;padding:3px 9px;border-radius:20px;font-weight:600;white-space:nowrap}
+.tag{background:#edf2f7;color:#4a5568;font-size:10px;padding:1px 6px;border-radius:4px;margin-left:5px;vertical-align:middle}
+.evbig{font-size:22px;font-weight:700;line-height:1}
+.evsub{font-size:11px;color:#718096;margin-top:3px}
+.evnote{font-size:11px;color:#c05621;margin-top:2px}
+.addr{font-size:12.5px;color:#2d3748;line-height:1.45}
+.pri{color:#fff;font-size:10.5px;padding:2px 8px;border-radius:4px;font-weight:700}
+.acttxt{font-size:12px;color:#2d3748;margin-top:5px;line-height:1.4}
+.none{color:#a0aec0}
+.dq{background:#fffbeb;border-left:3px solid #d69e2e;padding:12px 16px;font-size:12.5px;border-radius:6px;margin-top:24px;line-height:1.6;color:#744210}
+.dq b{color:#744210}
+.dq ul{margin:6px 0 0;padding-left:18px}
+</style></head><body><div class="wrap">
+<header>
+<h1>RDU Buy-Side Agent Dashboard</h1>
+<div class="subtitle">Thursday, July 30, 2026 · today's new pending buy-side transactions</div>
+</header>
+<div class="degraded">
+<b>⚠ Degraded run.</b> The Google Workspace (Sheets + Gmail) connector was down at run time; today's sheet was recovered read-only via the Drive connector / browser. <b>Gmail YouCanBookMe booking sweep could not run</b> (Gmail offline) — no agents are marked BOOKED, so some "first eval" targets below may already have a booking. Today's <b>#hubspot-alerts</b> "Selling Agent Under Contract" post had not fired yet (latest 7/29), so no Slack enrichment/cross-check. Eval counts are from the QuickSight <b>7_28</b> (recent months) + <b>6_15</b> (lifetime) exports — 2 days stale. This is a single-day view, not the usual 7-day rolling window (last prior dashboard was Jul 17).
 </div>
-</body>
-</html>
+<div class="cards">
+<div class="stat"><div class="n">54</div><div class="l">Transactions</div></div>
+<div class="stat"><div class="n">49</div><div class="l">Buy-side agents</div></div>
+<div class="stat"><div class="n">2</div><div class="l">Partners</div></div>
+<div class="stat"><div class="n">3</div><div class="l">Leads</div></div>
+<div class="stat"><div class="n">44</div><div class="l">Not in HubSpot</div></div>
+<div class="stat"><div class="n">47</div><div class="l">First-eval opps</div></div>
+</div>
+<div class="grouphdr">Partners (2) — active HomeCloud partners with a new deal today</div><div class="agent partner">
+  <div class="acol name">
+    <div class="an">Brianna Schwartz <span class="tag">phone</span></div>
+    <div class="hsname">HubSpot: Brianna LaMonica</div>
+    <div class="meta">DASH Carolina · Lic 307491 · <a href="tel:+19195902707">+19195902707</a></div>
+    <div class="meta"><a href="mailto:briannashea@gmail.com">briannashea@gmail.com</a></div>
+    <div class="rownote">⚠ Sheet name &#x27;Schwartz&#x27; vs HubSpot &#x27;LaMonica&#x27; (same phone/agent — likely name change)</div>
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#6b46c1">Partner</span></div>
+  <div class="acol ev"><div class="evbig">7</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div><div class="evnote">last eval Mar 2024</div></div>
+  <div class="acol addr">10605 Gardenia Court, Raleigh, NC 27603</div>
+  <div class="acol act"><span class="pri" style="background:#c05621">MEDIUM</span><div class="acttxt">Hasn&#x27;t done an eval in 3+ months (last eval Mar 2024) — great re-engagement opportunity.</div></div>
+</div>
+<div class="agent partner">
+  <div class="acol name">
+    <div class="an">Victoria Coster <span class="tag">phone/email</span></div>
+    <div class="hsname">HubSpot: Victoria Coster</div>
+    <div class="meta">EXP Realty LLC · Lic 355816 · <a href="tel:+13057310482">+13057310482</a></div>
+    <div class="meta"><a href="mailto:vcoster@caulteam.com">vcoster@caulteam.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#6b46c1">Partner</span></div>
+  <div class="acol ev"><div class="evbig">1</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div><div class="evnote">last eval Dec 2025</div></div>
+  <div class="acol addr">1355 Catrush Way, Wake Forest, NC 27587</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">SECOND EVAL OPPORTUNITY — 1 eval with us (last eval Dec 2025). Close the second on this deal.</div></div>
+</div><div class="grouphdr">Leads — in HubSpot, never converted (3) — known to us, never completed an eval</div><div class="agent lead">
+  <div class="acol name">
+    <div class="an">Daina Monsma <span class="tag">email/name</span></div>
+    <div class="hsname">HubSpot: Daina Monsma</div>
+    <div class="meta">Century 21 Triangle Group · Lic 311641 · <a href="tel:+19198024255">+19198024255</a></div>
+    <div class="meta"><a href="mailto:dmonsmare@gmail.com">dmonsmare@gmail.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#2b6cb0">Lead</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">1114 Blackthorn Lane, Durham, NC 27703</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent lead">
+  <div class="acol name">
+    <div class="an">Mike Montpetit <span class="tag">name</span></div>
+    <div class="hsname">HubSpot: Mike Montpetit</div>
+    <div class="meta">Town &amp; Country Realty, Inc. · Lic 181906 · <a href="tel:+19196149100">+19196149100</a></div>
+    <div class="meta"><a href="mailto:mike@tcrnc.com">mike@tcrnc.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#2b6cb0">Lead</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">212 Carolina Springs Boulevard, Apex, NC 27539</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent lead">
+  <div class="acol name">
+    <div class="an">Ryley Miller <span class="tag">email/name</span></div>
+    <div class="hsname">HubSpot: Ryley Miller</div>
+    <div class="meta">Compass -- Raleigh · Lic 330209 · <a href="tel:+19197579585">+19197579585</a></div>
+    <div class="meta"><a href="mailto:ryley@thecoleygroup.com">ryley@thecoleygroup.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#2b6cb0">Lead</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">245 Madden Rose Lp, Garner, NC 27529</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div><div class="grouphdr">Not in HubSpot — cold first-eval opportunities (44) — new deal, no HubSpot record; roster email available for outreach</div><div class="agent cold">
+  <div class="acol name">
+    <div class="an">Alma Vazquez </div>
+    <div class="hsname none">Not found in HubSpot (roster email: almavazquez.homes@gmail.com)</div>
+    <div class="meta">Kay Properties · Lic 345927 · <a href="tel:+19843271684">+19843271684</a></div>
+    <div class="meta"><a href="mailto:almavazquez.homes@gmail.com">almavazquez.homes@gmail.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">5309 Reams Run Road, Durham, NC 27713</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Angela Outterbridge </div>
+    <div class="hsname none">Not found in HubSpot (roster email: none)</div>
+    <div class="meta">Humphrey and Hyatt Realty Group · Lic 296586 · <a href="tel:+12527146017">+12527146017</a></div>
+    <div class="meta"><span class="none">—</span></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">1502 Hatteras Road, Durham, NC 27703</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">AnnMarie Janni </div>
+    <div class="hsname none">Not found in HubSpot (roster email: none)</div>
+    <div class="meta">Howard Hanna Allen Tate Apex-Center Street · Lic 214283 · <a href="tel:+19193899782">+19193899782</a></div>
+    <div class="meta"><span class="none">—</span></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">132 Bonfire Court, Smithfield, NC 27577</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Aubrie Leonard </div>
+    <div class="hsname none">Not found in HubSpot (roster email: aubriekenan@gmail.com)</div>
+    <div class="meta">HomeTowne Realty · Lic 350634 · <a href="tel:+19194640243">+19194640243</a></div>
+    <div class="meta"><a href="mailto:aubriekenan@gmail.com">aubriekenan@gmail.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">131 Muscovy Drive, Four Oaks, NC 27524<br>140 Muscovy Drive, Four Oaks, NC 27524</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Carla Freund </div>
+    <div class="hsname none">Not found in HubSpot (roster email: carla@carlafreund.com)</div>
+    <div class="meta">Keller Williams Legacy · Lic 260420 · <a href="tel:+19196028489">+19196028489</a></div>
+    <div class="meta"><a href="mailto:carla@carlafreund.com">carla@carlafreund.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">1165 Hodgson Lane, Fuquay Varina, NC 27526</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Catie Sherry </div>
+    <div class="hsname none">Not found in HubSpot (roster email: catiesherry@kw.com)</div>
+    <div class="meta">Keller Williams Realty Cary · Lic 347896 · <a href="tel:+16307288099">+16307288099</a></div>
+    <div class="meta"><a href="mailto:catiesherry@kw.com">catiesherry@kw.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">1805 Iron Mill Drive, Wendell, NC 27591</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Charles Christiansen </div>
+    <div class="hsname none">Not found in HubSpot (roster email: christiansenc@hpw.com)</div>
+    <div class="meta">Coldwell Banker HPW · Lic 293184 · <a href="tel:+19199071010">+19199071010</a></div>
+    <div class="meta"><a href="mailto:christiansenc@hpw.com">christiansenc@hpw.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">228 S Harvest Ridge Way (Homesite 292), Wilsons Mills, NC 27520</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Chris Cox </div>
+    <div class="hsname none">Not found in HubSpot (roster email: realchriscox@gmail.com)</div>
+    <div class="meta">EXP Realty LLC · Lic 299498 · <a href="tel:+14012584470">+14012584470</a></div>
+    <div class="meta"><a href="mailto:realchriscox@gmail.com">realchriscox@gmail.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">4013 Vesta Drive, Raleigh, NC 27603</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Chris Gorman </div>
+    <div class="hsname none">Not found in HubSpot (roster email: chris@gormanresidential.com)</div>
+    <div class="meta">Gorman Residential LLC · Lic 277810 · <a href="tel:+19196457212">+19196457212</a></div>
+    <div class="meta"><a href="mailto:chris@gormanresidential.com">chris@gormanresidential.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">1228 Marshall Farm Street, Wake Forest, NC 27587</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Courtney Dunstan </div>
+    <div class="hsname none">Not found in HubSpot (roster email: courtney@nestrealty.com)</div>
+    <div class="meta">Nest Realty of the Triangle · Lic 299580 · <a href="tel:+19199201104">+19199201104</a></div>
+    <div class="meta"><a href="mailto:courtney@nestrealty.com">courtney@nestrealty.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">2610 Sarah Avenue, Durham, NC 27707</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Cris Mulroy </div>
+    <div class="hsname none">Not found in HubSpot (roster email: cris.mulroy@bhhsysu.com)</div>
+    <div class="meta">Berkshire Hathaway HomeServices · Lic 321626 · <a href="tel:+19194133435">+19194133435</a></div>
+    <div class="meta"><a href="mailto:cris.mulroy@bhhsysu.com">cris.mulroy@bhhsysu.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">7318 Prato Court, Wendell, NC 27591</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Crystal Johnson </div>
+    <div class="hsname none">Not found in HubSpot (roster email: Crystal.s.Johnson@exprealty.com)</div>
+    <div class="meta">eXp Realty, LLC - C · Lic 244551 · <a href="tel:+19193696727">+19193696727</a></div>
+    <div class="meta"><a href="mailto:Crystal.s.Johnson@exprealty.com">Crystal.s.Johnson@exprealty.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">129 Nimble Way, Clayton, NC 27520</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Doan Nguyen </div>
+    <div class="hsname none">Not found in HubSpot (roster email: hadoan.nguyen@exprealty.com)</div>
+    <div class="meta">EXP Realty LLC · Lic 356333 · <a href="tel:+13364421132">+13364421132</a></div>
+    <div class="meta"><a href="mailto:hadoan.nguyen@exprealty.com">hadoan.nguyen@exprealty.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">316 Matilda Place, Cary, NC 27513</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Emilie Morgan </div>
+    <div class="hsname none">Not found in HubSpot (roster email: emiliemariemorgan@gmail.com)</div>
+    <div class="meta">Marie Austin Realty · Lic 274281 · <a href="tel:+19196040706">+19196040706</a></div>
+    <div class="meta"><a href="mailto:emiliemariemorgan@gmail.com">emiliemariemorgan@gmail.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">1704 Englewood Avenue, Durham, NC 27705</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Jack Fisher </div>
+    <div class="hsname none">Not found in HubSpot (roster email: jack.fisher@tripointehomes.com)</div>
+    <div class="meta">Tri Pointe Homes Inc · Lic 346896 · <a href="tel:+19194131506">+19194131506</a></div>
+    <div class="meta"><a href="mailto:jack.fisher@tripointehomes.com">jack.fisher@tripointehomes.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">239 Oak Summit Place, Chapel Hill, NC 27516</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Jaclyn Smith </div>
+    <div class="hsname none">Not found in HubSpot (roster email: sales@staywild.com)</div>
+    <div class="meta">HomeTowne Realty · Lic 278522 · <a href="tel:+19198130123">+19198130123</a></div>
+    <div class="meta"><a href="mailto:sales@staywild.com">sales@staywild.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">230 Pretty Run Branch Lane, Wendell, NC 27591</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Jay Parker </div>
+    <div class="hsname none">Not found in HubSpot (roster email: none)</div>
+    <div class="meta">Weaver Street Realty &amp; Auction · Lic 144291 · <a href="tel:+19192256773">+19192256773</a></div>
+    <div class="meta"><span class="none">—</span></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">508 Yorktown Drive, Chapel Hill, NC 27516</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Jeff Evans </div>
+    <div class="hsname none">Not found in HubSpot (roster email: jeff@dashnc.com)</div>
+    <div class="meta">DASH Carolina · Lic 292002 · <a href="tel:+19192856014">+19192856014</a></div>
+    <div class="meta"><a href="mailto:jeff@dashnc.com">jeff@dashnc.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">6416 Bissette Road, Wendell, NC 27591</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Jenny Gardner </div>
+    <div class="hsname none">Not found in HubSpot (roster email: Jenny@upmarketrealty.com)</div>
+    <div class="meta">Up Market Realty · Lic 321817 · <a href="tel:+19193530141">+19193530141</a></div>
+    <div class="meta"><a href="mailto:Jenny@upmarketrealty.com">Jenny@upmarketrealty.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">7312 Pekin Drive, Willow Springs, NC 27592</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Jenny Hensley </div>
+    <div class="hsname none">Not found in HubSpot (roster email: jhensley@luxeresidentialnc.com)</div>
+    <div class="meta">Luxe Residential, LLC · Lic 283190 · <a href="tel:+19198106310">+19198106310</a></div>
+    <div class="meta"><a href="mailto:jhensley@luxeresidentialnc.com">jhensley@luxeresidentialnc.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">4503 Wingate Song Court, Knightdale, NC 27545</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Julia Cowlbeck </div>
+    <div class="hsname none">Not found in HubSpot (roster email: julia.cowlbeck@longandfoster.com)</div>
+    <div class="meta">Long &amp; Foster Real Estate INC/Raleigh · Lic 276561 · <a href="tel:+19198158345">+19198158345</a></div>
+    <div class="meta"><a href="mailto:julia.cowlbeck@longandfoster.com">julia.cowlbeck@longandfoster.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">200 Northclift Drive, Raleigh, NC 27609</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Kathleen Tarrant </div>
+    <div class="hsname none">Not found in HubSpot (roster email: kathleen@urbandurham.com)</div>
+    <div class="meta">LPT Realty, LLC · Lic 329895 · <a href="tel:+19198860679">+19198860679</a></div>
+    <div class="meta"><a href="mailto:kathleen@urbandurham.com">kathleen@urbandurham.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">1006 Azimuth Drive, Durham, NC 27713</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Katrina Higgins </div>
+    <div class="hsname none">Not found in HubSpot (roster email: katrina.higgins.sellshouse@gmail.com)</div>
+    <div class="meta">Raya Homes LLC · Lic 313283 · <a href="tel:+19198804999">+19198804999</a></div>
+    <div class="meta"><a href="mailto:katrina.higgins.sellshouse@gmail.com">katrina.higgins.sellshouse@gmail.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">809 Royal Oaks Drive, Durham, NC 27712</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Kitty Stockton </div>
+    <div class="hsname none">Not found in HubSpot (roster email: Kitty@KittyStockton.com)</div>
+    <div class="meta">Space Exchange Realty · Lic 229324 · <a href="tel:+19192154109">+19192154109</a></div>
+    <div class="meta"><a href="mailto:Kitty@KittyStockton.com">Kitty@KittyStockton.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">210 Hico Way, Durham, NC 27703</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Leslie Ward </div>
+    <div class="hsname none">Not found in HubSpot (roster email: lbward05@gmail.com)</div>
+    <div class="meta">Raleigh Realty Inc. · Lic 283619 · <a href="tel:+19199468468">+19199468468</a></div>
+    <div class="meta"><a href="mailto:lbward05@gmail.com">lbward05@gmail.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">656 Holly Bluff Street, Wendell, NC 27591</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Libia C Ojeda Castillo </div>
+    <div class="hsname none">Not found in HubSpot (roster email: carolina.ojeda@dashnc.com)</div>
+    <div class="meta">DASH Carolina · Lic 335890 · <a href="tel:+19195235017">+19195235017</a></div>
+    <div class="meta"><a href="mailto:carolina.ojeda@dashnc.com">carolina.ojeda@dashnc.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">27 Langdon Pointe Drive, Garner, NC 27529</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Lisa DuBose </div>
+    <div class="hsname none">Not found in HubSpot (roster email: lisa.dubose@hodgekittrellsir.com)</div>
+    <div class="meta">Hodge &amp; Kittrell Sotheby&#x27;s Int · Lic 200267 · <a href="tel:+19102007777">+19102007777</a></div>
+    <div class="meta"><a href="mailto:lisa.dubose@hodgekittrellsir.com">lisa.dubose@hodgekittrellsir.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">105 Dewberry Court, Cary, NC 27518</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Lisa M Zavala </div>
+    <div class="hsname none">Not found in HubSpot (roster email: lisamarie@mercadoadvancerealty.com)</div>
+    <div class="meta">Mercado Advance Realty Inc · Lic 331836 · <a href="tel:+19197632196">+19197632196</a></div>
+    <div class="meta"><a href="mailto:lisamarie@mercadoadvancerealty.com">lisamarie@mercadoadvancerealty.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">165 Bay Valley Road, Kenly, NC 27542</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Mark Jackson </div>
+    <div class="hsname none">Not found in HubSpot (roster email: mark@220agents.com)</div>
+    <div class="meta">Coldwell Banker HPW · Lic 275589 · <a href="tel:+19198683693">+19198683693</a></div>
+    <div class="meta"><a href="mailto:mark@220agents.com">mark@220agents.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">5812 Altrada Drive, Durham, NC 27712</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Matthew Honeycutt </div>
+    <div class="hsname none">Not found in HubSpot (roster email: matthew@sanfordsurrounded.com)</div>
+    <div class="meta">LPT Realty, LLC · Lic 350223 · <a href="tel:+19193564967">+19193564967</a></div>
+    <div class="meta"><a href="mailto:matthew@sanfordsurrounded.com">matthew@sanfordsurrounded.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">209 Texanna Way, Holly Springs, NC 27540</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Matthew Urban </div>
+    <div class="hsname none">Not found in HubSpot (roster email: none)</div>
+    <div class="meta">Navigate Realty · Lic 365304 · <a href="tel:+19842121503">+19842121503</a></div>
+    <div class="meta"><span class="none">—</span></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">512 Thorny Branch Drive, Raleigh, NC 27603</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Mercede Estrada </div>
+    <div class="hsname none">Not found in HubSpot (roster email: estrada.mercede@gmail.com)</div>
+    <div class="meta">Aimee Anderson &amp; Associates · Lic 323793 · <a href="tel:+19194379211">+19194379211</a></div>
+    <div class="meta"><a href="mailto:estrada.mercede@gmail.com">estrada.mercede@gmail.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">3348 Daingerfield Drive, Raleigh, NC 27616</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Michael Cotter </div>
+    <div class="hsname none">Not found in HubSpot (roster email: mcotter8080@gmail.com)</div>
+    <div class="meta">Coldwell Banker HPW · Lic 353448 · <a href="tel:+19199718080">+19199718080</a></div>
+    <div class="meta"><a href="mailto:mcotter8080@gmail.com">mcotter8080@gmail.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">1002 Emerald Court, Knightdale, NC 27545</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Norma i Reyna </div>
+    <div class="hsname none">Not found in HubSpot (roster email: reyna@winlandnc.com)</div>
+    <div class="meta">Reyna Realty Group LTD · Lic 339807 · <a href="tel:+19199305719">+19199305719</a></div>
+    <div class="meta"><a href="mailto:reyna@winlandnc.com">reyna@winlandnc.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">5901 Nicks Road, Mebane, NC 27302</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Pushpal Regmi </div>
+    <div class="hsname none">Not found in HubSpot (roster email: pushpal.85south@gmail.com)</div>
+    <div class="meta">eXp Realty, LLC - C · Lic 357771 · <a href="tel:+19196211452">+19196211452</a></div>
+    <div class="meta"><a href="mailto:pushpal.85south@gmail.com">pushpal.85south@gmail.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">407 Glenkirk Place, Garner, NC 27529</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Rachel G Lowe </div>
+    <div class="hsname none">Not found in HubSpot (roster email: rachel.lowe@hodgekittrellsir.com)</div>
+    <div class="meta">Hodge &amp; Kittrell Sotheby&#x27;s Int · Lic 313830 · <a href="tel:+13363179389">+13363179389</a></div>
+    <div class="meta"><a href="mailto:rachel.lowe@hodgekittrellsir.com">rachel.lowe@hodgekittrellsir.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">316 Shaftsberry Court, Raleigh, NC 27609</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Rachel Withers </div>
+    <div class="hsname none">Not found in HubSpot (roster email: rachelncrealtor@gmail.com)</div>
+    <div class="meta">Coldwell Banker HPW · Lic 298861 · <a href="tel:+19195237049">+19195237049</a></div>
+    <div class="meta"><a href="mailto:rachelncrealtor@gmail.com">rachelncrealtor@gmail.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">7841 Cape Charles Drive, Raleigh, NC 27617</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Ramonda Totten </div>
+    <div class="hsname none">Not found in HubSpot (roster email: Tailormademonte@gmail.com)</div>
+    <div class="meta">Fathom Realty NC, LLC · Lic 310889 · <a href="tel:+19192851062">+19192851062</a></div>
+    <div class="meta"><a href="mailto:Tailormademonte@gmail.com">Tailormademonte@gmail.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">504 Highland Rhodes Drive, Clayton, NC 27520</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">RG Gottimukkala </div>
+    <div class="hsname none">Not found in HubSpot (roster email: ranjitg.real@gmail.com)</div>
+    <div class="meta">Parkside Realty Inc. · Lic 302950 · <a href="tel:+19197605712">+19197605712</a></div>
+    <div class="meta"><a href="mailto:ranjitg.real@gmail.com">ranjitg.real@gmail.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">1300 Westerland Way, Unit 15, Durham, NC 27703</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Summer Provancha </div>
+    <div class="hsname none">Not found in HubSpot (roster email: summer@jennehomes.com)</div>
+    <div class="meta">Compass -- Raleigh · Lic 290250 · <a href="tel:+19198305052">+19198305052</a></div>
+    <div class="meta"><a href="mailto:summer@jennehomes.com">summer@jennehomes.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">65 Warwick Court, Clayton, NC 27520</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Susan Doninger Greer </div>
+    <div class="hsname none">Not found in HubSpot (roster email: sue.greer@allentate.com)</div>
+    <div class="meta">Howard Hanna Allen Tate Raleigh Glenwood · Lic 193806 · <a href="tel:+19196499999">+19196499999</a></div>
+    <div class="meta"><a href="mailto:sue.greer@allentate.com">sue.greer@allentate.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">10545 Pleasant Branch Drive, Unit 201, Raleigh, NC 27614</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Tammy Register </div>
+    <div class="hsname none">Not found in HubSpot (roster email: tammy@tammyregister.com)</div>
+    <div class="meta">eXp Realty, LLC - C · Lic 210961 · <a href="tel:+19196256237">+19196256237</a></div>
+    <div class="meta"><a href="mailto:tammy@tammyregister.com">tammy@tammyregister.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">178 Bandelier Drive (lot 18), Selma, NC 27576<br>217 Freedom Rdg Drive, Smithfield, NC 27577</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Vy Nguyen </div>
+    <div class="hsname none">Not found in HubSpot (roster email: vynguyen@cbadvantage.com)</div>
+    <div class="meta">Coldwell Banker Advantage · Lic 335414 · <a href="tel:+19197993615">+19197993615</a></div>
+    <div class="meta"><a href="mailto:vynguyen@cbadvantage.com">vynguyen@cbadvantage.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">525 Hedrick Ridge Road, Cary, NC 27519</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="agent cold">
+  <div class="acol name">
+    <div class="an">Will Winslow </div>
+    <div class="hsname none">Not found in HubSpot (roster email: will.winslow@nestrealty.com)</div>
+    <div class="meta">Nest Realty of the Triangle · Lic 188969 · <a href="tel:+12522302338">+12522302338</a></div>
+    <div class="meta"><a href="mailto:will.winslow@nestrealty.com">will.winslow@nestrealty.com</a></div>
+    
+  </div>
+  <div class="acol cls-c"><span class="cls" style="background:#718096">Not in HubSpot</span></div>
+  <div class="acol ev"><div class="evbig">0</div><div class="evsub">Jul 0 · Jun 0 · May 0 · Apr 0</div></div>
+  <div class="acol addr">1429 Beaver Tan Court, Wake Forest, NC 27587</div>
+  <div class="acol act"><span class="pri" style="background:#c53030">HIGH</span><div class="acttxt">FIRST EVAL OPPORTUNITY — never done an evaluation with HomeCloud. New deal today — perfect time to introduce us.</div></div>
+</div>
+<div class="dq"><b>Data Quality &amp; run notes</b>
+<ul>
+<li><b>Connector degradation:</b> Google Workspace MCP (Sheets + Gmail) returned "server isn't responding" for the entire run. Sheet data recovered read-only through the Google Drive connector + browser (gviz CSV). Write path to Google unaffected (none needed).</li>
+<li><b>YCBM booking sweep skipped:</b> Gmail offline. No BOOKED flags applied. Re-run when Gmail reconnects to catch agents who already booked.</li>
+<li><b>Slack cross-check:</b> today's 7/30 "Selling Agent Under Contract" alert had not posted (bot fires ~2 PM EDT; latest 7/29). No missing-from-alerts section could be computed.</li>
+<li><b>Roster license→email:</b> resolved 44 of 49 buy-side licenses to a roster email. 5 had no roster email (Matthew Urban, AnnMarie Janni, Angela Outterbridge, Jay Parker; Mike Montpetit matched HubSpot by name instead).</li>
+<li><b>HubSpot email pass authoritative:</b> only 3 of 44 roster emails exist in HubSpot; +2 via phone = 5 matched of 49. The other 44 are genuinely not in HubSpot (cold).</li>
+<li><b>Brianna Schwartz / LaMonica:</b> sheet shows "Schwartz", HubSpot + eval file show "LaMonica" (same phone). Treated as same agent; lifetime 7 evals, none since Mar 2024.</li>
+<li><b>Eval files:</b> 7_28 export is the reduced 6-month version (Mar–Aug 2026); lifetime pulled from 6_15 (Apr 2022–Jun 2026). No 7_29/7_30 QuickSight export present.</li>
+</ul></div>
+</div></body></html>
